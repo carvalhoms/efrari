@@ -236,7 +236,7 @@ return [
         
         [
             'text'  =>  'Produtos Cadastrados',
-            'url'   =>  'admin/settings',
+            'url'   =>  'admin/produtos',
             'icon'  =>  'fas fa-fw fa-barcode',
         ],
         [
@@ -245,12 +245,12 @@ return [
             'submenu'   =>    [
                 [
                     'text'  =>  'Linhas',
-                    'url'   =>  'admin/settings',
+                    'url'   =>  'admin/linhas',
                     'icon'  =>  'fas fa-fw fa-project-diagram',
                 ],
                 [
                     'text'  =>  'Descrições',
-                    'url'   =>  'admin/settings',
+                    'url'   =>  'admin/descricoes',
                     'icon'  =>  'fas fa-fw fa-car',
                 ],
             ],
@@ -261,12 +261,12 @@ return [
             'submenu'   =>    [
                 [
                     'text'  =>  'Montadoras',
-                    'url'   =>  'admin/settings',
+                    'url'   =>  'admin/montadoras',
                     'icon'  =>  'fas fa-fw fa-cogs',
                 ],
                 [
                     'text'  =>  'Veículos',
-                    'url'   =>  'admin/settings',
+                    'url'   =>  'admin/veiculos',
                     'icon'  =>  'fas fa-fw fa-car',
                 ],
             ],

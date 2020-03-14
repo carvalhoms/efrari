@@ -13,6 +13,16 @@
 
 Route::group(['middleware' => ['auth'], 'namespace' => 'Admin'], function(){
     Route::get('/admin', 'AdminController@index')->name('admin');
+
+    Route::group(['namespace' => 'Catalog'], function () {
+        Route::resource('/admin/montadoras', 'MontadoraController');
+        Route::resource('/admin/veiculos', 'VeiculoController');
+        Route::resource('/admin/linhas', 'LinhaController');
+        Route::resource('/admin/descricoes', 'DescricaoController');
+        
+        Route::resource('/admin/produtos', 'ProdutoController');
+    });
+    
 });
 
 Route::get('/', 'Site\SiteController@index')->name('site');
