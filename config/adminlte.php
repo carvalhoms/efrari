@@ -14,7 +14,7 @@ return [
     |
     */
 
-    'title' => 'AdminLTE 3',
+    'title' => 'Painel Efrari',
     'title_prefix' => '',
     'title_postfix' => '',
 
@@ -45,7 +45,7 @@ return [
     |
     */
 
-    'logo' => '<b>Admin</b>LTE',
+    'logo' => '<b>Admin </b>EFRARI',
     'logo_img' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
     'logo_img_class' => 'brand-image-xl',
     'logo_img_xl' => null,
@@ -149,7 +149,7 @@ return [
 
     'use_route_url' => false,
 
-    'dashboard_url' => 'home',
+    'dashboard_url' => 'admin',
 
     'logout_url' => 'logout',
 
@@ -189,83 +189,95 @@ return [
 
     'menu' => [
         [
-            'text' => 'search',
-            'search' => true,
-            'topnav' => true,
+            'text'  =>  'Início',
+            'url'   =>  '/admin',
+            'icon'  =>  'fas fa-fw fa-home',
+        ],
+
+        'ADMINISTRAÇÃO SITE',
+        
+        [
+            'text'  =>  'Banners',
+            'url'   =>  'admin/settings',
+            'icon'  =>  'fas fa-fw fa-film',
         ],
         [
-            'text' => 'blog',
-            'url'  => 'admin/blog',
-            'can'  => 'manage-blog',
+            'text'  =>  'Quem Somos',
+            'url'   =>  'admin/settings',
+            'icon'  =>  'fas fa-fw fa-user-shield',
         ],
         [
-            'text'        => 'pages',
-            'url'         => 'admin/pages',
-            'icon'        => 'far fa-fw fa-file',
-            'label'       => 4,
-            'label_color' => 'success',
-        ],
-        ['header' => 'account_settings'],
-        [
-            'text' => 'profile',
-            'url'  => 'admin/settings',
-            'icon' => 'fas fa-fw fa-user',
+            'text'  =>  'Portifólio Produtos',
+            'url'   =>  'admin/settings',
+            'icon'  =>  'fas fa-fw fa-boxes',
         ],
         [
-            'text' => 'change_password',
-            'url'  => 'admin/settings',
-            'icon' => 'fas fa-fw fa-lock',
+            'text'  =>  'Catálogos',
+            'url'   =>  'admin/settings',
+            'icon'  =>  'fas fa-fw fa-book-open',
         ],
         [
-            'text'    => 'multilevel',
-            'icon'    => 'fas fa-fw fa-share',
-            'submenu' => [
+            'text'  =>  'Representantes',
+            'url'   =>  'admin/settings',
+            'icon'  =>  'fas fa-fw fa-globe-americas',
+        ],
+        [
+            'text'  =>  'Blog',
+            'url'   =>  'admin/settings',
+            'icon'  =>  'fas fa-fw fa-bullhorn',
+        ],
+        [
+            'text'  =>  'Contatos',
+            'url'   =>  'admin/settings',
+            'icon'  =>  'fas fa-fw fa-envelope-open-text',
+        ],
+
+        'ADMINISTRAÇÃO CATÁLOGO',
+        
+        [
+            'text'  =>  'Produtos Cadastrados',
+            'url'   =>  'admin/settings',
+            'icon'  =>  'fas fa-fw fa-barcode',
+        ],
+        [
+            'text'      =>    'Perfil de Produtos',
+            'icon'      =>    'fas fa-fw fa-sitemap',
+            'submenu'   =>    [
                 [
-                    'text' => 'level_one',
-                    'url'  => '#',
+                    'text'  =>  'Linhas',
+                    'url'   =>  'admin/settings',
+                    'icon'  =>  'fas fa-fw fa-project-diagram',
                 ],
                 [
-                    'text'    => 'level_one',
-                    'url'     => '#',
-                    'submenu' => [
-                        [
-                            'text' => 'level_two',
-                            'url'  => '#',
-                        ],
-                        [
-                            'text'    => 'level_two',
-                            'url'     => '#',
-                            'submenu' => [
-                                [
-                                    'text' => 'level_three',
-                                    'url'  => '#',
-                                ],
-                                [
-                                    'text' => 'level_three',
-                                    'url'  => '#',
-                                ],
-                            ],
-                        ],
-                    ],
-                ],
-                [
-                    'text' => 'level_one',
-                    'url'  => '#',
+                    'text'  =>  'Descrições',
+                    'url'   =>  'admin/settings',
+                    'icon'  =>  'fas fa-fw fa-car',
                 ],
             ],
         ],
-        ['header' => 'labels'],
         [
-            'text'       => 'important',
-            'icon_color' => 'red',
+            'text'      =>    'Aplicações',
+            'icon'      =>    'fas fa-fw fa-puzzle-piece',
+            'submenu'   =>    [
+                [
+                    'text'  =>  'Montadoras',
+                    'url'   =>  'admin/settings',
+                    'icon'  =>  'fas fa-fw fa-cogs',
+                ],
+                [
+                    'text'  =>  'Veículos',
+                    'url'   =>  'admin/settings',
+                    'icon'  =>  'fas fa-fw fa-car',
+                ],
+            ],
         ],
+
+        'PAINEL ADMIN',
+        
         [
-            'text'       => 'warning',
-            'icon_color' => 'yellow',
-        ],
-        [
-            'text'       => 'information',
-            'icon_color' => 'aqua',
+            'text'  =>  'Usuários',
+            'url'   =>  'admin/settings',
+            'icon'  =>  'fas fa-fw fa-users',
         ],
     ],
 

@@ -11,10 +11,16 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::group(['middleware' => ['auth'], 'namespace' => 'Admin'], function(){
+    Route::get('/admin', 'AdminController@index')->name('admin');
+});
+
+Route::get('/', 'Site\SiteController@index')->name('site');
+
+Route::get('/catalogo', function () {
+    return view('/catalog.index');
 });
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+
