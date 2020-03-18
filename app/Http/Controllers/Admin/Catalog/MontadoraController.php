@@ -4,6 +4,9 @@ namespace App\Http\Controllers\Admin\Catalog;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Contracts\Validation\Validator;
+use Illuminate\Validation\Rule;
+use App\Model\Montadora;
 
 class MontadoraController extends Controller
 {
@@ -14,7 +17,8 @@ class MontadoraController extends Controller
      */
     public function index()
     {
-        return 'Lista de Montadoras';
+        $montadoras = Montadora::all();
+        return view('admin.catalog.montadoras.index')->with(compact('montadoras'));
     }
 
     /**
@@ -24,7 +28,7 @@ class MontadoraController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.catalog.montadoras.form');
     }
 
     /**
@@ -35,7 +39,18 @@ class MontadoraController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //Validando Campos
+        $request->validate([
+            'name' => [
+                'required', //Campo requerido
+                Rule::unique('montadoras')->ignore($request->id, 'id'), //Usando Classe Rule para campo unico mas permitindo Update
+                'max:25' //Maximo de caracteres
+            ],
+        ]);
+
+        Montadora::create($request->all());
+
+        return redirect()->route('montadoras.index');
     }
 
     /**
@@ -80,6 +95,9 @@ class MontadoraController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Montadora::find($id)->delete();
+
+        
+        //return redirect()->route('montadoras.index');
     }
 }

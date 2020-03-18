@@ -1,0 +1,26 @@
+.pageControls {
+    display: flex;
+    justify-content: space-between;
+}
+
+.btn-sm {
+    padding: 3px 30px;
+}
+
+.btn-xs {
+    padding: 0px 20px;
+}
+
+.reduzColTitle {
+    max-width: 30px;
+}
+
+.reduzCol {
+    text-align: right;
+    max-width: 30px;
+}
+
+.table td, .table th {
+    padding: 0.40rem;
+    padding-left: 11px;
+}
