@@ -33,8 +33,17 @@
               <td>{{ $montadora->id }}</td>
               <td>{{ $montadora->name }}</td>
               <td class="reduzCol">
-                <button class="btn btn-xs btn-primary"> Editar </button>
-                <a href="{{ route('montadoras.destroy', $montadora->id) }}" class="btn btn-xs btn-danger"> Delete </a>
+                <div class="btn-group">
+                  <form action="{{ route('montadoras.edit', ['montadora' => $montadora->id]) }}">
+                    <button type="submit" class="btn btn-xs btn-primary"> Editar </button>
+                  </form>
+
+                  <form action="{{ route('montadoras.destroy', ['montadora' => $montadora->id]) }}" method="POST" name="delete">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" onclick="return conf()" class="btn btn-xs btn-danger">Delete</button>
+                  </form>
+                </div>
               </td>
             </tr>
           @endforeach
@@ -57,5 +66,9 @@
                 $(this).bootstrapSwitch('state', $(this).prop('checked'));
             });
         });
+
+        function conf(){ 
+          return confirm('Tem certeza que quer deletar? Isso não poderá ser desfeito!');
+        }
     </script>
 @stop

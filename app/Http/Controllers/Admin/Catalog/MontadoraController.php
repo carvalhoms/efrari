@@ -28,7 +28,7 @@ class MontadoraController extends Controller
      */
     public function create()
     {
-        return view('admin.catalog.montadoras.form');
+        return view('admin.catalog.montadoras.create');
     }
 
     /**
@@ -70,9 +70,9 @@ class MontadoraController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Montadora $montadora)
     {
-        //
+        return view('admin.catalog.montadoras.edit', compact('montadora'));
     }
 
     /**
@@ -82,22 +82,30 @@ class MontadoraController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Montadora $montadora)
     {
-        //
+        $request->validate([
+            'name' => [
+                'required', //Campo requerido
+                'max:25' //Maximo de caracteres
+            ],
+        ]);
+
+        $montadora->update($request->all());
+
+        return redirect()->route('montadoras.index');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  int  $montadora
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($montadora)
     {
-        Montadora::find($id)->delete();
+        Montadora::find($montadora)->delete();
 
-        
-        //return redirect()->route('montadoras.index');
+        return redirect()->route('montadoras.index');
     }
 }
