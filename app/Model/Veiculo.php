@@ -4,7 +4,7 @@ namespace App\Model;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Montadora extends Model
+class Veiculo extends Model
 {
     protected $fillable = [
         'name',
@@ -14,8 +14,8 @@ class Montadora extends Model
         'created_at', 'updated_at',
     ];
 
-    public function veiculos()
+    public function montadora()
     {
-        return $this->hasMany(Veiculo::class);
+        return $this->belongsTo(Montadora::class);
     }
 }

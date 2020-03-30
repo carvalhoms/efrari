@@ -4,6 +4,10 @@ namespace App\Http\Controllers\Admin\Catalog;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Contracts\Validation\Validator;
+use Illuminate\Validation\Rule;
+use App\Model\Montadora;
+use App\Model\Veiculo;
 
 class VeiculoController extends Controller
 {
@@ -14,7 +18,10 @@ class VeiculoController extends Controller
      */
     public function index()
     {
-        return 'Lista de Veiculos';
+        $veiculos = Veiculo::all();
+        $montadoras = Montadora::all();
+
+        return view('admin.catalog.veiculos.index', compact('veiculos'));
     }
 
     /**
@@ -24,7 +31,10 @@ class VeiculoController extends Controller
      */
     public function create()
     {
-        //
+        
+        $montadoras = Montadora::all(['id', 'name']);
+
+        return view('admin.catalog.veiculos.create', compact('montadoras'));
     }
 
     /**
@@ -35,7 +45,23 @@ class VeiculoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        //Validando Campos
+        $request->validate([
+            'name' => [
+                'required',
+                Rule::unique('veiculos')->ignore($request->id, 'id'),
+                'max:25'
+            ],
+            'montadora' => 'required'
+        ]);
+
+        $data = $request->all();
+
+        $montadora = Montadora::find($data['montadora']);
+        $montadora->veiculos()->create($data);
+
+        return redirect()->route('veiculos.index');
     }
 
     /**
@@ -57,7 +83,10 @@ class VeiculoController extends Controller
      */
     public function edit($id)
     {
-        //
+        $veiculo = Veiculo::find($id);
+        $montadoras = Montadora::all();
+        
+        return view('admin.catalog.veiculos.edit', compact('montadoras', 'veiculo'));
     }
 
     /**
@@ -67,9 +96,16 @@ class VeiculoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $veiculo)
     {
-        //
+        $veiculo = Veiculo::find($veiculo);
+
+        $veiculo->name = $request->name;
+        $veiculo->montadora_id = $request->montadora;
+
+        $veiculo->update();
+
+        return redirect()->route('veiculos.index');
     }
 
     /**
@@ -80,6 +116,8 @@ class VeiculoController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Veiculo::find($id)->delete();
+
+        return redirect()->route('veiculos.index');
     }
 }
