@@ -32,7 +32,7 @@
                 <div class="card-body">
                     <div class="form-group">
                         <div class="col-md-6">
-                            <label for="name"> Nome da Linha </label>
+                            <label for="name"> Nome da Descrição </label>
                             <input type="text" name="name" class="form-control" placeholder="Nome" required
                             onfocus="this.selectionStart = this.selectionEnd = this.value.length;" autofocus="true">
                         </div>
