@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Admin\Catalog;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
+use App\Model\Linha;
 
 class LinhaController extends Controller
 {
@@ -14,7 +16,8 @@ class LinhaController extends Controller
      */
     public function index()
     {
-        //
+        $linhas = Linha::all();
+        return view('admin.catalog.linhas.index')->with(compact('linhas'));
     }
 
     /**
@@ -24,7 +27,7 @@ class LinhaController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.catalog.linhas.create');
     }
 
     /**
@@ -35,7 +38,18 @@ class LinhaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //Validando Campos
+        $request->validate([
+            'name' => [
+                'required', //Campo requerido
+                'unique:linhas,name',
+                'max:25' //Maximo de caracteres
+            ],
+        ]);
+
+        Linha::create($request->all());
+
+        return redirect()->route('linhas.index');
     }
 
     /**
@@ -55,9 +69,9 @@ class LinhaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Linha $linha)
     {
-        //
+        return view('admin.catalog.linhas.edit', compact('linha'));
     }
 
     /**
@@ -67,9 +81,20 @@ class LinhaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Linha $linha)
     {
-        //
+        //Validando Campos
+        $request->validate([
+            'name' => [
+                'required', //Campo requerido
+                Rule::unique('linhas')->ignore($linha), //Usando Classe Rule para campo unico mas permitindo Update
+                'max:25' //Maximo de caracteres
+            ],
+        ]);
+
+        $linha->update($request->all());
+
+        return redirect()->route('linhas.index');
     }
 
     /**
@@ -78,8 +103,10 @@ class LinhaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($linha)
     {
-        //
+        Linha::find($linha)->delete();
+
+        return redirect()->route('linhas.index');
     }
 }

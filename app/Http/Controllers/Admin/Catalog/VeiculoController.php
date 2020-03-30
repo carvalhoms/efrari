@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Admin\Catalog;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Validation\Rule;
 use App\Model\Montadora;
 use App\Model\Veiculo;
