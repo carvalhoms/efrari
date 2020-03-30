@@ -15,6 +15,7 @@ class CreateLinhasTable extends Migration
     {
         Schema::create('linhas', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('name')->unique();
             $table->timestamps();
         });
     }
