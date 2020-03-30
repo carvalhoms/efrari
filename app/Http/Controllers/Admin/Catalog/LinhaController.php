@@ -3,9 +3,9 @@
 namespace App\Http\Controllers\Admin\Catalog;
 
 use App\Http\Controllers\Controller;
+use App\Model\Linha;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
-use App\Model\Linha;
 
 class LinhaController extends Controller
 {

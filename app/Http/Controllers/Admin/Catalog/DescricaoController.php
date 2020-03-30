@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Admin\Catalog;
 
 use App\Http\Controllers\Controller;
+use App\Model\Descricao;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 
 class DescricaoController extends Controller
 {
@@ -14,7 +16,8 @@ class DescricaoController extends Controller
      */
     public function index()
     {
-        //
+        $descricoes = Descricao::all();
+        return view('admin.catalog.descricao.index')->with(compact('descricoes'));
     }
 
     /**
@@ -24,7 +27,7 @@ class DescricaoController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.catalog.descricao.create');
     }
 
     /**
@@ -35,7 +38,18 @@ class DescricaoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //Validando Campos
+        $request->validate([
+            'name' => [
+                'required', //Campo requerido
+                'unique:descricoes,name',
+                'max:25' //Maximo de caracteres
+            ],
+        ]);
+
+        Descricao::create($request->all());
+
+        return redirect()->route('descricao.index');
     }
 
     /**
@@ -55,9 +69,9 @@ class DescricaoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Descricao $descricao)
     {
-        //
+        return view('admin.catalog.descricao.edit', compact('descricao'));
     }
 
     /**
@@ -67,9 +81,20 @@ class DescricaoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Descricao $descricao)
     {
-        //
+        //Validando Campos
+        $request->validate([
+            'name' => [
+                'required', //Campo requerido
+                Rule::unique('descricoes')->ignore($descricao), //Usando Classe Rule para campo unico mas permitindo Update
+                'max:25' //Maximo de caracteres
+            ],
+        ]);
+
+        $descricao->update($request->all());
+
+        return redirect()->route('descricao.index');
     }
 
     /**
@@ -78,8 +103,10 @@ class DescricaoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($descricao)
     {
-        //
+        Descricao::find($descricao)->delete();
+
+        return redirect()->route('descricao.index');
     }
 }

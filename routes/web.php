@@ -18,7 +18,7 @@ Route::group(['middleware' => ['auth'], 'namespace' => 'Admin'], function(){
         Route::resource('/admin/montadoras', 'MontadoraController');
         Route::resource('/admin/veiculos', 'VeiculoController');
         Route::resource('/admin/linhas', 'LinhaController');
-        Route::resource('/admin/descricoes', 'DescricaoController');
+        Route::resource('/admin/descricao', 'DescricaoController');
     });
     
 });
