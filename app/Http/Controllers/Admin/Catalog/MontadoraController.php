@@ -43,7 +43,7 @@ class MontadoraController extends Controller
         $request->validate([
             'name' => [
                 'required', //Campo requerido
-                Rule::unique('montadoras')->ignore($request->id, 'id'), //Usando Classe Rule para campo unico mas permitindo Update
+                'unique:montadoras,name',
                 'max:25' //Maximo de caracteres
             ],
         ]);
@@ -84,9 +84,11 @@ class MontadoraController extends Controller
      */
     public function update(Request $request, Montadora $montadora)
     {
+        //Validando Campos
         $request->validate([
             'name' => [
                 'required', //Campo requerido
+                Rule::unique('montadoras')->ignore($montadora), //Usando Classe Rule para campo unico mas permitindo Update
                 'max:25' //Maximo de caracteres
             ],
         ]);

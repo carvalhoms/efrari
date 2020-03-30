@@ -9,16 +9,13 @@
     </div>
 @stop
 
-
-
-
 @section ('content')
 
 @section('plugins.Datatables', true)
 
 <div class="card">
     <div class="card-header">
-        <h3 class="card-title">Montadotas Cadastradas</h3>
+        <h3 class="card-title">Veículos Cadastradas</h3>
     </div>
     <div class="card-body">
       <table id="example1" class="table table-bordered table-striped">
@@ -58,10 +55,6 @@
 </div>
 
 @stop
-
-
-
-
 
 @section('css')
     <link rel="stylesheet" href="/css/main.css">

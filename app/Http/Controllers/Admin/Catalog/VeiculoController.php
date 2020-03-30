@@ -50,8 +50,7 @@ class VeiculoController extends Controller
         $request->validate([
             'name' => [
                 'required',
-                Rule::unique('veiculos')->ignore($request->id, 'id'),
-                'max:25'
+                'unique:veiculos,name',
             ],
             'montadora' => 'required'
         ]);
@@ -98,6 +97,17 @@ class VeiculoController extends Controller
      */
     public function update(Request $request, $veiculo)
     {
+
+        //Validando Campos
+        $request->validate([
+            'name' => [
+                'required',
+                Rule::unique('veiculos')->ignore($veiculo),
+                'max:25'
+            ],
+            'montadora' => 'required'
+        ]);
+
         $veiculo = Veiculo::find($veiculo);
 
         $veiculo->name = $request->name;

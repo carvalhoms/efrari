@@ -4,7 +4,7 @@
 
 @section ('content_header')
     <div class="pageControls">
-        <div><h1 class="teste"> Editar montadora </h1></div>
+        <div><h1 class="teste"> Editar Veículo </h1></div>
     </div>
 @stop
 
