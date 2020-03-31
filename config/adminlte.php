@@ -250,7 +250,7 @@ return [
                 ],
                 [
                     'text'  =>  'Descrições',
-                    'url'   =>  'admin/descricoes',
+                    'url'   =>  'admin/descricao',
                     'icon'  =>  'fas fa-fw fa-car',
                 ],
             ],
