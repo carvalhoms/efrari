@@ -27,7 +27,7 @@
                 </div>
             @endif
 
-            <form method="post" action="{{ route('veiculos.update', $veiculo) }}" method="POST">
+            <form action="{{ route('veiculos.update', $veiculo) }}" method="post">
                 @csrf
                 @method('PUT')
                 <div class="card-body">

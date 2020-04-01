@@ -4,7 +4,7 @@
 
 @section ('content_header')
     <div class="pageControls">
-        <div><h1 class="teste"> Cadastrar novo Produto </h1></div>
+        <div><h1 class="teste"> Edição Produto </h1></div>
     </div>
 @stop
 
@@ -12,11 +12,9 @@
 
 @section('plugins.Datatables', true)
 
-
-
 <div class="card">
     <div class="card-header">
-        <h3 class="card-title"> Cadastro </h3>
+        <h3 class="card-title"> Edição </h3>
     </div>
 
     <div class="card-body">
@@ -45,21 +43,22 @@
                     </div>
                 @endif
 
-                <form method="post" action="">
-                    {{ csrf_field() }}
+                <form action="{{ route('produtos.update', $produto) }}" method="post">
+                    @csrf
+                    @method('PUT')
                     <div class="card-body">
                         <div class="form-group">
                             <div class="col-md-6">
-                                <label for="name"> Código Produto </label>
-                                <input type="text" name="name" class="form-control" placeholder="Nome" required
+                                <label for="codigo"> Código Produto </label>
+                                <input type="text" name="codigo" value="{{ $produto->codigo }}" class="form-control" placeholder="Nome" required 
                                 onfocus="this.selectionStart = this.selectionEnd = this.value.length;" autofocus="true">
                             </div>
                         </div>
                         
                         <div class="form-group">
                             <div class="col-md-6">
-                                <label for="name"> Comprimento (mm) </label>
-                                <input type="text" name="name" class="form-control" placeholder="Nome" required
+                                <label for="comp"> Comprimento (mm) </label>
+                                <input type="text" name="comp" value="{{ $produto->comp }}" class="form-control" placeholder="Nome" required
                                 onfocus="this.selectionStart = this.selectionEnd = this.value.length;" autofocus="true">
                             </div>
                         </div>
@@ -67,13 +66,11 @@
                         <div class="form-group">
                             <div class="form-group">
                                 <div class="col-md-6">
-                                    <label for="name"> Descrição </label>
-                                    <select name="montadora" id="montadora" class="form-control">
-
-                                        <option value=""> Option 001 </option>
-                                        <option value=""> Option 002 </option>
-                                        <option value=""> Option 003 </option>
-                                        <option value=""> Option 004 </option>
+                                    <label for="descricao"> Descrição </label>
+                                    <select name="descricao" id="descricao" class="form-control">
+                                        @foreach ($descricoes as $descricao)
+                                            <option value="{{ $descricao->id }}" {{ $descricao->name === $produto->descricao->name ? 'selected' : '' }}> {{ $descricao->name }} </option>
+                                        @endforeach
                                     </select>
                                 </div>
                             </div>
@@ -82,13 +79,11 @@
                         <div class="form-group">
                             <div class="form-group">
                                 <div class="col-md-6">
-                                    <label for="name"> Linha </label>
-                                    <select name="montadora" id="montadora" class="form-control">
-
-                                        <option value=""> Option 001 </option>
-                                        <option value=""> Option 002 </option>
-                                        <option value=""> Option 003 </option>
-                                        <option value=""> Option 004 </option>
+                                    <label for="linha"> Linha </label>
+                                    <select name="linha" id="linha" class="form-control">
+                                        @foreach ($linhas as $linha)
+                                            <option value="{{ $linha->id }}" {{ $linha->name === $produto->linha->name ? 'selected' : '' }}> {{ $linha->name }} </option>
+                                        @endforeach
                                     </select>
                                 </div>
                             </div>
@@ -103,16 +98,83 @@
             </div>
 
             <div class="tab-pane fade" id="custom-content-below-profile" role="tabpanel" aria-labelledby="custom-content-below-profile-tab">
-                Aplicações
+                <div class="card">
+                    <div class="card-header" style="display: flex; justify-content:flex-end; border-bottom:none">
+                        <a href=" {{ route('produtos.create') }}" class="btn btn-sm btn-primary"> Incluir Aplicação </a>
+                      </div>
+                    <div class="card-body p-0">
+                        <table class="table table-sm">
+                        <thead>
+                            <tr>
+                            <th>Aplicação</th>
+                            <th style="width: 50px">Ações</th>
+                            </tr>
+                        </thead>
+                        
+                        <tbody>
+                            <tr>
+                            <td>CORSA PICK-UP 1.4 MPFI - TODOS - ANO: 97... 00</td>
+                            <td>
+                                <div class="btn-group">
+                                    <form action="{{ route('produtos.edit', ['produto' => $produto->id]) }}">
+                                      <button type="submit" class="btn btn-xs btn-primary"> Editar </button>
+                                    </form>
+                    
+                                    <form action="{{ route('produtos.destroy', ['produto' => $produto->id]) }}" method="POST" name="delete">
+                                      @csrf
+                                      @method('DELETE')
+                                      <button type="submit" onclick="return conf()" class="btn btn-xs btn-danger">Delete</button>
+                                    </form>
+                                </div>
+                            </td>
+                            </tr>
+                        </tbody>
+                        </table>
+                    </div>
+                </div>
             </div>
 
             <div class="tab-pane fade" id="custom-content-below-messages" role="tabpanel" aria-labelledby="custom-content-below-messages-tab">
-                Referências
+                <div class="card">
+                    <div class="card-header" style="display: flex; justify-content:flex-end; border-bottom:none">
+                        <a href=" {{ route('produtos.create') }}" class="btn btn-sm btn-primary"> Incluir Referência </a>
+                      </div>
+                    <div class="card-body p-0">
+                        <table class="table table-sm">
+                        <thead>
+                            <tr>
+                            <th>Referencia</th>
+                            <th>Marca</th>
+                            <th style="width: 50px">Ações</th>
+                            </tr>
+                        </thead>
+                        
+                        <tbody>
+                            <tr>
+                            <td>9239834545</td>
+                            <td>Fania</td>
+                            <td>
+                                <div class="btn-group">
+                                    <form action="{{ route('produtos.edit', ['produto' => $produto->id]) }}">
+                                      <button type="submit" class="btn btn-xs btn-primary"> Editar </button>
+                                    </form>
+                    
+                                    <form action="{{ route('produtos.destroy', ['produto' => $produto->id]) }}" method="POST" name="delete">
+                                      @csrf
+                                      @method('DELETE')
+                                      <button type="submit" onclick="return conf()" class="btn btn-xs btn-danger">Delete</button>
+                                    </form>
+                                </div>
+                            </td>
+                            </tr>
+                        </tbody>
+                        </table>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 </div>
-
 
 @stop
 

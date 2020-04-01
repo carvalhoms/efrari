@@ -18,7 +18,7 @@ class CreateProdutosTable extends Migration
             $table->string('codigo')->unique();
                 $table->unsignedBigInteger('linha_id')->nullable();
                 $table->unsignedBigInteger('descricao_id')->nullable();
-            $table->float('comp', 7, 3)->nullable();
+            $table->string('comp')->nullable();
 
                 $table->foreign('linha_id')->references('id')->on('linhas');
                 $table->foreign('descricao_id')->references('id')->on('descricoes');

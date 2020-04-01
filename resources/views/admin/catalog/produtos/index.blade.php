@@ -5,7 +5,7 @@
 @section ('content_header')
     <div class="pageControls">
         <div><h1> Produtos </h1></div>
-    <div><a href=" {{ route('produtos.create') }}" class="btn btn-sm btn-primary"> Cadastrar Novo </a></div>
+        <div><a href=" {{ route('produtos.create') }}" class="btn btn-sm btn-primary"> Cadastrar Novo </a></div>
     </div>
 @stop
 

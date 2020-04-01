@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin\Catalog;
 
 use App\Http\Controllers\Controller;
 use App\Model\Descricao;
+use Illuminate\Validation\Rule;
 use App\Model\Linha;
 use App\Model\Produto;
 use Illuminate\Http\Request;
@@ -85,7 +86,11 @@ class ProdutoController extends Controller
      */
     public function edit($id)
     {
-        return view('admin.catalog.produtos.edit', compact('id'));
+        $produto = Produto::find($id);
+        $descricoes = Descricao::all();
+        $linhas = Linha::all();
+
+        return view('admin.catalog.produtos.edit', compact('produto', 'descricoes', 'linhas'));
     }
 
     /**
@@ -95,9 +100,31 @@ class ProdutoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $produto)
     {
-        //
+        //Validando Campos
+        $request->validate([
+            'codigo' => [
+                'required',
+                Rule::unique('produtos')->ignore($produto),
+                'max:25'
+            ],
+            'descricao' => 'required',
+            'linha' => 'required'
+        ]);
+
+
+        $produto = Produto::find($produto);
+        $descricao = Descricao::find($request->descricao);
+        $linha = Linha::find($request->linha);
+
+        $produto->update($request->all());
+
+        $produto->descricao()->associate($descricao);
+        $produto->linha()->associate($linha);
+        $produto->save();
+
+        return redirect()->route('produtos.index');
     }
 
     /**

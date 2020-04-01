@@ -13,14 +13,9 @@ class Linha extends Model
     protected $hidden = [
         'created_at', 'updated_at',
     ];
-
-    public function montadora()
-    {
-        return $this->belongsTo(Montadora::class);
-    }
     
     public function produto()
     {
-        return $this->belongsTo(Produto::class);
+        return $this->hasOne(Produto::class);
     }
 }

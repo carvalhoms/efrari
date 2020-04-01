@@ -13,12 +13,12 @@
 }
 
 .reduzColTitle {
-    max-width: 30px;
+    width: 180px;
 }
 
 .reduzCol {
     text-align: right;
-    max-width: 30px;
+    width: 180px;
 }
 
 .table td, .table th {

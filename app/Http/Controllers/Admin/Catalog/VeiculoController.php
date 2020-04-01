@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Admin\Catalog;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Illuminate\Validation\Rule;
+
 use App\Model\Montadora;
 use App\Model\Veiculo;
 
@@ -18,8 +18,6 @@ class VeiculoController extends Controller
     public function index()
     {
         $veiculos = Veiculo::all();
-        $montadoras = Montadora::all();
-
         return view('admin.catalog.veiculos.index', compact('veiculos'));
     }
 
