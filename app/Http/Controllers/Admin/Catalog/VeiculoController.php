@@ -107,12 +107,13 @@ class VeiculoController extends Controller
             'montadora' => 'required'
         ]);
 
+        $montadora = Montadora::find($request->montadora);
         $veiculo = Veiculo::find($veiculo);
 
-        $veiculo->name = $request->name;
-        $veiculo->montadora_id = $request->montadora;
+        $veiculo->update($request->all());
 
-        $veiculo->update();
+        $veiculo->montadora()->associate($montadora);
+        $veiculo->save();
 
         return redirect()->route('veiculos.index');
     }
