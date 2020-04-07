@@ -18,4 +18,9 @@ class Montadora extends Model
     {
         return $this->hasMany(Veiculo::class);
     }
+
+    public function aplicacao()
+    {
+        return $this->hasOne(Aplicacao::class);
+    }
 }

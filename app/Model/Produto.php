@@ -3,6 +3,7 @@
 namespace App\Model;
 
 use Illuminate\Database\Eloquent\Model;
+use League\CommonMark\Reference\Reference;
 
 class Produto extends Model
 {
@@ -22,5 +23,15 @@ class Produto extends Model
     public function descricao()
     {
         return $this->belongsTo(Descricao::class);
+    }
+
+    public function aplicacoes()
+    {
+        return $this->hasOne(Aplicacao::class);
+    }
+
+    public function referencias()
+    {
+        return $this->hasOne(Referencia::class);
     }
 }

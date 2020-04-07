@@ -14,7 +14,7 @@
 
 <div class="card">
     <div class="card-header">
-        <h3 class="card-title"> Edição </h3>
+        <h3 class="card-title"> Editando Iten - {{ $produto->codigo }} </h3>
     </div>
 
     <div class="card-body">
@@ -50,16 +50,14 @@
                         <div class="form-group">
                             <div class="col-md-6">
                                 <label for="codigo"> Código Produto </label>
-                                <input type="text" name="codigo" value="{{ $produto->codigo }}" class="form-control" placeholder="Nome" required 
-                                onfocus="this.selectionStart = this.selectionEnd = this.value.length;" autofocus="true">
+                                <input type="text" name="codigo" value="{{ $produto->codigo }}" class="form-control" placeholder="Nome" required>
                             </div>
                         </div>
                         
                         <div class="form-group">
                             <div class="col-md-6">
                                 <label for="comp"> Comprimento (mm) </label>
-                                <input type="text" name="comp" value="{{ $produto->comp }}" class="form-control" placeholder="Nome" required
-                                onfocus="this.selectionStart = this.selectionEnd = this.value.length;" autofocus="true">
+                                <input type="text" name="comp" value="{{ $produto->comp }}" class="form-control" placeholder="Nome" required>
                             </div>
                         </div>
 
@@ -100,36 +98,81 @@
             <div class="tab-pane fade" id="custom-content-below-profile" role="tabpanel" aria-labelledby="custom-content-below-profile-tab">
                 <div class="card">
                     <div class="card-header" style="display: flex; justify-content:flex-end; border-bottom:none">
-                        <a href=" {{ route('produtos.create') }}" class="btn btn-sm btn-primary"> Incluir Aplicação </a>
-                      </div>
+                        <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#modal-aplicacao"> Incluir Aplicação </button>
+                    </div>
+
                     <div class="card-body p-0">
                         <table class="table table-sm">
                         <thead>
                             <tr>
+                            <th>Montadora</th>
                             <th>Aplicação</th>
                             <th style="width: 50px">Ações</th>
                             </tr>
                         </thead>
                         
                         <tbody>
-                            <tr>
-                            <td>CORSA PICK-UP 1.4 MPFI - TODOS - ANO: 97... 00</td>
-                            <td>
-                                <div class="btn-group">
-                                    <form action="{{ route('produtos.edit', ['produto' => $produto->id]) }}">
-                                      <button type="submit" class="btn btn-xs btn-primary"> Editar </button>
-                                    </form>
-                    
-                                    <form action="{{ route('produtos.destroy', ['produto' => $produto->id]) }}" method="POST" name="delete">
-                                      @csrf
-                                      @method('DELETE')
-                                      <button type="submit" onclick="return conf()" class="btn btn-xs btn-danger">Delete</button>
-                                    </form>
-                                </div>
-                            </td>
-                            </tr>
+                            @foreach ($aplicacoes as $aplicacao)                            
+                                <tr>
+                                <td>{{ $aplicacao->montadora->name }}</td>
+                                <td>{{ $aplicacao->aplic }}</td>
+                                <td>
+                                    <div class="btn-group">
+                                        <form action="{{ route('aplicacao.destroy', ['aplicacao' => $aplicacao->id]) }}" method="POST" name="delete">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" onclick="return conf()" class="btn btn-xs btn-danger">Delete</button>
+                                        </form>
+                                    </div>
+                                </td>
+                                </tr>
+                            @endforeach
                         </tbody>
                         </table>
+                    </div>
+                </div>
+
+                <div class="modal fade" id="modal-aplicacao">
+                    <div class="modal-dialog modal-lg">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h4 class="modal-title">Cadastrar nova Aplicação</h4>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <form action="{{ route('aplicacao.create', $produto) }}" method="post">
+                            <div class="modal-body">
+                                @csrf
+                                <input type="hidden" name="produto" value="{{ $produto->id }}">
+                                <div class="card-body">
+                                    <div class="form-group">
+                                        <div class="col-md-12">
+                                            <label for="aplic"> Aplicação </label>
+                                            <input type="text" name="aplic" class="form-control" placeholder="Aplicação" required>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <div class="form-group">
+                                            <div class="col-md-12">
+                                                <label for="montadora"> Montadora </label>
+                                                <select name="montadora_id" id="montadora_id" class="form-control">
+                                                    @foreach ($montadoras as $montadora)
+                                                        <option value="{{ $montadora->id }}">{{ $montadora->name }}</option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer justify-content-between">
+                            <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+                            <button type="submit" class="btn btn-primary">Salvar</button>
+                            </div>
+                        </form>
+                      </div>
                     </div>
                 </div>
             </div>
@@ -137,7 +180,7 @@
             <div class="tab-pane fade" id="custom-content-below-messages" role="tabpanel" aria-labelledby="custom-content-below-messages-tab">
                 <div class="card">
                     <div class="card-header" style="display: flex; justify-content:flex-end; border-bottom:none">
-                        <a href=" {{ route('produtos.create') }}" class="btn btn-sm btn-primary"> Incluir Referência </a>
+                        <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#modal-referencias"> Incluir Referência </button>
                       </div>
                     <div class="card-body p-0">
                         <table class="table table-sm">
@@ -150,25 +193,61 @@
                         </thead>
                         
                         <tbody>
-                            <tr>
-                            <td>9239834545</td>
-                            <td>Fania</td>
-                            <td>
-                                <div class="btn-group">
-                                    <form action="{{ route('produtos.edit', ['produto' => $produto->id]) }}">
-                                      <button type="submit" class="btn btn-xs btn-primary"> Editar </button>
-                                    </form>
-                    
-                                    <form action="{{ route('produtos.destroy', ['produto' => $produto->id]) }}" method="POST" name="delete">
-                                      @csrf
-                                      @method('DELETE')
-                                      <button type="submit" onclick="return conf()" class="btn btn-xs btn-danger">Delete</button>
-                                    </form>
-                                </div>
-                            </td>
-                            </tr>
+                            @foreach ($referencias as $referencia)
+                                <tr>
+                                <td>{{ $referencia->ref }}</td>
+                                <td>{{ $referencia->marca }}</td>
+                                <td>
+                                    <div class="btn-group">                    
+                                        <form action="{{ route('referencia.destroy', ['referencia' => $referencia->id]) }}" method="POST" name="delete">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" onclick="return conf()" class="btn btn-xs btn-danger">Delete</button>
+                                        </form>
+                                    </div>
+                                </td>
+                                </tr>
+                            @endforeach
                         </tbody>
                         </table>
+                    </div>
+                </div>
+
+                <div class="modal fade" id="modal-referencias">
+                    <div class="modal-dialog modal-lg">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h4 class="modal-title">Cadastrar nova Referência</h4>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <form action="{{ route('referencia.create') }}" method="post">
+                            <div class="modal-body">
+                                @csrf
+                                <input type="hidden" name="produto" value="{{ $produto->id }}">
+                                <div class="card-body">
+                                    <div class="form-group">
+                                        <div class="col-md-12">
+                                            <label for="ref"> Referência </label>
+                                            <input type="text" name="ref" class="form-control" placeholder="Referencia" required>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <div class="col-md-12">
+                                            <label for="marca"> Marca </label>
+                                            <input type="text" name="marca" class="form-control" placeholder="Marca">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer justify-content-between">
+                            <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+                            <button type="submit" class="btn btn-primary">Salvar</button>
+                            </div>
+                        </form>
+                      </div>
                     </div>
                 </div>
             </div>

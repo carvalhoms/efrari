@@ -3,10 +3,13 @@
 namespace App\Http\Controllers\Admin\Catalog;
 
 use App\Http\Controllers\Controller;
-use App\Model\Descricao;
 use Illuminate\Validation\Rule;
+use App\Model\Descricao;
 use App\Model\Linha;
 use App\Model\Produto;
+use App\Model\Montadora;
+use App\Model\Referencia;
+use App\Model\Aplicacao;
 use Illuminate\Http\Request;
 
 class ProdutoController extends Controller
@@ -89,8 +92,12 @@ class ProdutoController extends Controller
         $produto = Produto::find($id);
         $descricoes = Descricao::all();
         $linhas = Linha::all();
+        $montadoras = Montadora::all();
 
-        return view('admin.catalog.produtos.edit', compact('produto', 'descricoes', 'linhas'));
+        $referencias = $produto->referencias()->get();
+        $aplicacoes = $produto->aplicacoes()->get();
+        
+        return view('admin.catalog.produtos.edit', compact('produto', 'descricoes', 'linhas', 'referencias', 'montadoras', 'aplicacoes'));
     }
 
     /**
@@ -138,5 +145,35 @@ class ProdutoController extends Controller
         Produto::find($id)->delete();
 
         return redirect()->route('produtos.index');
+    }
+
+    public function createReferencia(Request $request)
+    {
+        $produto = Produto::find($request->produto);
+        $produto->referencias()->create($request->all());
+
+        return redirect()->back();
+    }
+
+    public function destroyReferencia($id)
+    {
+        Referencia::find($id)->delete();
+
+        return redirect()->back();
+    }
+
+    public function createAplicacao(Request $request)
+    {
+        $produto = Produto::find($request->produto);
+        $produto->aplicacoes()->create($request->all());
+
+        return redirect()->back();
+    }
+
+    public function destroyAplicacao($id)
+    {
+        Aplicacao::find($id)->delete();
+
+        return redirect()->back();
     }
 }

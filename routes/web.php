@@ -19,7 +19,14 @@ Route::group(['middleware' => ['auth'], 'namespace' => 'Admin'], function(){
         Route::resource('/admin/veiculos', 'VeiculoController');
         Route::resource('/admin/linhas', 'LinhaController');
         Route::resource('/admin/descricao', 'DescricaoController');
+        
         Route::resource('/admin/produtos', 'produtoController');
+
+        Route::post('/admin/aplicacao', 'produtoController@createAplicacao')->name('aplicacao.create');
+        Route::delete('/admin/aplicacao/{aplicacao}', 'produtoController@destroyAplicacao')->name('aplicacao.destroy');
+        
+        Route::post('/admin/referencia', 'produtoController@createReferencia')->name('referencia.create');
+        Route::delete('/admin/referencia/{referencia}', 'produtoController@destroyReferencia')->name('referencia.destroy');
     });
     
 });
