@@ -1,0 +1,49 @@
+#sale {
+    display: flex;
+    flex-direction: column;
+    border-top: 1px solid #dcdcdc;
+
+    .section-text {
+        padding: 50px 30px 0px 30px;
+    }
+}
+
+.repreDados {
+    display: flex;
+
+    div {
+        text-align: center;
+        padding: 30px 0;
+        flex: 1 1 170px;
+    }
+}
+
+.content-map {
+    display: flex;
+    justify-content: center;
+}
+
+.map-repre {
+    width: 100%;
+}
+
+.uf {
+    fill: #02774b;
+    stroke: #fff;
+    stroke-width: 2;
+    cursor: pointer;
+}
+
+.uf:hover {
+    fill: #144735;
+    stroke: #fff;
+    stroke-width: 2;
+}
+
+.uf-tw {
+    fill: #fff;
+}
+
+.uf-tg {
+    fill: #555;
+}

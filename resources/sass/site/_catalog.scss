@@ -1,0 +1,66 @@
+#catalog {
+    display: flex;
+    flex-direction: column;
+    background-color: #f3f3f3;
+    border-top: 1px solid #dcdcdc;
+
+    .divImage {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .ilustrativa {
+            height: 70%;
+        }
+    }
+}
+
+.catalogLinks {
+    display: flex;
+
+    div {
+        text-align: center;
+        padding: 30px 0;
+        flex: 1 1 170px;
+    }
+}
+
+@media (max-width: 700px) 
+{
+    .catalogLinks 
+    {
+        flex-direction: column;
+        
+        div {
+            flex: 0 0 auto;
+        }
+    }
+}
+
+.links {
+    background-color: $color-primary;
+}
+
+.linksStores {
+    display: flex;
+    justify-content: center;
+}
+
+.store-text {
+    font-size: 16px;
+    font-weight: 200;
+    line-height: 1.8;
+    letter-spacing: 0.5px;
+    padding: 0px 20px 0px 20px;
+    color: #fff;
+    max-width: $c-width;
+    align-self: center;
+}
+
+.iosStore, .andStore {
+    height: 40px;
+}
+
+.andStore {
+    margin-left: 15px;
+}

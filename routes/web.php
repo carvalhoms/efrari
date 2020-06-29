@@ -14,13 +14,18 @@
 Route::group(['middleware' => ['auth'], 'namespace' => 'Admin'], function(){
     Route::get('/admin', 'AdminController@index')->name('admin');
 
+    Route::group(['namespace' => 'Site'], function () {
+        Route::resource('/admin/representantes', 'RepreController');
+    
+    });
+
     Route::group(['namespace' => 'Catalog'], function () {
         Route::resource('/admin/montadoras', 'MontadoraController');
         Route::resource('/admin/veiculos', 'VeiculoController');
         Route::resource('/admin/linhas', 'LinhaController');
         Route::resource('/admin/descricao', 'DescricaoController');
         
-        Route::resource('/admin/produtos', 'produtoController');
+        Route::resource('/admin/produtos', 'ProdutoController');
 
         Route::post('/admin/aplicacao', 'produtoController@createAplicacao')->name('aplicacao.create');
         Route::delete('/admin/aplicacao/{aplicacao}', 'produtoController@destroyAplicacao')->name('aplicacao.destroy');

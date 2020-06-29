@@ -1,0 +1,23 @@
+#contact {
+    background-color: $color-primary;
+    margin: 0 auto;
+    
+    .container {
+        justify-content: space-between;
+    } 
+
+    .social {
+        ul {
+            display: inline-flex;
+
+            li {
+                padding: 15px;
+
+                a {
+                    color: #fff;
+                    font-size: 20px;
+                }
+            }
+        }
+    }
+}

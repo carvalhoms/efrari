@@ -1,0 +1,71 @@
+#product {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    border-top: 1px solid #dcdcdc;
+
+    .owl-carousel div {
+        text-align: center;
+
+        img {
+            width: 300px;
+            margin: 0 auto;
+        }
+
+        p {
+            color: $color-grey-additional;
+            line-height: 1.4;
+            padding: 10px 15px;
+            font-weight: 200;
+            font-size: 15px;
+            margin-bottom: 50px;
+        }
+    }
+}
+
+.linhas {
+    display: flex;
+
+    div {
+        flex: 1 1 auto;
+    }
+
+    .leves {
+        background-color: $color-primary;
+    }
+
+    .utilitarios {
+        background-color: #555;
+    }
+
+    .pesados {
+        background-color: $color-additional;
+    }
+
+    h3 {
+        text-align: center;
+        padding: 55px 0 30px 0;
+        color: #fff;
+        font-size: 22px;
+        font-weight: 300;
+        text-transform: uppercase;
+    }
+
+    p {
+        padding: 0 60px 30px 60px;
+        text-align: center;
+        color: #fff;
+        font-weight: 200;
+        font-size: 14px;
+        line-height: 1.4;
+    }
+
+    a {
+        width: 150px;
+        margin: 0 auto;
+        margin-bottom: 45px;
+        text-align: center;
+        padding: 10px;
+        font-size: 14px;
+    }
+}

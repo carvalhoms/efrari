@@ -1,0 +1,16 @@
+footer {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    background-color: $color-additional;
+    height: 50px;
+
+    .container {
+        justify-content: space-between;
+
+        div {
+            font-size: 14px;
+            color: #fff;
+        }
+    }
+}

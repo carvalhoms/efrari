@@ -195,41 +195,25 @@ return [
         ],
 
         'ADMINISTRAÇÃO SITE',
-        
         [
-            'text'  =>  'Banners',
-            'url'   =>  'admin/settings',
-            'icon'  =>  'fas fa-fw fa-film',
+            'text'  =>  'Perfil Empresa',
+            'url'   =>  'admin/perfil',
+            'icon'  =>  'fas fa-fw fa-industry',
         ],
         [
-            'text'  =>  'Quem Somos',
-            'url'   =>  'admin/settings',
-            'icon'  =>  'fas fa-fw fa-user-shield',
+            'text'  =>  'Lançamentos',
+            'url'   =>  'admin/lancamentos',
+            'icon'  =>  'fas fa-fw fa-rocket',
         ],
         [
-            'text'  =>  'Portifólio Produtos',
-            'url'   =>  'admin/settings',
-            'icon'  =>  'fas fa-fw fa-boxes',
-        ],
-        [
-            'text'  =>  'Catálogos',
-            'url'   =>  'admin/settings',
-            'icon'  =>  'fas fa-fw fa-book-open',
-        ],
-        [
-            'text'  =>  'Representantes',
-            'url'   =>  'admin/settings',
-            'icon'  =>  'fas fa-fw fa-globe-americas',
-        ],
-        [
-            'text'  =>  'Blog',
+            'text'  =>  'Notícias',
             'url'   =>  'admin/settings',
             'icon'  =>  'fas fa-fw fa-bullhorn',
         ],
         [
-            'text'  =>  'Contatos',
-            'url'   =>  'admin/settings',
-            'icon'  =>  'fas fa-fw fa-envelope-open-text',
+            'text'  =>  'Representantes',
+            'url'   =>  'admin/representantes',
+            'icon'  =>  'fas fa-fw fa-globe-americas',
         ],
 
         'ADMINISTRAÇÃO CATÁLOGO',

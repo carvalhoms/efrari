@@ -1,0 +1,91 @@
+header, section, footer {
+    display: flex;
+    justify-content: center;
+}
+
+.container {
+    display: flex;
+    padding: 0 50px;
+    align-self: center;
+    width: $c-width;
+}
+
+h1 {
+    font-size: 48px;
+    font-weight: 300;
+    padding-top: 90px;
+    text-transform: uppercase;
+    color: $color-additional;
+    max-width: $c-width;
+    align-self: center;
+
+    &:before {
+        content: "";
+        position: absolute;
+        margin: 0 auto;
+        height: 2px;
+        width: 200px;
+        background-color: $color-grey-additional;
+        margin-top: 70px;
+        left: 0;
+        right: 0;
+    }
+}
+
+h2 {
+    font-size: 28px;
+    font-weight: 300;
+    padding-top: 42px;
+    color: #fff;
+    align-self: center;
+}
+
+h3 {
+    font-size: 20px;
+    color: $color-additional;
+    padding: 18px;
+    font-weight: 500;
+}
+
+.section-text {
+    font-size: 18px;
+    font-weight: 200;
+    line-height: 1.8;
+    letter-spacing: 0.5px;
+    padding: 50px 30px 40px 30px;
+    color: $color-grey-additional;
+    max-width: $c-width;
+    text-align: center;
+    align-self: center;
+}
+
+.box-text {
+    font-size: 16px;
+    font-weight: 200;
+    line-height: 1.8;
+    letter-spacing: 0.5px;
+    padding: 20px 50px 0px 50px;
+    color: #fff;
+    max-width: $c-width;
+    align-self: center;
+}
+
+.links-btn {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.btn {
+    display: block;
+    margin: 10px;
+    padding: 15px 35px;
+    border: 1px solid #fff;
+    color: #fff;
+    border-radius: 30px;
+
+    &:hover {
+        border-color: $color-additional;
+        background-color: $color-additional;
+    }
+}

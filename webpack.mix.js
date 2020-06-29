@@ -11,5 +11,20 @@ const mix = require('laravel-mix');
  |
  */
 
-mix.js('resources/js/app.js', 'public/js')
-    .sass('resources/sass/app.scss', 'public/css');
+
+
+mix
+    .copy('node_modules/owl.carousel/dist/assets/owl.carousel.css', 'public/css/owl.css')
+    .copy('node_modules/owl.carousel/dist/assets/owl.theme.green.css', 'public/css/owl.theme.green.css')
+
+    .sass('resources/sass/admin.scss', 'public/css/admin/main.css')
+    .sass('resources/sass/site.scss', 'public/css/site/main.css')
+    .sass('resources/sass/catalog.scss', 'public/css/catalog/main.css')
+
+    .copy('node_modules/jquery/dist/jquery.js', 'public/js/jquery.js')
+    .copy('node_modules/owl.carousel/dist/owl.carousel.js', 'public/js/owl.js')
+
+    .js('resources/js/admin.js', 'public/js/admin/main.js')
+    .js('resources/js/catalog.js', 'public/js/catalog/main.js')
+    .js('resources/js/site.js', 'public/js/site/main.js')
+    .version();
