@@ -99,7 +99,7 @@ $(document).ready(function () {
     loop: true,
     autoplay: true,
     autoplayTimeout: 5000,
-    dots: false
+    dots: true
   });
 }); // Javascript
 

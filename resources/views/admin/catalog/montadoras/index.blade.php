@@ -54,7 +54,7 @@
 @stop
 
 @section('css')
-    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="{{ url(mix('css/admin/main.css')) }}">
 @stop
 
 @section('js')

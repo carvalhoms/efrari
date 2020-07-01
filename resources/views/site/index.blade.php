@@ -83,33 +83,33 @@
         <h1 class="animated fadeInUp">Linhas de Produtos Efrari</h1>
         <p class="section-text animated fadeInUp">A EFRARI foi fundada há mais de 60 anos motivada pela instalação das primeiras indústrias automotivas no país.  Inicialmente chamava-se E. Frari em razão do seu fundador Emanuelle Frari. Em 1962, a EFRARI foi adquirida pelo Sr. Karl Knudsen que adotou o nome usado até hoje.</p>
         <div class="container">
-            <div id="owl-products" class="owl-carousel">
-                <div>
+            <div id="owl-products" class="owl-carousel owl-theme">
+                <div class="item">
                     <img src="{{ asset('images/productLine/linhaProd-001.jpg') }}" alt="Produto 1">
                     <h3>Cabos de Freio de Mão</h3>
                     <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Deleniti, expedita!</p>
                 </div>
-                <div>
+                <div class="item">
                     <img src="{{ asset('images/productLine/linhaProd-002.jpg') }}" alt="Produto 1">
                     <h3>Cabos de Acelerador</h3>
                     <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Deleniti, expedita!</p>
                 </div>
-                <div>
+                <div class="item">
                     <img src="{{ asset('images/productLine/linhaProd-003.jpg') }}" alt="Produto 1">
                     <h3>Cabos de Capô</h3>
                     <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Deleniti, expedita!</p>
                 </div>
-                <div>
+                <div class="item">
                     <img src="{{ asset('images/productLine/linhaProd-004.jpg') }}" alt="Produto 1">
                     <h3>Cabo de Embreagem</h3>
                     <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Deleniti, expedita!</p>
                 </div>
-                <div>
+                <div class="item">
                     <img src="{{ asset('images/productLine/linhaProd-001.jpg') }}" alt="Produto 1">
                     <h3>Cabo de Engate e Seleção</h3>
                     <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Deleniti, expedita!</p>
                 </div>
-                <div>
+                <div class="item">
                     <img src="{{ asset('images/productLine/linhaProd-003.jpg') }}" alt="Produto 1">
                     <h3>Cabos do Afogador</h3>
                     <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Deleniti, expedita!</p>
@@ -160,7 +160,7 @@
                 <div class="header">Feira Automec 2019</div>
                 <div class="body">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum doloremque error labore iusto placeat, vitae delectus ut amet...</div>
                 <div class="date">Publicado: 18/05/2020</div>
-                <a class="btn" href="#">Confira...</a>
+                <a class="btn" href="#">Leia...</a>
             </div>
             <div class="card">
                 <div class="img">
@@ -169,7 +169,7 @@
                 <div class="header">Novo Catálogo Efrari</div>
                 <div class="body">Lorem ipsum dolor sit amet consectetur adipisicing elit. At voluptatibus quaerat nam blanditiis unde consequatur non dolorum...</div>
                 <div class="date">Publicado: 18/05/2020</div>
-                <a class="btn" href="#">Confira...</a>
+                <a class="btn" href="#">Leia...</a>
             </div>
             <div class="card">
                 <div class="img">
@@ -178,18 +178,26 @@
                 <div class="header">Lançamentos Maio 2019</div>
                 <div class="body">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas, iusto dolor? Sint ab voluptatem voluptatum alias exercitationem...</div>
                 <div class="date">Publicado: 18/05/2020</div>
-                <a class="btn" href="#">Confira...</a>
+                <a class="btn" href="#">Leia...</a>
             </div>
+            
         </div>
     </section>
 
     <section id="contact">
         <div class="container">
             <div class="end">
-                a
+                <h4>Efrari Cabos flexíveis para veículos.</h4>
+                <p>Rua China, 217 - Cep 09672-100</p>
+                <p>São Bernardo do Campo - SP - Brasil</p>
             </div>
             <div class="contact">
-                a
+                <h4>Fone: +55 11 4176-1700 - 4178-1766</h4>
+                <p>email: vendas@efrari.com.br</p>
+                <form action="">
+                    <input type="text" placeholder="Cadastre seu email" name="newslatter" id="newslatter">
+                    <button>Cadastre</button>
+                </form>
             </div>
             <div class="social">
                 <ul>
@@ -205,7 +213,7 @@
     <footer>
         <div class="container">
             <div>Efrari Cabos Flexíveis | © 2020 | Todos os direitos reservados</div>
-            <div>carvalhoms</div>
+            <div>by carvalhoms</div>
         </div>
         
     </footer>

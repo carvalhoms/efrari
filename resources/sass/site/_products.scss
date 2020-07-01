@@ -18,8 +18,16 @@
             padding: 10px 15px;
             font-weight: 200;
             font-size: 15px;
-            margin-bottom: 50px;
+            margin-bottom: 10px;
         }
+    }
+
+    .owl-dots {
+        margin-bottom: 35px;
+    }
+
+    .owl-theme .owl-dots .owl-dot.active span, .owl-theme .owl-dots .owl-dot:hover span {
+        background: $color-primary;
     }
 }
 
