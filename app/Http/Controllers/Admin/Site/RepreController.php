@@ -69,9 +69,9 @@ class RepreController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Repre $representante)
     {
-        //
+        return view('admin.site.representantes.edit', compact('representante'));
     }
 
     /**
@@ -81,9 +81,11 @@ class RepreController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Repre $representante)
     {
-        //
+        $representante->update($request->all());
+
+        return redirect()->route('representantes.index');
     }
 
     /**

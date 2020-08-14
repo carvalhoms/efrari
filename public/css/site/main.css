@@ -4225,7 +4225,7 @@ footer {
 h1 {
   font-size: 48px;
   font-weight: 300;
-  padding-top: 70px;
+  padding-top: 90px;
   text-transform: uppercase;
   color: #144735;
   max-width: 1140px;
@@ -4302,6 +4302,44 @@ h3 {
   background-color: #144735;
 }
 
+.btnWhite {
+  border: 1px solid #02774b;
+  color: #02774b;
+}
+
+.btnWhite:hover {
+  border-color: #144735;
+  background-color: #144735;
+  color: #fff;
+}
+
+input#newsletterContato {
+  margin-top: 10px;
+  font-size: 17px;
+  padding: 10px 19px;
+  border-radius: 20px 0 0 20px;
+  width: 250px;
+  margin: 30px 0;
+  border: 2px solid #fff;
+}
+
+input#newsletterContato:focus {
+  box-shadow: 0 0 0 0;
+  border: 2px solid #144735;
+  outline: 0;
+}
+
+.btnNewsletterContato {
+  padding: 10px 23px;
+  font-size: 17px;
+  border: 2px solid #144735;
+  border-radius: 0 20px 20px 0;
+  margin-left: -4px;
+  color: #fff;
+  background-color: #144735;
+  cursor: pointer;
+}
+
 header {
   flex-direction: column;
 }
@@ -4329,8 +4367,9 @@ header .container ul li {
 
 #header-top {
   height: 35px;
-  color: #fff;
   background-color: #02774b;
+  background-image: linear-gradient(to bottom right, #144735, #02774b);
+  color: #fff;
 }
 
 #header-top a {
@@ -4407,6 +4446,45 @@ header .container ul li {
   }
 }
 
+.mvv {
+  display: flex;
+}
+
+.mvv div {
+  flex: 1 1 auto;
+}
+
+.mvv .missao {
+  background-color: #02774b;
+}
+
+.mvv .visao {
+  background-color: #555;
+}
+
+.mvv .valores {
+  background-color: #144735;
+}
+
+.mvv h3 {
+  text-align: center;
+  padding: 30px 0 20px 0;
+  color: #fff;
+  font-size: 22px;
+  font-weight: 300;
+  text-transform: uppercase;
+}
+
+.mvv p {
+  padding: 0 60px 30px 60px;
+  text-align: center;
+  color: #fff;
+  font-weight: 200;
+  font-size: 14px;
+  line-height: 1.4;
+  margin-bottom: 10px;
+}
+
 #catalog {
   display: flex;
   flex-direction: column;
@@ -4446,6 +4524,7 @@ header .container ul li {
 
 .links {
   background-color: #02774b;
+  background-image: linear-gradient(to bottom right, #144735, #02774b);
   align-self: center;
 }
 
@@ -4606,6 +4685,24 @@ header .container ul li {
   fill: #555;
 }
 
+#newsletter {
+  display: flex;
+  background-color: #02774b;
+  background-image: linear-gradient(to bottom right, #144735, #02774b);
+}
+
+#newsletter div {
+  align-self: center;
+  justify-content: center;
+}
+
+#newsletter p {
+  color: #fff;
+  font-size: 20px;
+  padding: 20px;
+  font-weight: 200;
+}
+
 #news {
   display: flex;
   flex-direction: column;
@@ -4662,6 +4759,7 @@ header .container ul li {
 
 #contact {
   background-color: #02774b;
+  background-image: linear-gradient(to bottom right, #144735, #02774b);
   margin: 0 auto;
   height: 220px;
 }
@@ -4698,34 +4796,6 @@ header .container ul li {
   font-size: 16px;
   color: #fff;
   font-weight: 500;
-}
-
-#contact button {
-  padding: 10px 23px;
-  font-size: 17px;
-  border: 2px solid #144735;
-  border-radius: 0 20px 20px 0;
-  margin-left: -4px;
-  color: #fff;
-  background-color: #144735;
-  cursor: pointer;
-}
-
-input#newslatter {
-  margin-top: 10px;
-  font-size: 17px;
-  padding: 10px 19px;
-  border-radius: 20px 0 0 20px;
-  border: none;
-  width: 250px;
-  margin: 30px 0;
-  border: 2px solid #fff;
-}
-
-input#newslatter:focus {
-  box-shadow: 0 0 0 0;
-  border: 2px solid #144735;
-  outline: 0;
 }
 
 footer {

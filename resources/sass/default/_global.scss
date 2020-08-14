@@ -13,7 +13,7 @@ header, section, footer {
 h1 {
     font-size: 48px;
     font-weight: 300;
-    padding-top: 70px;
+    padding-top: 90px;
     text-transform: uppercase;
     color: $color-additional;
     max-width: $c-width;
@@ -74,18 +74,4 @@ h3 {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-}
-
-.btn {
-    display: block;
-    margin: 10px;
-    padding: 15px 35px;
-    border: 1px solid #fff;
-    color: #fff;
-    border-radius: 30px;
-
-    &:hover {
-        border-color: $color-additional;
-        background-color: $color-additional;
-    }
 }

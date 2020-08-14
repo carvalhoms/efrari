@@ -53,6 +53,22 @@
         <h1 class="section-title title animated fadeInUp">Sobre a Efrari</h1>
         <p class="section-text animated fadeInUp">A EFRARI foi fundada há mais de 60 anos motivada pela instalação das primeiras indústrias automotivas no país.  Inicialmente chamava-se E. Frari em razão do seu fundador Emanuelle Frari. Em 1962, a EFRARI foi adquirida pelo Sr. Karl Knudsen que adotou o nome usado até hoje.</p>
         <img class="imgSobre animated fadeIn" src="{{ asset('images/media.png') }}" alt="Media Image">
+
+        <div class="mvv">
+            <div class="missao">
+                <h3>Atendimento</h3>
+                <p>A EFRARI foi fundada há mais de 60 anos motivada pela instalação das primeiras indústrias automotivas no país. Inicialmente chamava-se E. Frari em razão do seu fundador Emanuelle Frari. Em 1962, a EFRARI foi adquirida pelo Sr. Karl Knudsen que adotou o nome usado até hoje.</p>
+            </div>
+            <div class="visao">
+                <h3>Rede de distribuição</h3>
+                <p>A EFRARI foi fundada há mais de 60 anos motivada pela instalação das primeiras indústrias automotivas no país. Inicialmente chamava-se E. Frari em razão do seu fundador Emanuelle Frari. Em 1962, a EFRARI foi adquirida pelo Sr. Karl Knudsen que adotou o nome usado até hoje.</p>
+            </div>
+            <div class="valores">
+                <h3>Garantia e Qualidade</h3>
+                <p>A EFRARI foi fundada há mais de 60 anos motivada pela instalação das primeiras indústrias automotivas no país. Inicialmente chamava-se E. Frari em razão do seu fundador Emanuelle Frari. Em 1962, a EFRARI foi adquirida pelo Sr. Karl Knudsen que adotou o nome usado até hoje.</p>
+            </div>
+
+        </div>
     </section>
 
     <section id="catalog">
@@ -149,8 +165,24 @@
         </div>
     </section>
 
+    <section id="newsletter">
+        <div class="container">
+            <div>
+                <p>Cadastre-se e receba os Informativos e novidades Efrari</p>
+            </div>
+            <div>
+                <form action="">
+                    <input type="text" placeholder="Cadastre seu email" name="newsletterContato" id="newsletterContato">
+                    <button class="btnNewsletterContato">Cadastre</button>
+                </form>
+            </div>
+            
+        </div>
+        
+    </section>
+
     <section id="news">
-        <h1 class="animated fadeInUp">Notícias</h1>
+        <h1 class="animated fadeInUp">Blog Efrari</h1>
         <p class="section-text animated fadeInUp">A EFRARI foi fundada há mais de 60 anos motivada pela instalação das primeiras indústrias automotivas no país.  Inicialmente chamava-se E. Frari em razão do seu fundador Emanuelle Frari. Em 1962, a EFRARI foi adquirida pelo Sr. Karl Knudsen que adotou o nome usado até hoje.</p>
         <div class="container">
             <div class="card">
@@ -160,7 +192,7 @@
                 <div class="header">Feira Automec 2019</div>
                 <div class="body">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum doloremque error labore iusto placeat, vitae delectus ut amet...</div>
                 <div class="date">Publicado: 18/05/2020</div>
-                <a class="btn" href="#">Leia...</a>
+                <a class="btn btnWhite" href="#">Leia...</a>
             </div>
             <div class="card">
                 <div class="img">
@@ -169,7 +201,7 @@
                 <div class="header">Novo Catálogo Efrari</div>
                 <div class="body">Lorem ipsum dolor sit amet consectetur adipisicing elit. At voluptatibus quaerat nam blanditiis unde consequatur non dolorum...</div>
                 <div class="date">Publicado: 18/05/2020</div>
-                <a class="btn" href="#">Leia...</a>
+                <a class="btn btnWhite" href="#">Leia...</a>
             </div>
             <div class="card">
                 <div class="img">
@@ -178,7 +210,7 @@
                 <div class="header">Lançamentos Maio 2019</div>
                 <div class="body">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas, iusto dolor? Sint ab voluptatem voluptatum alias exercitationem...</div>
                 <div class="date">Publicado: 18/05/2020</div>
-                <a class="btn" href="#">Leia...</a>
+                <a class="btn btnWhite" href="#">Leia...</a>
             </div>
             
         </div>
@@ -195,8 +227,8 @@
                 <h4>Fone: +55 11 4176-1700 - 4178-1766</h4>
                 <p>email: vendas@efrari.com.br</p>
                 <form action="">
-                    <input type="text" placeholder="Cadastre seu email" name="newslatter" id="newslatter">
-                    <button>Cadastre</button>
+                    <input type="text" placeholder="Cadastre seu email" name="newsletterContato" id="newsletterContato">
+                    <button class="btnNewsletterContato">Cadastre</button>
                 </form>
             </div>
             <div class="social">

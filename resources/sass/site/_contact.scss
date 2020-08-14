@@ -1,5 +1,6 @@
 #contact {
     background-color: $color-primary;
+    background-image: linear-gradient(to bottom right, $color-additional, $color-primary);
     margin: 0 auto;
     height: 220px;
 
@@ -38,34 +39,5 @@
         font-size: 16px;
         color: #fff;
         font-weight: 500;
-    }
-
-    button {
-        padding: 10px 23px;
-        font-size: 17px;
-        border: 2px solid $color-additional;
-        border-radius: 0 20px 20px 0;
-        margin-left: -4px;
-        color: #fff;
-        background-color: $color-additional;
-        cursor: pointer;
-    }
-
-}
-
-input#newslatter {
-    margin-top: 10px;
-    font-size: 17px;
-    padding: 10px 19px;
-    border-radius: 20px 0 0 20px;
-    border: none;
-    width: 250px;
-    margin: 30px 0;
-    border: 2px solid #fff;
-    
-    &:focus {
-        box-shadow: 0 0 0 0;
-        border: 2px solid $color-additional;
-        outline: 0;
     }
 }

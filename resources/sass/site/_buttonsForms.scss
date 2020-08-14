@@ -1,0 +1,52 @@
+.btn {
+    display: block;
+    margin: 10px;
+    padding: 15px 35px;
+    border: 1px solid #fff;
+    color: #fff;
+    border-radius: 30px;
+
+    &:hover {
+        border-color: $color-additional;
+        background-color: $color-additional;
+    }
+}
+
+.btnWhite {
+    
+    border: 1px solid $color-primary;
+    color: $color-primary;
+
+    &:hover {
+        border-color: $color-additional;
+        background-color: $color-additional;
+        color: #fff;
+    }
+}
+
+input#newsletterContato {
+    margin-top: 10px;
+    font-size: 17px;
+    padding: 10px 19px;
+    border-radius: 20px 0 0 20px;
+    width: 250px;
+    margin: 30px 0;
+    border: 2px solid #fff;
+    
+    &:focus {
+        box-shadow: 0 0 0 0;
+        border: 2px solid $color-additional;
+        outline: 0;
+    }
+}
+
+.btnNewsletterContato {
+    padding: 10px 23px;
+    font-size: 17px;
+    border: 2px solid $color-additional;
+    border-radius: 0 20px 20px 0;
+    margin-left: -4px;
+    color: #fff;
+    background-color: $color-additional;
+    cursor: pointer;
+}

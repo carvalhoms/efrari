@@ -39,6 +39,7 @@
 
 .links {
     background-color: $color-primary;
+    background-image: linear-gradient(to bottom right, $color-additional, $color-primary);
     align-self: center;
 }
 

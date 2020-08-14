@@ -1,0 +1,17 @@
+#newsletter {
+    display: flex;
+    background-color: $color-primary;
+    background-image: linear-gradient(to bottom right, $color-additional, $color-primary);
+    
+    div {
+        align-self: center;
+        justify-content: center;
+    }
+
+    p {
+        color: #fff;
+        font-size: 20px;
+        padding: 20px;
+        font-weight: 200;
+    }
+}

@@ -33,12 +33,12 @@
     stroke: #fff;
     stroke-width: 2;
     cursor: pointer;
-}
 
-.uf:hover {
-    fill: #144735;
-    stroke: #fff;
-    stroke-width: 2;
+    &:hover {
+        fill: #144735;
+        stroke: #fff;
+        stroke-width: 2;
+    }
 }
 
 .uf-tw {

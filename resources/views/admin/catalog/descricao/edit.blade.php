@@ -34,7 +34,7 @@
                     <div class="form-group">
                         <div class="col-md-6">
                             <label for="name"> Nome da Descrição </label>
-                        <input type="text" name="name" class="form-control" placeholder="Nome" value="{{ $descricao->name }}" required
+                            <input type="text" name="name" class="form-control" placeholder="Nome" value="{{ $descricao->name }}" required
                             onfocus="this.selectionStart = this.selectionEnd = this.value.length;" autofocus="true">
                         </div>
                     </div>
