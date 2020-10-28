@@ -19287,10 +19287,10 @@ $(document).ready(function() {
           0: {
               items: 1
           },
-          1000: {
+          600: {
               items: 2
           },
-          1200: {
+          1000: {
               items: 3
           }
       }
@@ -19329,7 +19329,7 @@ function getEstado(onclick){
             listaRepre(data);
         },
         erro(e){
-            alert('Falha na conexão!');
+            alert('Falha!');
         }
     });
 }

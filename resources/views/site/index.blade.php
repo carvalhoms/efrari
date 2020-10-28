@@ -6,8 +6,6 @@
     <script src="https://kit.fontawesome.com/7353eb2283.js" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600&display=swap" rel="stylesheet">
     <link rel="icon" href="assets/images/favicon.png">
-    <link rel="stylesheet" href="{{ url(mix('css/owl.css')) }}">
-    <link rel="stylesheet" href="{{ url(mix('css/owl.theme.green.css')) }}">
     <link rel="stylesheet" href="{{ url(mix('css/site/main.css')) }}">
     <title>Efrari | Cabos Flexíveis</title>
 </head>
@@ -28,7 +26,7 @@
         </div>
         <div id="header-nav">
             <div class="container">
-            <img src="{{ asset('images/logo.png') }}" alt="Logo Header">
+                <img src="{{ asset('images/logo.png') }}" alt="Logo Header">
                 <nav>
                     <ul>
                         <li><a href="#">Home</a></li>
@@ -41,7 +39,6 @@
                     </ul>
                 </nav>
             </div>
-            
         </div>
     </header>
 
@@ -53,21 +50,21 @@
         <h1 class="section-title title animated fadeInUp">Sobre a Efrari</h1>
         <p class="section-text animated fadeInUp">A EFRARI foi fundada há mais de 60 anos motivada pela instalação das primeiras indústrias automotivas no país.  Inicialmente chamava-se E. Frari em razão do seu fundador Emanuelle Frari. Em 1962, a EFRARI foi adquirida pelo Sr. Karl Knudsen que adotou o nome usado até hoje.</p>
         <img class="imgSobre animated fadeIn" src="{{ asset('images/media.png') }}" alt="Media Image">
-
         <div class="mvv">
             <div class="missao">
                 <h3>Atendimento</h3>
                 <p>A EFRARI foi fundada há mais de 60 anos motivada pela instalação das primeiras indústrias automotivas no país. Inicialmente chamava-se E. Frari em razão do seu fundador Emanuelle Frari. Em 1962, a EFRARI foi adquirida pelo Sr. Karl Knudsen que adotou o nome usado até hoje.</p>
             </div>
+
             <div class="visao">
                 <h3>Rede de distribuição</h3>
                 <p>A EFRARI foi fundada há mais de 60 anos motivada pela instalação das primeiras indústrias automotivas no país. Inicialmente chamava-se E. Frari em razão do seu fundador Emanuelle Frari. Em 1962, a EFRARI foi adquirida pelo Sr. Karl Knudsen que adotou o nome usado até hoje.</p>
             </div>
+
             <div class="valores">
                 <h3>Garantia e Qualidade</h3>
                 <p>A EFRARI foi fundada há mais de 60 anos motivada pela instalação das primeiras indústrias automotivas no país. Inicialmente chamava-se E. Frari em razão do seu fundador Emanuelle Frari. Em 1962, a EFRARI foi adquirida pelo Sr. Karl Knudsen que adotou o nome usado até hoje.</p>
             </div>
-
         </div>
     </section>
 
@@ -87,16 +84,20 @@
                     <a href="#" class="btn">Catálogo Impresso (PDF)</a>
                 </div>
                 <div class="linksStores">
-                    <p class="store-text">Utilize também no celular:</p>
-                    <img class="iosStore" src="{{ asset('images/iosStore.png') }}" alt="IOS Store">
-                    <img class="andStore" src="{{ asset('images/androidStore.png') }}" alt="Android Store">
+                    <div>
+                        <p class="store-text">Utilize também no celular:</p>
+                    </div>
+                    <div>
+                        <img class="iosStore" src="{{ asset('images/iosStore.png') }}" alt="IOS Store">
+                        <img class="andStore" src="{{ asset('images/androidStore.png') }}" alt="Android Store">
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <section id="product">
-        <h1 class="animated fadeInUp">Linhas de Produtos Efrari</h1>
+        <h1 class="animated fadeInUp">Linha de Produtos</h1>
         <p class="section-text animated fadeInUp">A EFRARI foi fundada há mais de 60 anos motivada pela instalação das primeiras indústrias automotivas no país.  Inicialmente chamava-se E. Frari em razão do seu fundador Emanuelle Frari. Em 1962, a EFRARI foi adquirida pelo Sr. Karl Knudsen que adotou o nome usado até hoje.</p>
         <div class="container">
             <div id="owl-products" class="owl-carousel owl-theme">
@@ -138,17 +139,18 @@
                 <p>A EFRARI foi fundada há mais de 60 anos motivada pela instalação das primeiras indústrias automotivas no país. Inicialmente chamava-se E. Frari em razão do seu fundador Emanuelle Frari. Em 1962, a EFRARI foi adquirida pelo Sr. Karl Knudsen que adotou o nome usado até hoje.</p>
                 <a href="#" class="btn">Saiba mais...</a>
             </div>
+
             <div class="utilitarios">
                 <h3>Veículos Utilitários</h3>
                 <p>A EFRARI foi fundada há mais de 60 anos motivada pela instalação das primeiras indústrias automotivas no país. Inicialmente chamava-se E. Frari em razão do seu fundador Emanuelle Frari. Em 1962, a EFRARI foi adquirida pelo Sr. Karl Knudsen que adotou o nome usado até hoje.</p>
                 <a href="#" class="btn">Saiba mais...</a>
             </div>
+
             <div class="pesados">
                 <h3>Veículos Pesados / Agrícolas</h3>
                 <p>A EFRARI foi fundada há mais de 60 anos motivada pela instalação das primeiras indústrias automotivas no país. Inicialmente chamava-se E. Frari em razão do seu fundador Emanuelle Frari. Em 1962, a EFRARI foi adquirida pelo Sr. Karl Knudsen que adotou o nome usado até hoje.</p>
                 <a href="#" class="btn">Saiba mais...</a>
             </div>
-
         </div>
     </section>
 
@@ -160,7 +162,10 @@
                 @include('../layouts/_includes/_site/representantes')
             </div>
             <div>
-                dados
+                <h2>Representantes:</h2>
+                <p class="pRepreDados animate__animated animate__fadeIn">Entre em contato com um representante Efrari.</p>
+                <ul id="represList">
+                </ul>
             </div>
         </div>
     </section>
@@ -168,7 +173,7 @@
     <section id="newsletter">
         <div class="container">
             <div>
-                <p>Cadastre-se e receba os Informativos e novidades Efrari</p>
+                <p>Cadastre-se e receba os Informativos Efrari</p>
             </div>
             <div>
                 <form action="">
@@ -176,9 +181,7 @@
                     <button class="btnNewsletterContato">Cadastre</button>
                 </form>
             </div>
-            
         </div>
-        
     </section>
 
     <section id="news">
@@ -186,33 +189,31 @@
         <p class="section-text animated fadeInUp">A EFRARI foi fundada há mais de 60 anos motivada pela instalação das primeiras indústrias automotivas no país.  Inicialmente chamava-se E. Frari em razão do seu fundador Emanuelle Frari. Em 1962, a EFRARI foi adquirida pelo Sr. Karl Knudsen que adotou o nome usado até hoje.</p>
         <div class="container">
             <div class="card">
-                <div class="img">
-                    <img src="{{ asset('images/news/noImg.jpg') }}" alt="Imagem Noticia">
-                </div>
+                <img src="images/news/noImg.jpg" alt="Post">
                 <div class="header">Feira Automec 2019</div>
                 <div class="body">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum doloremque error labore iusto placeat, vitae delectus ut amet...</div>
                 <div class="date">Publicado: 18/05/2020</div>
                 <a class="btn btnWhite" href="#">Leia...</a>
             </div>
+
             <div class="card">
-                <div class="img">
-                    <img src="{{ asset('images/news/noImg.jpg') }}" alt="Imagem Noticia">
-                </div>
+                <img src="images/news/noImg.jpg" alt="Post">
                 <div class="header">Novo Catálogo Efrari</div>
                 <div class="body">Lorem ipsum dolor sit amet consectetur adipisicing elit. At voluptatibus quaerat nam blanditiis unde consequatur non dolorum...</div>
                 <div class="date">Publicado: 18/05/2020</div>
                 <a class="btn btnWhite" href="#">Leia...</a>
             </div>
+
             <div class="card">
-                <div class="img">
-                    <img src="{{ asset('images/news/noImg.jpg') }}" alt="Imagem Noticia">
-                </div>
+                <img src="images/news/noImg.jpg" alt="Post">
                 <div class="header">Lançamentos Maio 2019</div>
                 <div class="body">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas, iusto dolor? Sint ab voluptatem voluptatum alias exercitationem...</div>
                 <div class="date">Publicado: 18/05/2020</div>
                 <a class="btn btnWhite" href="#">Leia...</a>
             </div>
-            
+        </div>
+        <div class="container">
+            <a href="#" class="btn btnBlog">Saiba mais...</a>
         </div>
     </section>
 
@@ -244,20 +245,13 @@
 
     <footer>
         <div class="container">
-            <div>Efrari Cabos Flexíveis | © 2020 | Todos os direitos reservados</div>
+            <div>Efrari © 2020</div>
             <div>by carvalhoms</div>
         </div>
         
     </footer>
 
-    <script src="{{ url(mix('js/jquery.js')) }}"></script>
-    <script src="{{ url(mix('js/owl.js')) }}"></script>
     <script src="{{ url(mix('js/site/main.js')) }}"></script>
-
-    <script>
-
-
-    </script>
 
 </body>
 </html>

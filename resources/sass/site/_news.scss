@@ -9,18 +9,38 @@
     }
 
     .container {
-        margin-bottom: 80px;
+        margin-bottom: 40px;
+        display: flex;
+    }
+
+    .btnBlog {
+        width: 350px;
+        border: 1px solid $color-additional;
+        color: $color-additional;
+        margin: 0 auto;
+        margin-bottom: 35px;
+
+        &:hover {
+            color: #fff;
+        }
     }
 }
 
 .card {
     text-align: center;
     border: 1px solid #eaeaea;
-    margin: 10px 20px;
-    max-width: 340px;
+    margin: 10px 8px;
+    flex-wrap: 1;
 
     .img {
+        
         height: 180px;
+        background-repeat: no-repeat;
+        
+    }
+
+    img {
+        width: 100%;
     }
 
     .header {

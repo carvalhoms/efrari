@@ -7,6 +7,10 @@
     .section-text {
         padding: 50px 30px 0px 30px;
     }
+
+    h2 {
+        color: #144735;
+    }
 }
 
 .repreDados {
@@ -16,7 +20,21 @@
         text-align: center;
         padding: 30px 0;
         flex: 1 1 170px;
+        width: 50%;
     }
+}
+
+.pRepreDados {
+    padding: 7px 30px 18px 30px;
+    font-size: 18px;
+    font-weight: 200;
+    line-height: 1.8;
+    letter-spacing: 0.5px;
+    padding: 10px 30px 10px 30px;
+    color: #222;
+    max-width: 1140px;
+    text-align: center;
+    align-self: center;
 }
 
 .content-map {
@@ -25,7 +43,7 @@
 }
 
 .map-repre {
-    width: 100%;
+    min-width: 100%;
 }
 
 .uf {
@@ -43,8 +61,40 @@
 
 .uf-tw {
     fill: #fff;
+    cursor: pointer;
 }
 
 .uf-tg {
     fill: #555;
+}
+
+.cardRepre {
+    width: 80%;
+    height: 120px;
+    border: 1px solid #dcdcdc;
+    border-left: 5px solid #02774b;
+    border-radius: 0px 8px 8px 0;
+    margin: 0 auto;
+    padding: 15px 8px;
+    margin-top: 10px;
+    text-align: left;
+
+    p {
+        padding: 2px;
+        font-size: 14px;
+
+        span {
+            color: #555;
+        }
+    }
+
+    p:nth-child(1) {
+        color: #144735;
+        padding: 1px;
+
+    }
+
+    p:nth-child(2) {
+        padding: 1px;
+    }
 }

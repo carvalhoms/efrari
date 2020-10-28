@@ -196,16 +196,6 @@ return [
 
         'ADMINISTRAÇÃO SITE',
         [
-            'text'  =>  'Perfil Empresa',
-            'url'   =>  'admin/perfil',
-            'icon'  =>  'fas fa-fw fa-industry',
-        ],
-        [
-            'text'  =>  'Lançamentos',
-            'url'   =>  'admin/lancamentos',
-            'icon'  =>  'fas fa-fw fa-rocket',
-        ],
-        [
             'text'  =>  'Notícias',
             'url'   =>  'admin/settings',
             'icon'  =>  'fas fa-fw fa-bullhorn',
@@ -214,6 +204,11 @@ return [
             'text'  =>  'Representantes',
             'url'   =>  'admin/representantes',
             'icon'  =>  'fas fa-fw fa-globe-americas',
+        ],
+        [
+            'text'  =>  'Cadastro Newsletter',
+            'url'   =>  'admin/Newsletter',
+            'icon'  =>  'fas fa-fw fa-at',
         ],
 
         'ADMINISTRAÇÃO CATÁLOGO',

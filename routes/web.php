@@ -37,6 +37,7 @@ Route::group(['middleware' => ['auth'], 'namespace' => 'Admin'], function(){
 });
 
 Route::get('/', 'Site\SiteController@index')->name('site');
+Route::get('/getRepre/{uf}', 'Site\SiteController@getRepre')->name('getRepre');
 
 Route::get('/catalogo', function () {
     return view('/catalog.index');

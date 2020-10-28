@@ -1,11 +1,25 @@
-$(document).ready(function(){
-    $("#owl-products").owlCarousel({
-      items: 3,
-      loop: true,
-      autoplay: true,
-      autoplayTimeout: 5000,
-      dots: true,
-    });
+// Banner e Carosel
+$(document).ready(function() {
+  var owlProducts = $('#owl-products');
+  owlProducts.owlCarousel({
+      loop:true,
+      autoplay:true,
+      dotsEach:true,
+      autoplayTimeout:2000,
+      autoplayHoverPause:true,
+      responsiveClass:true,
+      responsive: {
+          0: {
+              items: 1
+          },
+          1000: {
+              items: 2
+          },
+          1200: {
+              items: 3
+          }
+      }
+  });
 });
 
 // Javascript
@@ -34,13 +48,13 @@ function getEstado(onclick){
     ulRepre.innerHTML = '';
 
     ajax({
-        url: 'getRepresentantes/' + ufId,
+        url: 'getRepre/' + ufId,
         sucesso(response) {
             let data = JSON.parse(response);
             listaRepre(data);
         },
         erro(e){
-            alert('Errooooou!');
+            alert('Falha na conexão!');
         }
     });
 }
@@ -48,15 +62,13 @@ function getEstado(onclick){
 function listaRepre(data) {
     let repres = data.map(repre => {
         let liRepre = document.createElement('li');
-        liRepre.innerHTML = '<div>';
+        liRepre.classList.add('cardRepre');
+
         liRepre.innerHTML += '<p>' + repre.empresa + '</p>';
         liRepre.innerHTML += '<p>' + repre.contato + '</p>';
-        liRepre.innerHTML += '<p>' + repre.fone + '</p>';
-        liRepre.innerHTML += '<p>' + repre.email + '</p>';
-        liRepre.innerHTML += '<p>' + repre.uf + '</p>';
+        liRepre.innerHTML += '<p>' + repre.fone1 + '</p>';
         liRepre.innerHTML += '<p>' + repre.cidade + '</p>';
-        liRepre.innerHTML += '<div>';
-        liRepre.innerHTML += '<hr>';
+        liRepre.innerHTML += '<p>' + repre.email + '</p>';
 
         return liRepre;
     });
