@@ -176,9 +176,10 @@
                 <p>Cadastre-se e receba os Informativos Efrari</p>
             </div>
             <div>
-                <form action="">
-                    <input type="text" placeholder="Cadastre seu email" name="newsletterContato" id="newsletterContato">
-                    <button class="btnNewsletterContato">Cadastre</button>
+                <form method="post" action="{{ route('newsletter.store') }}">
+                    {{ csrf_field() }}
+                    <input type="text" placeholder="Cadastre seu email" name="email" id="newsletterContato">
+                    <button type="submit" class="btnNewsletterContato">Cadastre</button>
                 </form>
             </div>
         </div>
@@ -227,9 +228,10 @@
             <div class="contact">
                 <h4>Fone: +55 11 4176-1700 - 4178-1766</h4>
                 <p>email: vendas@efrari.com.br</p>
-                <form action="">
-                    <input type="text" placeholder="Cadastre seu email" name="newsletterContato" id="newsletterContato">
-                    <button class="btnNewsletterContato">Cadastre</button>
+                <form method="post" action="{{ route('newsletter.store') }}">
+                    {{ csrf_field() }}
+                    <input type="text" placeholder="Cadastre seu email" name="email" id="newsletterContato">
+                    <button type="submit" class="btnNewsletterContato">Cadastre</button>
                 </form>
             </div>
             <div class="social">

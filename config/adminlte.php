@@ -207,7 +207,7 @@ return [
         ],
         [
             'text'  =>  'Cadastro Newsletter',
-            'url'   =>  'admin/Newsletter',
+            'url'   =>  'admin/newsletter',
             'icon'  =>  'fas fa-fw fa-at',
         ],
 

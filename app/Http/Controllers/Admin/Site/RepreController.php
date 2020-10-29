@@ -100,9 +100,4 @@ class RepreController extends Controller
 
         return redirect()->route('representantes.index');
     }
-
-    public function getRepre()
-    {
-        
-    }
 }

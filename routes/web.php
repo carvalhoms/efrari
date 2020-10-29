@@ -16,7 +16,7 @@ Route::group(['middleware' => ['auth'], 'namespace' => 'Admin'], function(){
 
     Route::group(['namespace' => 'Site'], function () {
         Route::resource('/admin/representantes', 'RepreController');
-    
+        Route::resource('/admin/newsletter', 'NewsletterController');
     });
 
     Route::group(['namespace' => 'Catalog'], function () {
@@ -38,6 +38,7 @@ Route::group(['middleware' => ['auth'], 'namespace' => 'Admin'], function(){
 
 Route::get('/', 'Site\SiteController@index')->name('site');
 Route::get('/getRepre/{uf}', 'Site\SiteController@getRepre')->name('getRepre');
+Route::post('/saveEmail', 'Admin\Site\NewsletterController@store')->name('saveEmail');
 
 Route::get('/catalogo', function () {
     return view('/catalog.index');
