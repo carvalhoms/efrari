@@ -32,6 +32,8 @@ Route::group(['middleware' => ['auth'], 'namespace' => 'Admin'], function(){
         
         Route::post('/admin/referencia', 'produtoController@createReferencia')->name('referencia.create');
         Route::delete('/admin/referencia/{referencia}', 'produtoController@destroyReferencia')->name('referencia.destroy');
+
+        Route::post('/admin/uploadImg', 'produtoController@uploadImg')->name('produto.uploadImg');
     });
     
 });

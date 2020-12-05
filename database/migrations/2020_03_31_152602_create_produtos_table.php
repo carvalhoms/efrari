@@ -19,6 +19,7 @@ class CreateProdutosTable extends Migration
                 $table->unsignedBigInteger('linha_id')->nullable();
                 $table->unsignedBigInteger('descricao_id')->nullable();
             $table->string('comp')->nullable();
+            $table->string('img')->nullable();
 
                 $table->foreign('linha_id')->references('id')->on('linhas');
                 $table->foreign('descricao_id')->references('id')->on('descricoes');

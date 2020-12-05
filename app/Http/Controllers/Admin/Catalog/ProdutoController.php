@@ -10,6 +10,7 @@ use App\Model\Produto;
 use App\Model\Montadora;
 use App\Model\Referencia;
 use App\Model\Aplicacao;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 
 class ProdutoController extends Controller
@@ -145,6 +146,22 @@ class ProdutoController extends Controller
         Produto::find($id)->delete();
 
         return redirect()->route('produtos.index');
+    }
+
+    public function uploadImg(Request $request)
+    {
+        $produto = produto::find($request->idProduto);
+
+        if ($produto->img !== null) {
+            Storage::delete($produto->img);
+        }
+
+        $file = $request->file('uploadImg')->store('produtosImg');
+        
+        $produto->img = $file;
+        $produto->update();
+
+        return redirect()->back();
     }
 
     public function createReferencia(Request $request)

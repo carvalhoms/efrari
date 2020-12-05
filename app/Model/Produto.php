@@ -27,11 +27,11 @@ class Produto extends Model
 
     public function aplicacoes()
     {
-        return $this->hasOne(Aplicacao::class);
+        return $this->hasMany(Aplicacao::class);
     }
 
     public function referencias()
     {
-        return $this->hasOne(Referencia::class);
+        return $this->hasMany(Referencia::class);
     }
 }

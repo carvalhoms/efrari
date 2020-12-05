@@ -27,7 +27,7 @@
         <div id="header-nav">
             <div class="container">
                 <img src="{{ asset('images/logo.png') }}" alt="Logo Header">
-                <p>Catálogo Eletrônico</p>
+                <p class="titleCatalog">Catálogo Eletrônico</p>
             </div>
         </div>
     </header>
@@ -35,12 +35,15 @@
     <div id="content">
         <section class="filters">
             <div class="container">
-                <form action="">
+                <form action="{{ route('get.code') }}" method="POST">
+                    @csrf
                     <div class="rowForm">
-                        <input type="text" name="codEfrari" id="codEfrari" placeholder="Código Efrari, Número Original ou Referências">
-                        <a href="#" class="btnPesquisar">Pesquisar</a>
+                        <input type="text" name="code" id="codEfrari" placeholder="Código Efrari, Número Original ou Referências">
+                        <button type="submit" class="btnPesquisar">Pesquisar</a>
                     </div>
-                    <hr>
+                </form>
+                <form action="">
+                    @csrf
                     <div class="rowForm">
                         <select name="linha" id="linha">
                             <option selected="true" disabled="disabled">Linha</option>

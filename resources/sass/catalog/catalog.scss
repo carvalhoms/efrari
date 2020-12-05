@@ -2,8 +2,9 @@
     height: calc(100vh - 169px);
 }
 
-.header-nav p {
-    font-size: 20px;
+.titleCatalog {
+    font-size: 30px;
+    padding: 27px 10px;
 }
 
 input, select {
@@ -42,6 +43,11 @@ input, select {
     -webkit-transform: rotate(-45deg);
     transform: rotate(-45deg);
  }
+
+.filters .container {
+    display: flex;
+    flex-direction: column;
+}
 
 .rowForm {
     display: flex;

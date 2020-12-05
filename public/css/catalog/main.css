@@ -11238,8 +11238,9 @@ button.btnNewsletterContato {
   height: calc(100vh - 169px);
 }
 
-.header-nav p {
-  font-size: 20px;
+.titleCatalog {
+  font-size: 30px;
+  padding: 27px 10px;
 }
 
 input,
@@ -11277,6 +11278,11 @@ select:focus {
 .select::after {
   right: 20px;
   transform: rotate(-45deg);
+}
+
+.filters .container {
+  display: flex;
+  flex-direction: column;
 }
 
 .rowForm {

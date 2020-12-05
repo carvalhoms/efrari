@@ -20,19 +20,23 @@
     <div class="card-body">
         <ul class="nav nav-tabs" id="custom-content-below-tab" role="tablist">
             <li class="nav-item">
-                <a class="nav-link active" id="custom-content-below-home-tab" data-toggle="pill" href="#custom-content-below-home" role="tab" aria-controls="custom-content-below-home" aria-selected="true">Dados Produto</a>
+                <a class="nav-link active" id="custom-content-below-produto-tab" data-toggle="pill" href="#custom-content-below-produto" role="tab" aria-controls="custom-content-below-produto" aria-selected="true">Dados Produto</a>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" id="custom-content-below-profile-tab" data-toggle="pill" href="#custom-content-below-profile" role="tab" aria-controls="custom-content-below-profile" aria-selected="false">Aplicações</a>
+                <a class="nav-link" id="custom-content-below-aplicacao-tab" data-toggle="pill" href="#custom-content-below-aplicacao" role="tab" aria-controls="custom-content-below-aplicacao" aria-selected="false">Aplicações</a>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" id="custom-content-below-messages-tab" data-toggle="pill" href="#custom-content-below-messages" role="tab" aria-controls="custom-content-below-messages" aria-selected="false">Referências</a>
+                <a class="nav-link" id="custom-content-below-referencias-tab" data-toggle="pill" href="#custom-content-below-referencias" role="tab" aria-controls="custom-content-below-referencias" aria-selected="false">Referências</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" id="custom-content-below-imagem-tab" data-toggle="pill" href="#custom-content-below-imagem" role="tab" aria-controls="custom-content-below-imagem" aria-selected="false">Imagem</a>
             </li>
         </ul>
         <div class="tab-content" id="custom-content-below-tabContent">
-            <div class="tab-pane fade show active" id="custom-content-below-home" role="tabpanel" aria-labelledby="custom-content-below-home-tab">
+            <div class="tab-pane fade show active" id="custom-content-below-produto" role="tabpanel" aria-labelledby="custom-content-below-produto-tab">
                 @if ($errors->any())
                     <div class="alert alert-danger">
                         <ul>
@@ -95,9 +99,9 @@
                 </form>
             </div>
 
-            <div class="tab-pane fade" id="custom-content-below-profile" role="tabpanel" aria-labelledby="custom-content-below-profile-tab">
+            <div class="tab-pane fade" id="custom-content-below-aplicacao" role="tabpanel" aria-labelledby="custom-content-below-aplicacao-tab">
                 <div class="card">
-                    <div class="card-header" style="display: flex; justify-content:flex-end; border-bottom:none">
+                    <div class="card-header" style="display: flex; justify-content:flex-start; border-bottom:none">
                         <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#modal-aplicacao"> Incluir Aplicação </button>
                     </div>
 
@@ -177,11 +181,11 @@
                 </div>
             </div>
 
-            <div class="tab-pane fade" id="custom-content-below-messages" role="tabpanel" aria-labelledby="custom-content-below-messages-tab">
+            <div class="tab-pane fade" id="custom-content-below-referencias" role="tabpanel" aria-labelledby="custom-content-below-referencias-tab">
                 <div class="card">
-                    <div class="card-header" style="display: flex; justify-content:flex-end; border-bottom:none">
+                    <div class="card-header" style="display: flex; justify-content:flex-start; border-bottom:none">
                         <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#modal-referencias"> Incluir Referência </button>
-                      </div>
+                    </div>
                     <div class="card-body p-0">
                         <table class="table table-sm">
                         <thead>
@@ -251,6 +255,44 @@
                     </div>
                 </div>
             </div>
+
+            <div class="tab-pane fade" id="custom-content-below-imagem" role="tabpanel" aria-labelledby="custom-content-below-imagem-tab">
+                <div class="card">
+                    <div class="card-header" style="display: flex; justify-content:flex-start; border-bottom:none">
+                        <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#modal-imagem"> Carregar Imagem </button>
+                    </div>
+                    <div class="card-body p-0">
+                        <div class="imgProductAdm">
+                            <img src="{{ asset('storage/'. ($produto->img === null ? 'produtosImg/semImg.jpg' : $produto->img)) }}" alt="Produto sem Foto">
+                        </div>
+                    </div>
+
+                    <div class="modal fade" id="modal-imagem">
+                        <div class="modal-dialog modal-lg">
+                            <div class="modal-content">
+                                <form action="{{ route('produto.uploadImg') }}" method="POST" enctype="multipart/form-data">
+                                    <input type="hidden" name="idProduto" value="{{ $produto->id }}">
+                                    @csrf
+                                    <div class="modal-header">
+                                        <h4 class="modal-title">Upload Imagem</h4>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <input type="file" name="uploadImg">
+                                    </div>
+                                    <div class="modal-footer justify-content-between">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                                        <button type="submit" class="btn btn-primary">Salvar</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
         </div>
     </div>
 </div>
@@ -259,6 +301,12 @@
 
 @section('css')
     <link rel="stylesheet" href="{{ url(mix('css/admin/main.css')) }}">
+
+    <style>
+        .imgProductAdm img {
+            height: 100%;
+        }
+    </style>
 @stop
 
 @section('js')

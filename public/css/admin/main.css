@@ -27,3 +27,15 @@
   padding-left: 11px;
 }
 
+.imgProductAdm {
+  width: 250px;
+  height: 188px;
+  border: 1px solid #ced4da;
+  border-radius: 5px;
+  margin: 20px;
+}
+
+.imgProductAdm img {
+  width: 100%;
+}
+
