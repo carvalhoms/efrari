@@ -26,7 +26,8 @@ mix
         'node_modules/bootstrap/dist/js/bootstrap.js',
         'node_modules/owl.carousel/dist/owl.carousel.js',
         'node_modules/wow.js/dist/wow.js',
-        'resources/js/site.js'
+        'resources/js/site.js',
+        'resources/js/catalog.js'
     ], 'public/js/site/main.js')
     .version()
 

@@ -27,7 +27,7 @@
         <div id="header-nav">
             <div class="container">
                 <img src="{{ asset('images/logo.png') }}" alt="Logo Header">
-                <p class="titleCatalog">Catálogo Eletrônico</p>
+                <p class="titleCatalog">Catálogo Online</p>
             </div>
         </div>
     </header>
@@ -35,65 +35,41 @@
     <div id="content">
         <section class="filters">
             <div class="container">
-                <form action="{{ route('get.code') }}" method="POST">
-                    @csrf
+                <form id="codeForm">
                     <div class="rowForm">
-                        <input type="text" name="code" id="codEfrari" placeholder="Código Efrari, Número Original ou Referências">
-                        <button type="submit" class="btnPesquisar">Pesquisar</a>
+                        <input type="text" name="code" id="codEfrari" placeholder="Pesquisa por Código EFRARI, Número Original ou Referência" required>
+                        <button type="submit" class="btnPesquisar">Pesquisar</button>
                     </div>
                 </form>
-                <form action="">
-                    @csrf
+                <form id="aplicForm">
                     <div class="rowForm">
-                        <select name="linha" id="linha">
-                            <option selected="true" disabled="disabled">Linha</option>
-                            <option value="">Leves</option>
-                            <option value="">Utilitários</option>
-                            <option value="">Pesados</option>
+                        <select name="desc" id="desc" required="required" onchange="onMont()">
+                            <option value="" selected="true" disabled="disabled">Selecionar Produto</option>
+                            @foreach ($descricoes as $descricao)
+                                <option value="{{ $descricao->id }}">{{ $descricao->name }}</option>
+                            @endforeach
                         </select>
                         
-                        <select name="linha" id="linha">
-                            <option selected="true" disabled="disabled">Produto</option>
-                            <option value="">Selecione 2</option>
-                            <option value="">Selecione 3</option>
+                        <select name="mont" id="mont" onChange="getVeiculo()" required disabled>
+                            <option value="" selected="true" disabled="disabled">Selecionar Montadora</option>
+                            @foreach ($montadoras as $montadora)
+                                <option value="{{ $montadora->id }}">{{ $montadora->name }}</option>
+                            @endforeach
+                        </select>
+    
+                        <select name="veic" id="veic" disabled>
+                            <option value="" selected="true" disabled="disabled">Selecionar Veículo</option>
                         </select>
                         
-                        <select name="linha" id="linha">
-                            <option selected="true" disabled="disabled">Montadora</option>
-                            <option value="">Selecione 2</option>
-                            <option value="">Selecione 3</option>
-                        </select>
-    
-                        <select name="linha" id="linha">
-                            <option selected="true" disabled="disabled">Veículo</option>
-                            <option value="">Selecione 2</option>
-                            <option value="">Selecione 3</option>
-                        </select>
-    
-                        <a href="#" class="btnPesquisar">Pesquisar</a>
+                        <button type="submit" class="btnPesquisar">Pesquisar</button>
                     </div>
                 </form>
             </div>
         </section>
         <hr>
-
-        <section class="resultItens">
-            <div class="container">
-                <div class="card">
-
-                </div>
-
-                <div class="card">
-                    
-                </div>
-
-                <div class="card">
-                    
-                </div>
-            </div>
-        </section>
+        <section class="resultItens"><div class="container"></div></section>
     </div>
-    
+
     <footer>
         <div class="container">
             <div>Efrari Cabos Flexíveis | © 2020 | Todos os direitos reservados</div>

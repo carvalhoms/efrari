@@ -11258,7 +11258,14 @@ select {
 input:focus,
 select:focus {
   border: 1px solid #144735;
-  background-color: #f1f1f1;
+  background-color: #f3f3f3;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px #f3f3f3 inset !important;
 }
 
 .select::before,
@@ -11311,11 +11318,69 @@ form {
   border: 1px solid #144735;
 }
 
-.card {
-  width: 33%;
+.resultItens .container {
+  flex-wrap: wrap;
+}
+
+.resultItens a {
+  text-decoration: none;
+}
+
+.resultItens a:hover {
+  text-decoration: none;
+}
+
+.resultItens .card {
+  display: flex;
+  flex-direction: row;
+  min-width: 540px;
   height: 150px;
   padding: 10px;
-  margin: 5px;
+  margin: 10px;
   border: 1px solid #ccc;
+  border-bottom: 3px solid #02774b;
+  cursor: pointer;
+}
+
+.resultItens .card:hover {
+  background-color: #f5f5f5;
+}
+
+.resultItens .card .img {
+  width: 190px;
+}
+
+.resultItens .card .img img {
+  width: 100%;
+  mix-blend-mode: darken;
+}
+
+.resultItens .card .cardRow {
+  padding: 3px;
+  margin-left: 18px;
+}
+
+.resultItens .card .cardCod {
+  font-size: 17px;
+  font-weight: 600;
+  color: #02774b;
+  margin-top: 10px;
+}
+
+.resultItens .card .cardDesc {
+  font-size: 16px;
+  font-weight: 500;
+  color: #02774b;
+}
+
+.resultItens .card .cardLinha,
+.resultItens .card .cardMed,
+.resultItens .card .cardMont {
+  font-size: 14px;
+  color: #333;
+}
+
+.resultItens .noCard {
+  margin: 0 auto;
 }
 

@@ -20,8 +20,15 @@ input, select {
 
     &:focus {
         border: 1px solid $color-additional;
-        background-color: #f1f1f1;
+        background-color: #f3f3f3;
     }
+}
+    
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active  {
+    -webkit-box-shadow: 0 0 0 30px #f3f3f3 inset !important;
 }
 
 .select::before, .select::after{
@@ -30,19 +37,19 @@ input, select {
     top: 50%;
     border-top: 2px solid blue;
     width: 10px;
- }
+}
  
- .select::before{
+.select::before{
     right: 26px;
     -webkit-transform: rotate(45deg);
     transform: rotate(45deg);
- }
+}
  
- .select::after{
+.select::after{
     right: 20px;
     -webkit-transform: rotate(-45deg);
     transform: rotate(-45deg);
- }
+}
 
 .filters .container {
     display: flex;
@@ -75,10 +82,72 @@ form {
     }
 }
 
-.card {
-    width: 33%;
-    height: 150px;
-    padding: 10px;
-    margin: 5px;
-    border: 1px solid $color-grey-layout;
+.resultItens {
+    .container {
+        flex-wrap: wrap;
+    }
+
+    a {
+        text-decoration: none;
+
+        &:hover {
+            text-decoration: none;
+        }
+    }
+
+    .card {
+        display: flex;
+        flex-direction: row;
+        min-width: 540px;
+        height: 150px;
+        padding: 10px;
+        margin: 10px;
+        border: 1px solid $color-grey-layout;
+        border-bottom: 3px solid $color-primary;
+        cursor: pointer;
+
+        &:hover {
+            background-color: #f5f5f5;
+        }
+
+        .img {
+            width: 190px;
+    
+            img {
+                width: 100%;
+                mix-blend-mode: darken;
+            }
+        }
+
+        .cardRow {
+            padding: 3px;
+            margin-left: 18px;
+        }
+
+        .cardCod {
+            font-size: 17px;
+            font-weight: 600;
+            color: $color-primary;
+            margin-top: 10px;
+        }
+
+        .cardDesc {
+            font-size: 16px;
+            font-weight: 500;
+            color: $color-primary;
+
+
+        }
+
+        .cardLinha, .cardMed, .cardMont {
+            font-size: 14px;
+            color: #333;
+        }
+    }
+
+    .noCard {
+        margin: 0 auto;
+    }
+
 }
+

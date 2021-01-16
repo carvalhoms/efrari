@@ -15,8 +15,12 @@ class CreateMontadorasTable extends Migration
     {
         Schema::create('montadoras', function (Blueprint $table) {
             $table->bigIncrements('id');
+                $table->unsignedBigInteger('linha_id');
+
             $table->string('name')->unique();
             $table->timestamps();
+
+                $table->foreign('linha_id')->references('id')->on('linhas');
         });
     }
 

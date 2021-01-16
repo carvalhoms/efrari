@@ -13,4 +13,8 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::post('catalogo/code/search', 'Site\CatalogoController@getCode')->name('get.code');
+Route::get('/catalogo/code/search/{code}', 'Site\CatalogoController@getCode')->name('get.code');
+
+Route::get('catalogo/getVeiculo/{mont}', 'Site\catalogoController@getVeiculos')->name('get.veiculo');
+
+Route::get('catalogo/aplic/search/{desc}/{mont}/{aplic?}', 'Site\catalogoController@getAplic')->name('get.aplic');

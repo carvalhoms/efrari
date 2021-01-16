@@ -42,9 +42,7 @@ Route::get('/', 'Site\SiteController@index')->name('site');
 Route::get('/getRepre/{uf}', 'Site\SiteController@getRepre')->name('getRepre');
 Route::post('/saveEmail', 'Admin\Site\NewsletterController@store')->name('saveEmail');
 
-Route::get('/catalogo', function () {
-    return view('/catalog.index');
-});
+Route::get('/catalogo', 'Site\CatalogoController@index')->name('catalog.index');
 
 Auth::routes();
 

@@ -266,7 +266,6 @@
                             <img src="{{ asset('storage/'. ($produto->img === null ? 'produtosImg/semImg.jpg' : $produto->img)) }}" alt="Produto sem Foto">
                         </div>
                     </div>
-
                     <div class="modal fade" id="modal-imagem">
                         <div class="modal-dialog modal-lg">
                             <div class="modal-content">
