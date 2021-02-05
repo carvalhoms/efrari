@@ -17,7 +17,7 @@ class CreateMontadorasTable extends Migration
             $table->bigIncrements('id');
                 $table->unsignedBigInteger('linha_id');
 
-            $table->string('name')->unique();
+            $table->string('name');
             $table->timestamps();
 
                 $table->foreign('linha_id')->references('id')->on('linhas');

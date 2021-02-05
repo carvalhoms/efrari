@@ -145,7 +145,7 @@ function newCard(data) {
         card.appendChild(img);
 
         let image = document.createElement('img');
-        image.setAttribute('src', `http://efrari.test/storage/${product.imagem}`);
+        image.setAttribute('src', `http://efrari.test/storage/produtosImg/${product.imagem}`);
         image.setAttribute('alt', 'Imagem produto');
         img.appendChild(image);
 

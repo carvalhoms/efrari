@@ -44,21 +44,29 @@
                 <form id="aplicForm">
                     <div class="rowForm">
                         <select name="desc" id="desc" required="required" onchange="onMont()">
-                            <option value="" selected="true" disabled="disabled">Selecionar Produto</option>
+                            <option value="" selected="true" disabled="disabled">Produto</option>
                             @foreach ($descricoes as $descricao)
                                 <option value="{{ $descricao->id }}">{{ $descricao->name }}</option>
                             @endforeach
                         </select>
+
+                        <select name="linha" id="linha">
+                            <option value="" disabled="disabled">Linha</option>
+                            <option value="">Agrícolas</option>
+                            <option value="">Leves</option>
+                            <option value="">Pesados</option>
+                            <option value="">Utilitários</option>
+                        </select>
                         
                         <select name="mont" id="mont" onChange="getVeiculo()" required disabled>
-                            <option value="" selected="true" disabled="disabled">Selecionar Montadora</option>
+                            <option value="" selected="true" disabled="disabled">Montadora</option>
                             @foreach ($montadoras as $montadora)
                                 <option value="{{ $montadora->id }}">{{ $montadora->name }}</option>
                             @endforeach
                         </select>
     
                         <select name="veic" id="veic" disabled>
-                            <option value="" selected="true" disabled="disabled">Selecionar Veículo</option>
+                            <option value="" selected="true" disabled="disabled">Veículo</option>
                         </select>
                         
                         <button type="submit" class="btnPesquisar">Pesquisar</button>

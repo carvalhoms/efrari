@@ -21,7 +21,7 @@ class ProdutoResource extends JsonResource
             'linha' => $this->linha->name,
             'descricao' => $this->descricao->name,
             'comprimento' => $this->comp,
-            'imagem' => $this->img === null ? '/produtosImg/semImg.jpg' : $this->img,
+            'imagem' => $this->img === null ? 'semImg.jpeg' : $this->img,
             'referencias' => ReferenciaResource::collection($this->referencias),
             'aplicacoes' => AplicacaoResource::collection($this->aplicacoes),
         ];

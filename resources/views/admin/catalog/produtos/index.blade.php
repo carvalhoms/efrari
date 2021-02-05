@@ -25,6 +25,7 @@
           <th>Descrição</th>
           <th>Linha</th>
           <th>Comp.(mm)</th>
+          <th>Imagem</th>
           <th class="reduzColTitle">Ações</th>
         </tr>
         </thead>
@@ -32,10 +33,11 @@
           @foreach ($produtos as $produto)
             <tr>
               <td>{{ $produto->codigo }}</td>
-              <td>{{ $produto->descricao->name }}</td>
+              <td>{{ $produto->descricao['name'] }}</td>
               <td>{{ $produto->linha->name }}</td>
               <td>{{ $produto->comp }}</td>
-              
+              <td><img style="width: 60px" src="{{ asset('storage/produtosImg/'. ($produto->img === null ? 'semImg.jpeg' : $produto->img)) }}" alt=""></td>
+
               <td class="reduzCol">
                 <div class="btn-group">
                   <form action="{{ route('produtos.edit', ['produto' => $produto->id]) }}">

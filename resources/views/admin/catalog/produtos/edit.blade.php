@@ -263,7 +263,7 @@
                     </div>
                     <div class="card-body p-0">
                         <div class="imgProductAdm">
-                            <img src="{{ asset('storage/'. ($produto->img === null ? 'produtosImg/semImg.jpg' : $produto->img)) }}" alt="Produto sem Foto">
+                            <img src="{{ asset('storage/produtosImg/'. ($produto->img === null ? 'semImg.jpeg' : $produto->img)) }}" alt="Produto sem Foto">
                         </div>
                     </div>
                     <div class="modal fade" id="modal-imagem">

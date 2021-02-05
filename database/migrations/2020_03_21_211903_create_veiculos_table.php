@@ -18,7 +18,7 @@ class CreateVeiculosTable extends Migration
                 $table->unsignedBigInteger('montadora_id');
                 $table->unsignedBigInteger('linha_id');
 
-            $table->string('name')->unique();
+            $table->string('name');
             $table->timestamps();
 
                 $table->foreign('montadora_id')->references('id')->on('montadoras');
