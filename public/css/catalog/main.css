@@ -11318,7 +11318,12 @@ form {
   border: 1px solid #144735;
 }
 
+.resultItens {
+  overflow: scroll;
+}
+
 .resultItens .container {
+  height: calc(100vh - 315px);
   flex-wrap: wrap;
 }
 
@@ -11377,7 +11382,13 @@ form {
 .resultItens .card .cardMed,
 .resultItens .card .cardMont {
   font-size: 14px;
-  color: #333;
+  color: #000;
+}
+
+.resultItens .card span {
+  font-size: 14px;
+  font-weight: 400;
+  color: #666;
 }
 
 .resultItens .noCard {

@@ -39,17 +39,15 @@
                     </div>
 
                     <div class="form-group">
-                        <div class="form-group">
-                            <div class="col-md-6">
-                                <label for="name"> Assossie a uma Montadora </label>
-                                <select name="montadora" id="montadora" class="form-control">
-                                    <option selected disabled>Selecione uma Montadora</option>
+                        <div class="col-md-6">
+                            <label for="name"> Assossie a uma Montadora </label>
+                            <select name="montadora" id="montadora" class="form-control">
+                                <option selected disabled>Selecione uma Montadora</option>
 
-                                    @foreach ($montadoras as $montadora)
-                                        <option value="{{ $montadora->id }}"> {{ $montadora->name }} </option>
-                                    @endforeach
-                                </select>
-                            </div>
+                                @foreach ($montadoras as $montadora)
+                                    <option value="{{ $montadora->id }}"> {{ $montadora->name . ' - ('. $montadora->linha['name'] .')' }} </option>
+                                @endforeach
+                            </select>
                         </div>
                     </div>
                 </div>

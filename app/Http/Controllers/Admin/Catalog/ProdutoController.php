@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Admin\Catalog;
 use App\Http\Controllers\Controller;
 use Illuminate\Validation\Rule;
 use App\Model\Descricao;
-use App\Model\Linha;
 use App\Model\Produto;
 use App\Model\Montadora;
 use App\Model\Referencia;
@@ -35,9 +34,8 @@ class ProdutoController extends Controller
     public function create()
     {
         $descricoes = Descricao::all(['id', 'name']);
-        $linhas = Linha::all(['id', 'name']);
 
-        return view('admin.catalog.produtos.create', compact('descricoes', 'linhas'));
+        return view('admin.catalog.produtos.create', compact('descricoes'));
     }
 
     /**
@@ -56,15 +54,12 @@ class ProdutoController extends Controller
                 'unique:produtos,codigo',
             ],
             'descricao' => 'required',
-            'linha' => 'required'
         ]);
 
         $descricao = $request->descricao;
-        $linha = $request->linha;
         $produto = Produto::create($request->all());
 
         $produto->descricao()->associate($descricao);
-        $produto->linha()->associate($linha);
         
         $produto->save();
 
@@ -92,13 +87,12 @@ class ProdutoController extends Controller
     {
         $produto = Produto::find($id);
         $descricoes = Descricao::all();
-        $linhas = Linha::all();
         $montadoras = Montadora::all();
 
         $referencias = $produto->referencias()->get();
         $aplicacoes = $produto->aplicacoes()->get();
         
-        return view('admin.catalog.produtos.edit', compact('produto', 'descricoes', 'linhas', 'referencias', 'montadoras', 'aplicacoes'));
+        return view('admin.catalog.produtos.edit', compact('produto', 'descricoes', 'referencias', 'montadoras', 'aplicacoes'));
     }
 
     /**
@@ -118,18 +112,15 @@ class ProdutoController extends Controller
                 'max:25'
             ],
             'descricao' => 'required',
-            'linha' => 'required'
         ]);
 
 
         $produto = Produto::find($produto);
         $descricao = Descricao::find($request->descricao);
-        $linha = Linha::find($request->linha);
 
         $produto->update($request->all());
 
         $produto->descricao()->associate($descricao);
-        $produto->linha()->associate($linha);
         $produto->save();
 
         return redirect()->route('produtos.index');
@@ -143,7 +134,13 @@ class ProdutoController extends Controller
      */
     public function destroy($id)
     {
-        Produto::find($id)->delete();
+        $produto = Produto::find($id);
+        
+        if ($produto->img !== null) {
+            Storage::delete('produtosImg/'.$produto->img);
+        }
+
+        $produto->delete();
 
         return redirect()->route('produtos.index');
     }
@@ -153,13 +150,25 @@ class ProdutoController extends Controller
         $produto = produto::find($request->idProduto);
 
         if ($produto->img !== null) {
-            Storage::delete($produto->img);
+            Storage::delete('produtosImg/'.$produto->img);
         }
 
-        $file = $request->file('uploadImg')->store('produtosImg');
-        
-        $produto->img = $file;
-        $produto->update();
+        $image = $request->file('uploadImg');
+        $fileType = $image->extension();
+
+        if ($image->isValid()) {
+
+            if ($fileType === 'jpeg' || $fileType ==='png') {
+                $image->store('produtosImg');
+
+                $produto->img = $image->hashName();
+                $produto->update();
+            } else {
+                dd('Imagem inválida');
+            }
+        } else {
+            dd('Arquivo inválido');
+        }
 
         return redirect()->back();
     }

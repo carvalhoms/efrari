@@ -212,47 +212,33 @@ return [
         ],
 
         'ADMINISTRAÇÃO CATÁLOGO',
-        
         [
             'text'  =>  'Produtos Cadastrados',
             'url'   =>  'admin/produtos',
             'icon'  =>  'fas fa-fw fa-barcode',
         ],
         [
-            'text'      =>    'Perfil de Produtos',
-            'icon'      =>    'fas fa-fw fa-sitemap',
-            'submenu'   =>    [
-                [
-                    'text'  =>  'Linhas',
-                    'url'   =>  'admin/linhas',
-                    'icon'  =>  'fas fa-fw fa-project-diagram',
-                ],
-                [
-                    'text'  =>  'Descrições',
-                    'url'   =>  'admin/descricao',
-                    'icon'  =>  'fas fa-fw fa-car',
-                ],
-            ],
+            'text'  =>  'Descrições de Produtos',
+            'url'   =>  'admin/descricao',
+            'icon'  =>  'fas fa-fw fa-box',
         ],
         [
-            'text'      =>    'Aplicações',
-            'icon'      =>    'fas fa-fw fa-puzzle-piece',
-            'submenu'   =>    [
-                [
-                    'text'  =>  'Montadoras',
-                    'url'   =>  'admin/montadoras',
-                    'icon'  =>  'fas fa-fw fa-cogs',
-                ],
-                [
-                    'text'  =>  'Veículos',
-                    'url'   =>  'admin/veiculos',
-                    'icon'  =>  'fas fa-fw fa-car',
-                ],
-            ],
+            'text'  =>  'Linhas',
+            'url'   =>  'admin/linhas',
+            'icon'  =>  'fas fa-fw fa-project-diagram',
+        ],
+        [
+            'text'  =>  'Montadoras',
+            'url'   =>  'admin/montadoras',
+            'icon'  =>  'fas fa-fw fa-cogs',
+        ],
+        [
+            'text'  =>  'Veículos',
+            'url'   =>  'admin/veiculos',
+            'icon'  =>  'fas fa-fw fa-car',
         ],
 
         'PAINEL ADMIN',
-        
         [
             'text'  =>  'Usuários',
             'url'   =>  'admin/settings',

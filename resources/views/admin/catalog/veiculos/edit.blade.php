@@ -27,7 +27,7 @@
                 </div>
             @endif
 
-            <form action="{{ route('veiculos.update', $veiculo) }}" method="post">
+            <form action="{{ route('veiculos.update', $veiculo) }}" method="POST">
                 @csrf
                 @method('PUT')
                 <div class="card-body">
@@ -45,7 +45,7 @@
                                 <label for="name"> Assossie a uma Montadora </label>
                                 <select name="montadora" id="montadora" class="form-control">
                                     @foreach ($montadoras as $montadora)
-                                        <option value="{{ $montadora->id }}" {{ $montadora->name === $veiculo->montadora->name ? 'selected' : '' }}> {{ $montadora->name }} </option>
+                                        <option value="{{ $montadora->id }}" {{ $montadora->id === $veiculo->montadora->id ? 'selected' : '' }}> {{ $montadora->name . ' - (' . $montadora->linha['name'] . ')' }} </option>
                                     @endforeach
                                 </select>
                             </div>

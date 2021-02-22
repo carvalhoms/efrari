@@ -20,7 +20,7 @@ class CreateMontadorasTable extends Migration
             $table->string('name');
             $table->timestamps();
 
-                $table->foreign('linha_id')->references('id')->on('linhas');
+                $table->foreign('linha_id')->references('id')->on('linhas')->onDelete('cascade');
         });
     }
 

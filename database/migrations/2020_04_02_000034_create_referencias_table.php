@@ -21,7 +21,7 @@ class CreateReferenciasTable extends Migration
 
             $table->string('marca');
 
-                $table->foreign('produto_id')->references('id')->on('produtos');
+                $table->foreign('produto_id')->references('id')->on('produtos')->onDelete('cascade');
             $table->timestamps();
         });
     }

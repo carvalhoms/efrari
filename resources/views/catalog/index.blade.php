@@ -43,21 +43,20 @@
                 </form>
                 <form id="aplicForm">
                     <div class="rowForm">
-                        <select name="desc" id="desc" required="required" onchange="onMont()">
+                        <select name="linha" id="linha" onchange="onDesc()" required>
+                            <option value="" selected="true" disabled="disabled">Linha</option>
+                            @foreach ($linhas as $linha)
+                                <option value="{{ $linha->id }}">{{ $linha->name }}</option>
+                            @endforeach
+                        </select>
+
+                        <select name="desc" id="desc" onchange="onMont()" required disabled="disable">
                             <option value="" selected="true" disabled="disabled">Produto</option>
                             @foreach ($descricoes as $descricao)
                                 <option value="{{ $descricao->id }}">{{ $descricao->name }}</option>
                             @endforeach
                         </select>
 
-                        <select name="linha" id="linha">
-                            <option value="" disabled="disabled">Linha</option>
-                            <option value="">Agrícolas</option>
-                            <option value="">Leves</option>
-                            <option value="">Pesados</option>
-                            <option value="">Utilitários</option>
-                        </select>
-                        
                         <select name="mont" id="mont" onChange="getVeiculo()" required disabled>
                             <option value="" selected="true" disabled="disabled">Montadora</option>
                             @foreach ($montadoras as $montadora)

@@ -38,6 +38,19 @@
                             onfocus="this.selectionStart = this.selectionEnd = this.value.length;" autofocus="true">
                         </div>
                     </div>
+
+                    <div class="form-group">
+                        <div class="form-group">
+                            <div class="col-md-6">
+                                <label for="linha"> Linha </label>
+                                <select name="linha" id="linha" class="form-control">
+                                    @foreach ($linhas as $linha)
+                                        <option value="{{ $linha->id }}" {{ $linha->name === $montadora->linha->name ? 'selected' : '' }}> {{ $linha->name }} </option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="card-footer">

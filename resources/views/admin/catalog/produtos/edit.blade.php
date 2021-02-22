@@ -77,19 +77,6 @@
                                 </div>
                             </div>
                         </div>
-                        
-                        <div class="form-group">
-                            <div class="form-group">
-                                <div class="col-md-6">
-                                    <label for="linha"> Linha </label>
-                                    <select name="linha" id="linha" class="form-control">
-                                        @foreach ($linhas as $linha)
-                                            <option value="{{ $linha->id }}" {{ $linha->name === $produto->linha->name ? 'selected' : '' }}> {{ $linha->name }} </option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
                     </div>
 
                     <div class="card-footer">
@@ -109,6 +96,7 @@
                         <table class="table table-sm">
                         <thead>
                             <tr>
+                            <th>Linha</th>
                             <th>Montadora</th>
                             <th>Aplicação</th>
                             <th style="width: 50px">Ações</th>
@@ -118,6 +106,7 @@
                         <tbody>
                             @foreach ($aplicacoes as $aplicacao)                            
                                 <tr>
+                                <td>{{ $aplicacao->montadora->linha->name }}</td>
                                 <td>{{ $aplicacao->montadora->name }}</td>
                                 <td>{{ $aplicacao->aplic }}</td>
                                 <td>
@@ -163,7 +152,7 @@
                                                 <label for="montadora"> Montadora </label>
                                                 <select name="montadora_id" id="montadora_id" class="form-control">
                                                     @foreach ($montadoras as $montadora)
-                                                        <option value="{{ $montadora->id }}">{{ $montadora->name }}</option>
+                                                        <option value="{{ $montadora->id }}">{{ $montadora->name . " - (" . $montadora->linha['name'] . ")" }}</option>
                                                     @endforeach
                                                 </select>
                                             </div>

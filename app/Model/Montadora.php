@@ -14,13 +14,13 @@ class Montadora extends Model
         'created_at', 'updated_at',
     ];
 
+    public function linha()
+    {
+        return $this->belongsTo(Linha::class);
+    }
+
     public function veiculos()
     {
         return $this->hasMany(Veiculo::class);
-    }
-
-    public function aplicacao()
-    {
-        return $this->hasOne(Aplicacao::class);
     }
 }

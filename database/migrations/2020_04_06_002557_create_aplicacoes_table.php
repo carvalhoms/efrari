@@ -19,8 +19,8 @@ class CreateAplicacoesTable extends Migration
                 $table->unsignedBigInteger('montadora_id')->nullable();
             $table->string('aplic');
 
-                $table->foreign('produto_id')->references('id')->on('produtos');
-                $table->foreign('montadora_id')->references('id')->on('montadoras');
+                $table->foreign('produto_id')->references('id')->on('produtos')->onDelete('cascade');
+                $table->foreign('montadora_id')->references('id')->on('montadoras')->onDelete('cascade');
             $table->timestamps();
         });
     }

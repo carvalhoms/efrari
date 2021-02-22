@@ -1,3 +1,13 @@
+// Abilita select Linha
+function onDesc() {
+    let linha = document.querySelector("#linha");
+    if(linha.options[linha.selectedIndex].value != "") {
+        let desc = document.querySelector("#desc");
+        desc.removeAttribute('disabled');
+    }
+}
+
+// Abilita select Descrições
 function onMont() {
     let desc = document.querySelector("#desc");
     if(desc.options[desc.selectedIndex].value != "") {
@@ -6,7 +16,7 @@ function onMont() {
     }
 }
 
-// Filtro Aplicações AJAX
+// Função AJAX
 function ajax(config) {
     let xhr = new XMLHttpRequest();
     xhr.open(config.method, config.url, true);
@@ -25,11 +35,19 @@ function ajax(config) {
     xhr.send();
 }
 
+// Captura ação formulário pesquisa por código
 const codeForm = document.querySelector('#codeForm');
-
 codeForm.addEventListener('submit', function(e) {
     e.preventDefault();
     getCode();
+});
+
+
+// Captura ação formulário pesquisa por aplicação
+const aplicForm = document.querySelector('#aplicForm');
+aplicForm.addEventListener('submit', function(e) {
+    e.preventDefault();
+    getAplic();
 });
 
 function getCode() {
@@ -65,7 +83,7 @@ function getVeiculo(){
 
     let opDefault = document.createElement('option');
     opDefault.setAttribute('value', '');
-    opDefault.innerHTML = 'Selecionar Veículo';
+    opDefault.innerHTML = 'Veículo';
     veic.appendChild(opDefault);
 
     ajax({
@@ -94,15 +112,6 @@ function listVeiculos(data) {
     let select = document.querySelector('#veic');
     veiculos.forEach(veiculo => select.appendChild(veiculo));
 }
-
-
-const aplicForm = document.querySelector('#aplicForm');
-
-aplicForm.addEventListener('submit', function(e) {
-    e.preventDefault();
-    getAplic();
-});
-
 
 function getAplic() {
     let container = document.querySelector('.resultItens > .container');
@@ -155,23 +164,23 @@ function newCard(data) {
 
         let pCode = document.createElement('p');
         pCode.classList.add('cardRow','cardCod');
-        pCode.innerHTML = product.codigo;
+        pCode.innerHTML = '<span>Código: </span>' + product.codigo;
 
         let pDesc = document.createElement('p');
         pDesc.classList.add('cardRow', 'cardDesc');
-        pDesc.innerHTML = product.descricao;
+        pDesc.innerHTML = '<span>Produto: </span>' + product.descricao;
 
         let pLine = document.createElement('p');
         pLine.classList.add('cardRow', 'cardLinha');
-        pLine.innerHTML = product.linha;
+        pLine.innerHTML = '<span>Linha: </span>' + product.linha;
 
         let pDim = document.createElement('p');
         pDim.classList.add('cardRow', 'cardMed');
-        pDim.innerHTML = product.comprimento;
+        pDim.innerHTML = '<span>Comprimento: </span>' + product.comprimento + 'mm';
 
         let pMont = document.createElement('p');
         pMont.classList.add('cardRow', 'cardMont');
-        pMont.innerHTML = 'Aplicações';
+        pMont.innerHTML = '<span>Montadoras: </span>' + 'Fiat, Ford, General Motors';
 
         infoProd.appendChild(pCode);
         infoProd.appendChild(pDesc);

@@ -37,6 +37,10 @@ class CatalogoController extends Controller
         return ProdutoResource::collection($resultados);
     }
 
+    public function getMont() {
+        
+    }
+
     public function getVeiculos(Veiculo $veiculo, $mont)
     {
         $veiculos = $veiculo->where('montadora_id', $mont)->orderBy('name', 'asc')->get();

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 use App\Model\Montadora;
+use App\Model\Linha;
 
 class MontadoraController extends Controller
 {
@@ -27,7 +28,9 @@ class MontadoraController extends Controller
      */
     public function create()
     {
-        return view('admin.catalog.montadoras.create');
+        $linhas = Linha::all(['id', 'name']);
+
+        return view('admin.catalog.montadoras.create', compact('linhas'));
     }
 
     /**
@@ -42,12 +45,17 @@ class MontadoraController extends Controller
         $request->validate([
             'name' => [
                 'required', //Campo requerido
-                'unique:montadoras,name',
                 'max:25' //Maximo de caracteres
             ],
+            'linha' => [
+                'required', //Campo requerido
+            ]
         ]);
 
-        Montadora::create($request->all());
+        $data = $request->all();
+
+        $linha = Linha::find($data['linha']);
+        $linha->montadoras()->create($data);
 
         return redirect()->route('montadoras.index');
     }
@@ -69,9 +77,12 @@ class MontadoraController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Montadora $montadora)
+    public function edit($id)
     {
-        return view('admin.catalog.montadoras.edit', compact('montadora'));
+        $montadora = Montadora::find($id);
+        $linhas = Linha::all();
+        
+        return view('admin.catalog.montadoras.edit', compact('linhas', 'montadora'));
     }
 
     /**
@@ -81,18 +92,23 @@ class MontadoraController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Montadora $montadora)
+    public function update(Request $request, $montadora)
     {
         //Validando Campos
         $request->validate([
             'name' => [
                 'required', //Campo requerido
-                Rule::unique('montadoras')->ignore($montadora), //Usando Classe Rule para campo unico mas permitindo Update
                 'max:25' //Maximo de caracteres
             ],
         ]);
 
+        $linha = Linha::find($request->linha);
+        $montadora = Montadora::find($montadora);
+
         $montadora->update($request->all());
+
+        $montadora->linha()->associate($linha);
+        $montadora->save();
 
         return redirect()->route('montadoras.index');
     }

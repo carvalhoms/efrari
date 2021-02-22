@@ -16,13 +16,11 @@ class CreateVeiculosTable extends Migration
         Schema::create('veiculos', function (Blueprint $table) {
             $table->bigIncrements('id');
                 $table->unsignedBigInteger('montadora_id');
-                $table->unsignedBigInteger('linha_id');
 
             $table->string('name');
             $table->timestamps();
 
-                $table->foreign('montadora_id')->references('id')->on('montadoras');
-                $table->foreign('linha_id')->references('id')->on('linhas');
+                $table->foreign('montadora_id')->references('id')->on('montadoras')->onDelete('cascade');
         });
     }
 

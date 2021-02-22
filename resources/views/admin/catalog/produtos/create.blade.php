@@ -64,21 +64,6 @@
                                 </div>
                             </div>
                         </div>
-                        
-                        <div class="form-group">
-                            <div class="form-group">
-                                <div class="col-md-6">
-                                    <label for="linha"> Assossie a uma Linha </label>
-                                    <select name="linha" id="linha" class="form-control">
-                                        <option selected disabled>Selecione uma Linha</option>
-    
-                                        @foreach ($linhas as $linha)
-                                            <option value="{{ $linha->id }}"> {{ $linha->name }} </option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
                     </div>
 
                     <div class="card-footer">

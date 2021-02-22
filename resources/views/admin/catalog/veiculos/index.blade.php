@@ -24,6 +24,7 @@
           <th>ID</th>
           <th>Veículo</th>
           <th>Montadora</th>
+          <th>Linha</th>
           <th class="reduzColTitle">Ações</th>
         </tr>
         </thead>
@@ -33,6 +34,7 @@
               <td>{{ $veiculo->id }}</td>
               <td>{{ $veiculo->name }}</td>
               <td>{{ $veiculo->montadora->name }}</td>
+              <td>{{ $veiculo->montadora->linha->name }}</td>
               
               <td class="reduzCol">
                 <div class="btn-group">

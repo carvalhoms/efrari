@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Admin\Catalog;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-
+use Illuminate\Validation\Rule;
 use App\Model\Montadora;
 use App\Model\Veiculo;
 
@@ -28,8 +28,7 @@ class VeiculoController extends Controller
      */
     public function create()
     {
-        
-        $montadoras = Montadora::all(['id', 'name']);
+        $montadoras = Montadora::all();
 
         return view('admin.catalog.veiculos.create', compact('montadoras'));
     }
@@ -47,7 +46,6 @@ class VeiculoController extends Controller
         $request->validate([
             'name' => [
                 'required',
-                'unique:veiculos,name',
             ],
             'montadora' => 'required'
         ]);

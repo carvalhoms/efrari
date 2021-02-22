@@ -14,8 +14,8 @@ class Linha extends Model
         'created_at', 'updated_at',
     ];
     
-    public function produto()
+    public function montadoras()
     {
-        return $this->hasOne(Produto::class);
+        return $this->hasMany(Montadora::class);
     }
 }

@@ -24,6 +24,7 @@
       <tr>
         <th>ID</th>
         <th>Montadoras</th>
+        <th>Linha</th>
         <th class="reduzColTitle">Ações</th>
       </tr>
       </thead>
@@ -32,6 +33,7 @@
           <tr>
             <td>{{ $montadora->id }}</td>
             <td>{{ $montadora->name }}</td>
+            <td>{{ $montadora->linha->name }}</td>
             <td class="reduzCol">
               <div class="btn-group">
                 <form action="{{ route('montadoras.edit', ['montadora' => $montadora->id]) }}">
