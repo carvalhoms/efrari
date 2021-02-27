@@ -11327,14 +11327,6 @@ form {
   flex-wrap: wrap;
 }
 
-.resultItens a {
-  text-decoration: none;
-}
-
-.resultItens a:hover {
-  text-decoration: none;
-}
-
 .resultItens .card {
   display: flex;
   flex-direction: row;

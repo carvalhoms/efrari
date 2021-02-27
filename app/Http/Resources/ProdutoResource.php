@@ -18,7 +18,6 @@ class ProdutoResource extends JsonResource
 
         return [
             'codigo' => $this->codigo,
-            'linha' => $this->linha->name,
             'descricao' => $this->descricao->name,
             'comprimento' => $this->comp,
             'imagem' => $this->img === null ? 'semImg.jpeg' : $this->img,

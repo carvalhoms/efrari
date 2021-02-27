@@ -19351,24 +19351,6 @@ function listaRepre(data) {
     let ulRepre = document.querySelector('#represList');
     repres.forEach(repre => ulRepre.appendChild(repre));
 }
-// Abilita select Linha
-function onDesc() {
-    let linha = document.querySelector("#linha");
-    if(linha.options[linha.selectedIndex].value != "") {
-        let desc = document.querySelector("#desc");
-        desc.removeAttribute('disabled');
-    }
-}
-
-// Abilita select Descrições
-function onMont() {
-    let desc = document.querySelector("#desc");
-    if(desc.options[desc.selectedIndex].value != "") {
-        let mont = document.querySelector("#mont");
-        mont.removeAttribute('disabled');
-    }
-}
-
 // Função AJAX
 function ajax(config) {
     let xhr = new XMLHttpRequest();
@@ -19388,25 +19370,126 @@ function ajax(config) {
     xhr.send();
 }
 
-// Captura ação formulário pesquisa por código
+// Abilita select Linhas
+function onLinha() {
+    let desc = document.querySelector("#desc");
+
+    if(desc.options[desc.selectedIndex].value != "") {
+        let linha = document.querySelector("#linha");
+        linha.removeAttribute('disabled');
+    }
+}
+
+// Select Montadoras
+function getMont() {
+    let linha = document.querySelector('#linha');
+    if(linha.options[linha.selectedIndex].value != "") {
+        let mont = document.querySelector("#mont");
+        mont.removeAttribute('disabled');
+    }
+
+    let option = linha.options[linha.selectedIndex].value;
+    let mont = document.querySelector('#mont')
+    mont.innerHTML = "";
+
+    let veic = document.querySelector('#veic')
+    veic.setAttribute('disabled', 'disabled');
+    veic.innerHTML = "";
+
+    let opDefault = document.createElement('option');
+    opDefault.setAttribute('value', '');
+    opDefault.innerHTML = 'Montadora';
+    mont.appendChild(opDefault);    
+
+    opDefault = document.createElement('option');
+    opDefault.setAttribute('value', '');
+    opDefault.innerHTML = 'Veiculo';
+    veic.appendChild(opDefault);
+
+    ajax({
+        method: 'GET',
+        url: 'api/catalogo/getMontadora/' + option,
+        sucesso(response) {
+            let data = JSON.parse(response);
+
+            listMontadoras(data);
+        },
+        erro(e){
+            alert('Erro!');
+        }
+    });
+
+    function listMontadoras(data) {
+        let montadoras = data.map(montadora => {
+            let option = document.createElement('option');
+            option.setAttribute('value', montadora.id);
+            option.innerHTML = montadora.name;
+    
+            return option;
+        });
+    
+        let select = document.querySelector('#mont');
+        montadoras.forEach(montadora => select.appendChild(montadora));
+    }
+}
+
+// Select Veículos
+function getVeiculo(){
+    let mont = document.querySelector('#mont');
+    if(mont.options[mont.selectedIndex].value != "") {
+        let veic = document.querySelector("#veic");
+        veic.removeAttribute('disabled');
+    }
+
+    let option = mont.options[mont.selectedIndex].value;
+    
+    let veic = document.querySelector('#veic')
+    veic.innerHTML = "";
+
+    let opDefault = document.createElement('option');
+    opDefault.setAttribute('value', '');
+    opDefault.innerHTML = 'Veiculo';
+    veic.appendChild(opDefault);
+
+    ajax({
+        url: 'api/catalogo/getVeiculo/' + option,
+        method: 'GET',
+        sucesso(response) {
+            let data = JSON.parse(response);
+
+            listVeiculos(data);
+        },
+        erro(e){
+            alert('Erro!');
+        }
+    });
+
+    function listVeiculos(data) {
+        let veiculos = data.map(veiculo => {
+            let option = document.createElement('option');
+            option.setAttribute('value', veiculo.name);
+            option.innerHTML = veiculo.name;
+    
+            return option;
+        });
+    
+        let select = document.querySelector('#veic');
+        veiculos.forEach(veiculo => select.appendChild(veiculo));
+    }
+}
+
+// Pesquisa por código
 const codeForm = document.querySelector('#codeForm');
 codeForm.addEventListener('submit', function(e) {
     e.preventDefault();
     getCode();
 });
 
-
-// Captura ação formulário pesquisa por aplicação
-const aplicForm = document.querySelector('#aplicForm');
-aplicForm.addEventListener('submit', function(e) {
-    e.preventDefault();
-    getAplic();
-});
-
 function getCode() {
+
     let container = document.querySelector('.resultItens > .container');
     container.innerHTML = '';
-
+    
     let dataCode = document.querySelector('#codEfrari').value;
 
     ajax({
@@ -19422,49 +19505,12 @@ function getCode() {
     });
 }
 
-function getVeiculo(){
-    let mont = document.querySelector("#mont");
-    if(mont.options[mont.selectedIndex].value != "") {
-        let veic = document.querySelector("#veic");
-        veic.removeAttribute('disabled');
-    }
-    
-    let option = mont.options[mont.selectedIndex].value;
-
-    let veic = document.querySelector('#veic');
-    veic.innerHTML = "";
-
-    let opDefault = document.createElement('option');
-    opDefault.setAttribute('value', '');
-    opDefault.innerHTML = 'Veículo';
-    veic.appendChild(opDefault);
-
-    ajax({
-        url: 'api/catalogo/getVeiculo/' + option,
-        method: 'GET',
-        sucesso(response) {
-            let data = JSON.parse(response);
-
-            listVeiculos(data);
-        },
-        erro(e){
-            alert('Erro!');
-        }
-    });
-}
-
-function listVeiculos(data) {
-    let veiculos = data.map(veiculo => {
-        let option = document.createElement('option');
-        option.setAttribute('value', veiculo.name);
-        option.innerHTML = veiculo.name;
-
-        return option;
-    });
-
-    let select = document.querySelector('#veic');
-    veiculos.forEach(veiculo => select.appendChild(veiculo));
-}
+// Pesquisa por aplicação
+const aplicForm = document.querySelector('#aplicForm');
+aplicForm.addEventListener('submit', function(e) {
+    e.preventDefault();
+    getAplic();
+});
 
 function getAplic() {
     let container = document.querySelector('.resultItens > .container');
@@ -19472,8 +19518,10 @@ function getAplic() {
 
     let descCode = document.querySelector('#desc').value;
     descCode = desc.options[desc.selectedIndex].value;
+
     let montCode = document.querySelector('#mont').value;
     montCode = mont.options[mont.selectedIndex].value;
+    
     let veicCode = document.querySelector('#veic').value;
     veicCode = veic.options[veic.selectedIndex].value;
 
@@ -19490,17 +19538,23 @@ function getAplic() {
     });
 }
 
+
+/*
+|--------------------------------------------------------------------------
+|  MONTA CARDS COM RESULTADOS
+|--------------------------------------------------------------------------
+|
+| Lista cards com produtos encontrados ou "Nenhum produto encontrado!"
+|
+*/
+
 function newCard(data) {
     let products = data.data.map(product => {
         let container = document.querySelector('.resultItens > .container');
 
-        let a = document.createElement('a');
-        a.setAttribute('href', '#');
-        container.appendChild(a);
-
         let card = document.createElement('div');
         card.classList.add('card');
-        a.appendChild(card);
+        container.appendChild(card);
 
         let img = document.createElement('div');
         img.classList.add('img');
@@ -19525,23 +19579,23 @@ function newCard(data) {
 
         let pLine = document.createElement('p');
         pLine.classList.add('cardRow', 'cardLinha');
-        pLine.innerHTML = '<span>Linha: </span>' + product.linha;
+        pLine.innerHTML = '<span>Linha: </span>' + product.aplicacoes[0]['linha'];
 
         let pDim = document.createElement('p');
         pDim.classList.add('cardRow', 'cardMed');
         pDim.innerHTML = '<span>Comprimento: </span>' + product.comprimento + 'mm';
 
-        let pMont = document.createElement('p');
-        pMont.classList.add('cardRow', 'cardMont');
-        pMont.innerHTML = '<span>Montadoras: </span>' + 'Fiat, Ford, General Motors';
+        let rAplic = document.createElement('p');
+        rAplic.classList.add('cardRow', 'cardMont');
+        rAplic.innerHTML = '<span>Resumo aplicação: </span>' + product.aplicacoes[0]['aplicacao'] + '...';
 
         infoProd.appendChild(pCode);
         infoProd.appendChild(pDesc);
         infoProd.appendChild(pLine);
         infoProd.appendChild(pDim);
-        infoProd.appendChild(pMont);
+        infoProd.appendChild(rAplic);
 
-        return a;
+        return card;
     })
 
     let containerProducts = document.querySelector('.resultItens > .container');
@@ -19555,4 +19609,8 @@ function noCard() {
     
     let containerProducts = document.querySelector('.resultItens > .container');
     containerProducts.appendChild(noCard);
+}
+
+function productView() {
+    
 }

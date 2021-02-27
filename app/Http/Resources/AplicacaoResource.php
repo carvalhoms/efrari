@@ -17,6 +17,7 @@ class AplicacaoResource extends JsonResource
         //return parent::toArray($request);
 
         return [
+            'linha' => $this->montadora->linha->name,
             'montadora' => $this->montadora->name,
             'aplicacao' => $this->aplic,
         ];
