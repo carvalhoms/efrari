@@ -19554,6 +19554,9 @@ function newCard(data) {
 
         let card = document.createElement('div');
         card.classList.add('card');
+        card.onclick = function () {
+            getProductView(product.codigo);
+        }
         container.appendChild(card);
 
         let img = document.createElement('div');
@@ -19611,6 +19614,31 @@ function noCard() {
     containerProducts.appendChild(noCard);
 }
 
-function productView() {
-    
+function getProductView(cod) {
+    let codigo = cod;
+
+    ajax({
+        url: 'api/catalogo/code/search/' + codigo,
+        method: 'GET',
+        sucesso(response) {
+            let data = JSON.parse(response);
+            productView(data);
+        },
+        erro(e){
+            alert('Erro!');
+        }
+    });
+}
+
+function productView(data) {
+    onModal();
+}
+
+function onModal() {
+    let modal = document.querySelector('#modalProductView');
+    modal.classList.add('onModal');
+}
+
+function offModal() {
+
 }

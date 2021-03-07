@@ -17,13 +17,12 @@ input, select {
     outline: 0;
     -webkit-appearance: none;
 
-
     &:focus {
         border: 1px solid $color-additional;
         background-color: #f3f3f3;
     }
 }
-    
+
 input:-webkit-autofill,
 input:-webkit-autofill:hover, 
 input:-webkit-autofill:focus, 
@@ -150,3 +149,183 @@ form {
 
 }
 
+#modalProductView {
+    display: flex;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, .7);
+    
+    #modalBody {
+        background-color: #fff;
+        width: 900px;
+        border-radius: 8px;
+        margin: 20px;
+
+        .legenda {
+            color: #777;
+            font-size: 14px;
+            padding: 5px 0 3px 0;
+        }
+
+        .content {
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+            width: 100%;
+            height: 440px;
+            align-items: flex-start;
+
+            .img {
+                margin: 40px 0;
+                width: 50%;
+                height: 440px;
+
+                img {
+                    width: 100%;
+                    margin-top: 20px;
+                }
+            }
+
+            .header {
+                display: flex;
+                justify-content: flex-end;
+                align-items: center;
+                width: 50%;
+                height: 60px;
+
+                .closeBtn {
+                    width: 28px;
+                    margin-right: 20px;
+                    opacity: 0.5;
+                    cursor: pointer;
+
+                    &:hover {
+                        opacity: 1.0;
+                    }
+                }
+
+            }
+            
+            .cod, .desc, .med {
+                height: 55px;
+                width: 50%;
+
+                .codigo {
+                    font-size: 28px;
+                    font-weight: 600;
+                    color: $color-additional;
+                }
+
+                .descricao {
+                    font-size: 21px;
+                    font-weight: 600;
+                }
+
+                .medidas {
+                    font-size: 16px;
+                    font-weight: 600;
+                }
+            }
+
+            .ref {
+                height: 200px;
+                width: 50%;
+                overflow: auto;
+            }
+        }
+
+        table {
+            width: calc(100% - 20px);
+        }
+
+        th {
+            font-weight: 500;
+            padding: 6px 0;
+            padding-left: 8px;
+            background-color: #dde2e1;
+            border-bottom: 1px solid #afafaf;
+        }
+        
+        td {
+            color: #333;
+            font-size: 14px;
+            padding: 6px 0;
+            padding-left: 8px;
+            border-bottom: 1px solid #ccc;
+        }
+        
+        .table tbody tr:nth-child(even) {
+            background-color: #fff;
+        }
+        
+        .table tbody tr:nth-child(odd) {
+            background-color: #f0f7f4;
+        }
+        
+        .aplics {
+            height: 240px;
+            overflow: auto;
+            margin-bottom: 20px;
+
+            .legenda {
+                margin-left: 20px;
+                margin-top: 25px;
+            }
+
+            table {
+                width: calc(100% - 40px);
+                margin-left: 20px;
+            }
+        }
+    }
+}
+
+.onModal {
+    display: flex;
+    position: fixed;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, .7);
+    animation: fadein 0.5s;
+    -moz-animation: fadein 0.5s; /* Firefox */
+    -webkit-animation: fadein 0.5s; /* Safari and Chrome */
+    -o-animation: fadein 0.5s; /* Opera */
+}
+
+@keyframes fadein {
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+}
+@-moz-keyframes fadein { /* Firefox */
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+}
+@-webkit-keyframes fadein { /* Safari and Chrome */
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+}
+@-o-keyframes fadein { /* Opera */
+    from {
+        opacity:0;
+    }
+    to {
+        opacity: 1;
+    }
+}
