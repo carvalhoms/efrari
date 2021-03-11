@@ -19586,7 +19586,7 @@ function newCard(data) {
 
         let pDim = document.createElement('p');
         pDim.classList.add('cardRow', 'cardMed');
-        pDim.innerHTML = '<span>Comprimento: </span>' + product.comprimento + 'mm';
+        pDim.innerHTML = '<span>Comprimento (mm): </span>' + product.comprimento;
 
         let rAplic = document.createElement('p');
         rAplic.classList.add('cardRow', 'cardMont');
@@ -19677,7 +19677,7 @@ function productView(data) {
     let med = document.createElement('div');
     med.classList.add('med');
     med.innerHTML = `
-        <p class="legenda">Medidas:</p>
+        <p class="legenda">Comprimento (mm):</p>
         <p class="medidas">${data.data[0]['comprimento']}</p>
     `;
     content.appendChild(med);
@@ -19746,9 +19746,9 @@ function productView(data) {
     tr.appendChild(aplicHeadder);
     table.appendChild(tr);
 
-    aplics.appendChild(legenda);
-    aplics.appendChild(table);
+    aplic.appendChild(legenda);
     aplic.appendChild(aplics);
+    aplics.appendChild(table);
 
     modalProd.appendChild(aplic);
 

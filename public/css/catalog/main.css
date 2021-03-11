@@ -11540,18 +11540,18 @@ form {
   background-color: #f0f7f4;
 }
 
-.overlay .modalProd .aplics {
-  height: 240px;
-  overflow: auto;
-  margin-bottom: 20px;
-}
-
-.overlay .modalProd .aplics .legenda {
+.overlay .modalProd .aplic .legenda {
   margin-left: 20px;
   margin-top: 25px;
 }
 
-.overlay .modalProd .aplics table {
+.overlay .modalProd .aplic .aplics {
+  height: 240px;
+  overflow: auto;
+  margin-bottom: 15px;
+}
+
+.overlay .modalProd .aplic .aplics table {
   width: calc(100% - 40px);
   margin-left: 20px;
 }

@@ -286,20 +286,22 @@ form {
         .table tbody tr:nth-child(odd) {
             background-color: #f0f7f4;
         }
-        
-        .aplics {
-            height: 240px;
-            overflow: auto;
-            margin-bottom: 20px;
 
+        .aplic {
             .legenda {
                 margin-left: 20px;
                 margin-top: 25px;
             }
 
-            table {
-                width: calc(100% - 40px);
-                margin-left: 20px;
+            .aplics {
+                height: 240px;
+                overflow: auto;
+                margin-bottom: 15px;
+    
+                table {
+                    width: calc(100% - 40px);
+                    margin-left: 20px;
+                }
             }
         }
     }
