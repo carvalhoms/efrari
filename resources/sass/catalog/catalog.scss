@@ -11,7 +11,7 @@ input, select {
     padding: 7px 15px;
     margin: 5px;
     flex: 1 1 auto;
-    border: 1px solid $color-primary;
+    border: 1px solid #888;
     border-radius: 22px;
     box-shadow: 0 0 0 0;
     outline: 0;
@@ -22,6 +22,22 @@ input, select {
         background-color: #f3f3f3;
     }
 }
+
+::-webkit-input-placeholder {
+    color: #555;
+ }
+ 
+ :-moz-placeholder { /* Firefox 18- */
+    color: #555;  
+ }
+ 
+ ::-moz-placeholder {  /* Firefox 19+ */
+    color: #555;  
+ }
+ 
+ :-ms-input-placeholder {  
+    color: #555;  
+ }
 
 input:-webkit-autofill,
 input:-webkit-autofill:hover, 
@@ -82,8 +98,8 @@ form {
 }
 
 .resultItens {
-    
     overflow: scroll;
+
     .container {
         height: calc(100vh - 315px);
         flex-wrap: wrap;
@@ -121,14 +137,14 @@ form {
         .cardCod {
             font-size: 17px;
             font-weight: 600;
-            color: $color-primary;
+            color: $color-additional;
             margin-top: 10px;
         }
 
         .cardDesc {
-            font-size: 16px;
+            font-size: 15px;
             font-weight: 500;
-            color: $color-primary;
+            color: #000;
         }
 
         .cardLinha, .cardMed, .cardMont {
@@ -146,25 +162,29 @@ form {
     .noCard {
         margin: 0 auto;
     }
-
 }
 
-#modalProductView {
-    display: flex;
+.overlay {
     position: fixed;
     width: 100vw;
     height: 100vh;
+    display: none;
     top: 0;
     left: 0;
-    align-items: center;
-    justify-content: center;
     background-color: rgba(0, 0, 0, .7);
+    justify-content: center;
+    align-items: center;
+    animation: fadein 0.5s;
+    -moz-animation: fadein 0.5s; /* Firefox */
+    -webkit-animation: fadein 0.5s; /* Safari and Chrome */
+    -o-animation: fadein 0.5s; /* Opera */
     
-    #modalBody {
+    .modalProd {
         background-color: #fff;
         width: 900px;
         border-radius: 8px;
         margin: 20px;
+        flex-direction: column;
 
         .legenda {
             color: #777;
@@ -283,18 +303,6 @@ form {
             }
         }
     }
-}
-
-.onModal {
-    display: flex;
-    position: fixed;
-    justify-content: center;
-    align-items: center;
-    background-color: rgba(0, 0, 0, .7);
-    animation: fadein 0.5s;
-    -moz-animation: fadein 0.5s; /* Firefox */
-    -webkit-animation: fadein 0.5s; /* Safari and Chrome */
-    -o-animation: fadein 0.5s; /* Opera */
 }
 
 @keyframes fadein {

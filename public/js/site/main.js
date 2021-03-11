@@ -19631,14 +19631,171 @@ function getProductView(cod) {
 }
 
 function productView(data) {
-    onModal();
+    let overlay = document.querySelector('#overlay');
+    let modalProd = document.createElement('div');
+    modalProd.classList.add('modalProd');
+    modalProd.setAttribute('id', 'modalProd');
+    overlay.appendChild(modalProd);
+
+    let content = document.createElement('div');
+    content.classList.add('content');
+    modalProd.appendChild(content);
+
+    let imgArea = document.createElement('div');
+    imgArea.classList.add('img');
+    let img = document.createElement('img');
+    img.setAttribute('src', `http://efrari.test/storage/produtosImg/${data.data[0]['imagem']}`);
+    imgArea.appendChild(img);
+    content.appendChild(imgArea);
+
+    let header = document.createElement('div');
+    header.classList.add('header');
+    header.innerHTML = `
+            <svg version="1.1" class="closeBtn" id="Layer_1" onclick="btnModalClose()" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 2 2" style="enable-background:new 0 0 2 2;" xml:space="preserve">
+                <g><path d="M1.98,1.98L1.98,1.98c-0.03,0.03-0.08,0.03-0.11,0L0.02,0.13c-0.03-0.03-0.03-0.08,0-0.11l0,0c0.03-0.03,0.08-0.03,0.11,0l1.84,1.84C2.01,1.9,2.01,1.95,1.98,1.98z"/></g>
+                <g><path d="M0.02,1.98L0.02,1.98c-0.03-0.03-0.03-0.08,0-0.11l1.84-1.84c0.03-0.03,0.08-0.03,0.11,0l0,0c0.03,0.03,0.03,0.08,0,0.11L0.13,1.98C0.1,2.01,0.05,2.01,0.02,1.98z"/></g>
+            </svg>
+        `;
+        content.appendChild(header);
+
+    let cod = document.createElement('div');
+    cod.classList.add('cod');
+    cod.innerHTML = `
+        <p class="legenda">Código Efrari:</p>
+        <p class="codigo">${data.data[0]['codigo']}</p>
+    `;
+    content.appendChild(cod);
+
+    let desc = document.createElement('div');
+    desc.classList.add('desc');
+    desc.innerHTML = `
+        <p class="legenda">Descrição Produto:</p>
+        <p class="descricao">${data.data[0]['descricao']}</p>
+    `;
+    content.appendChild(desc);
+
+    let med = document.createElement('div');
+    med.classList.add('med');
+    med.innerHTML = `
+        <p class="legenda">Medidas:</p>
+        <p class="medidas">${data.data[0]['comprimento']}</p>
+    `;
+    content.appendChild(med);
+
+    let ref = document.createElement('div');
+    ref.classList.add('ref');
+    legenda = document.createElement('p');
+    legenda.classList.add('legenda');
+    legenda.innerHTML = 'referências:';
+    let refs = document.createElement('div');
+    refs.classList.add('refs');
+    let table = document.createElement('table');
+    table.classList.add('table');
+
+    let tr = document.createElement('tr');
+    let marca = document.createElement('th');
+    marca.innerHTML = 'Marca';
+    let referencia = document.createElement('th');
+    referencia.innerHTML = 'Referencia';
+    
+    ref.appendChild(legenda);
+    ref.appendChild(refs);
+    refs.appendChild(table);
+    content.appendChild(ref);
+    tr.appendChild(referencia);
+    tr.appendChild(marca);
+    table.appendChild(tr);
+
+    let dataRefs = data.data[0]['referencias'];
+    let refList = dataRefs.map(refItem => {
+        let tr = document.createElement('tr');
+        let referencia = document.createElement('td');
+        let marca = document.createElement('td');
+        referencia.innerHTML = refItem.referencia;
+        marca.innerHTML = refItem.marca;
+        tr.appendChild(referencia);
+        tr.appendChild(marca);
+
+        return tr;
+    });
+
+    let tableRef = document.querySelector('.refs > .table');
+    refList.forEach(refItem => tableRef.appendChild(refItem));
+
+
+    let aplic = document.createElement('div');
+    aplic.classList.add('aplic');
+    let aplics = document.createElement('div');
+    aplics.classList.add('aplics');
+    legenda = document.createElement('p');
+    legenda.classList.add('legenda');
+    legenda.innerHTML = 'referências:';
+    table = document.createElement('table');
+    table.classList.add('table');
+
+    tr = document.createElement('tr');
+    let linha = document.createElement('th');
+    linha.innerHTML = 'Linha';
+    let montadora = document.createElement('th');
+    montadora.innerHTML = 'Montadora';
+    let aplicHeadder = document.createElement('th');
+    aplicHeadder.innerHTML = 'Aplicação';
+
+    tr.appendChild(linha);
+    tr.appendChild(montadora);
+    tr.appendChild(aplicHeadder);
+    table.appendChild(tr);
+
+    aplics.appendChild(legenda);
+    aplics.appendChild(table);
+    aplic.appendChild(aplics);
+
+    modalProd.appendChild(aplic);
+
+    let dataAplics = data.data[0]['aplicacoes'];
+    aplicList = dataAplics.map( aplicItem => {
+        let tr = document.createElement('tr');
+        linha = document.createElement('td');
+        montadora = document.createElement('td');
+        aplic = document.createElement('td');
+        linha.innerHTML = aplicItem.linha;
+        montadora.innerHTML = aplicItem.montadora;
+        aplic.innerHTML = aplicItem.aplicacao;
+        tr.appendChild(linha);
+        tr.appendChild(montadora);
+        tr.appendChild(aplic);
+
+        return tr;
+    });
+
+    let tableAplic = document.querySelector('.aplics > .table');
+    aplicList.forEach(aplicItem => tableAplic.appendChild(aplicItem));
+
+    openModal();
 }
 
-function onModal() {
-    let modal = document.querySelector('#modalProductView');
-    modal.classList.add('onModal');
+const openModal = () => {
+    let overlay = document.getElementById("overlay");
+    let modalProd = document.getElementById("modalProd");
+    overlay.style.display = 'flex';
+    modalProd.style.display = 'flex';
+    setTimeout(() => { document.addEventListener('click', handleClickOutside, false) }, 200);
 }
 
-function offModal() {
+const handleClickOutside = (event) => {
+    let overlay = document.getElementById("overlay");
+    let modalProd = document.getElementById("modalProd");
+    if (!modalProd.contains(event.target)) {
+        modalProd.style.display = 'none';
+        overlay.style.display = 'none';
+        document.removeEventListener('click', handleClickOutside, false);
+        overlay.innerHTML = '';
+    }
+}
 
+const btnModalClose = () => {
+    modalProd.style.display = 'none';
+    overlay.style.display = 'none';
+    document.removeEventListener('click', handleClickOutside, false);
+    overlay.innerHTML = '';
 }

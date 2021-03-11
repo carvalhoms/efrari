@@ -11248,7 +11248,7 @@ select {
   padding: 7px 15px;
   margin: 5px;
   flex: 1 1 auto;
-  border: 1px solid #02774b;
+  border: 1px solid #888;
   border-radius: 22px;
   box-shadow: 0 0 0 0;
   outline: 0;
@@ -11259,6 +11259,24 @@ input:focus,
 select:focus {
   border: 1px solid #144735;
   background-color: #f3f3f3;
+}
+
+::-webkit-input-placeholder {
+  color: #555;
+}
+
+:-moz-placeholder {
+  /* Firefox 18- */
+  color: #555;
+}
+
+::-moz-placeholder {
+  /* Firefox 19+ */
+  color: #555;
+}
+
+:-ms-input-placeholder {
+  color: #555;
 }
 
 input:-webkit-autofill,
@@ -11360,14 +11378,14 @@ form {
 .resultItens .card .cardCod {
   font-size: 17px;
   font-weight: 600;
-  color: #02774b;
+  color: #144735;
   margin-top: 10px;
 }
 
 .resultItens .card .cardDesc {
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 500;
-  color: #02774b;
+  color: #000;
 }
 
 .resultItens .card .cardLinha,
@@ -11387,32 +11405,40 @@ form {
   margin: 0 auto;
 }
 
-#modalProductView {
-  display: flex;
+.overlay {
   position: fixed;
   width: 100vw;
   height: 100vh;
+  display: none;
   top: 0;
   left: 0;
-  align-items: center;
-  justify-content: center;
   background-color: rgba(0, 0, 0, 0.7);
+  justify-content: center;
+  align-items: center;
+  animation: fadein 0.5s;
+  -moz-animation: fadein 0.5s;
+  /* Firefox */
+  -webkit-animation: fadein 0.5s;
+  /* Safari and Chrome */
+  -o-animation: fadein 0.5s;
+  /* Opera */
 }
 
-#modalProductView #modalBody {
+.overlay .modalProd {
   background-color: #fff;
   width: 900px;
   border-radius: 8px;
   margin: 20px;
+  flex-direction: column;
 }
 
-#modalProductView #modalBody .legenda {
+.overlay .modalProd .legenda {
   color: #777;
   font-size: 14px;
   padding: 5px 0 3px 0;
 }
 
-#modalProductView #modalBody .content {
+.overlay .modalProd .content {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
@@ -11421,18 +11447,18 @@ form {
   align-items: flex-start;
 }
 
-#modalProductView #modalBody .content .img {
+.overlay .modalProd .content .img {
   margin: 40px 0;
   width: 50%;
   height: 440px;
 }
 
-#modalProductView #modalBody .content .img img {
+.overlay .modalProd .content .img img {
   width: 100%;
   margin-top: 20px;
 }
 
-#modalProductView #modalBody .content .header {
+.overlay .modalProd .content .header {
   display: flex;
   justify-content: flex-end;
   align-items: center;
@@ -11440,57 +11466,57 @@ form {
   height: 60px;
 }
 
-#modalProductView #modalBody .content .header .closeBtn {
+.overlay .modalProd .content .header .closeBtn {
   width: 28px;
   margin-right: 20px;
   opacity: 0.5;
   cursor: pointer;
 }
 
-#modalProductView #modalBody .content .header .closeBtn:hover {
+.overlay .modalProd .content .header .closeBtn:hover {
   opacity: 1;
 }
 
-#modalProductView #modalBody .content .cod,
-#modalProductView #modalBody .content .desc,
-#modalProductView #modalBody .content .med {
+.overlay .modalProd .content .cod,
+.overlay .modalProd .content .desc,
+.overlay .modalProd .content .med {
   height: 55px;
   width: 50%;
 }
 
-#modalProductView #modalBody .content .cod .codigo,
-#modalProductView #modalBody .content .desc .codigo,
-#modalProductView #modalBody .content .med .codigo {
+.overlay .modalProd .content .cod .codigo,
+.overlay .modalProd .content .desc .codigo,
+.overlay .modalProd .content .med .codigo {
   font-size: 28px;
   font-weight: 600;
   color: #144735;
 }
 
-#modalProductView #modalBody .content .cod .descricao,
-#modalProductView #modalBody .content .desc .descricao,
-#modalProductView #modalBody .content .med .descricao {
+.overlay .modalProd .content .cod .descricao,
+.overlay .modalProd .content .desc .descricao,
+.overlay .modalProd .content .med .descricao {
   font-size: 21px;
   font-weight: 600;
 }
 
-#modalProductView #modalBody .content .cod .medidas,
-#modalProductView #modalBody .content .desc .medidas,
-#modalProductView #modalBody .content .med .medidas {
+.overlay .modalProd .content .cod .medidas,
+.overlay .modalProd .content .desc .medidas,
+.overlay .modalProd .content .med .medidas {
   font-size: 16px;
   font-weight: 600;
 }
 
-#modalProductView #modalBody .content .ref {
+.overlay .modalProd .content .ref {
   height: 200px;
   width: 50%;
   overflow: auto;
 }
 
-#modalProductView #modalBody table {
+.overlay .modalProd table {
   width: calc(100% - 20px);
 }
 
-#modalProductView #modalBody th {
+.overlay .modalProd th {
   font-weight: 500;
   padding: 6px 0;
   padding-left: 8px;
@@ -11498,7 +11524,7 @@ form {
   border-bottom: 1px solid #afafaf;
 }
 
-#modalProductView #modalBody td {
+.overlay .modalProd td {
   color: #333;
   font-size: 14px;
   padding: 6px 0;
@@ -11506,43 +11532,28 @@ form {
   border-bottom: 1px solid #ccc;
 }
 
-#modalProductView #modalBody .table tbody tr:nth-child(even) {
+.overlay .modalProd .table tbody tr:nth-child(even) {
   background-color: #fff;
 }
 
-#modalProductView #modalBody .table tbody tr:nth-child(odd) {
+.overlay .modalProd .table tbody tr:nth-child(odd) {
   background-color: #f0f7f4;
 }
 
-#modalProductView #modalBody .aplics {
+.overlay .modalProd .aplics {
   height: 240px;
   overflow: auto;
   margin-bottom: 20px;
 }
 
-#modalProductView #modalBody .aplics .legenda {
+.overlay .modalProd .aplics .legenda {
   margin-left: 20px;
   margin-top: 25px;
 }
 
-#modalProductView #modalBody .aplics table {
+.overlay .modalProd .aplics table {
   width: calc(100% - 40px);
   margin-left: 20px;
-}
-
-.onModal {
-  display: flex;
-  position: fixed;
-  justify-content: center;
-  align-items: center;
-  background-color: rgba(0, 0, 0, 0.7);
-  animation: fadein 0.5s;
-  -moz-animation: fadein 0.5s;
-  /* Firefox */
-  -webkit-animation: fadein 0.5s;
-  /* Safari and Chrome */
-  -o-animation: fadein 0.5s;
-  /* Opera */
 }
 
 @keyframes fadein {
