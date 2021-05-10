@@ -41,9 +41,34 @@
             </div>
         </div>
     </header>
-
+  
     <section id="slider">
-
+        <div class="owl-carousel owl-theme olw-slider">
+            <div class="item" style="background-image: url( {{ asset('images/slider/001.jpg') }} );">
+                <div class="container">
+                    <div class="contentText">
+                        <h2>Catálogos Efrari</h2>
+                        <p>Confira todos os Catálogos Efrari disponíveis para consulta en vários formatos. Impresso, Online e Aplicativos Móveis</p>
+                        <button>Saiba mais...</button>
+                    </div>
+                    <div class="contentImage">
+                        <img src="{{ asset('images/media.png') }}" alt="">
+                    </div>
+                </div>
+            </div>
+            <div class="item" style="background-image: url( {{ asset('images/slider/002.jpg') }} );">
+                <div class="container">
+                    <div class="contentText">
+                        <h2>Qualidade Garantida</h2>
+                        <p>Garantimos a qualidade dos produtos que é atestada pelos padrões mais rigorosos do mercado.</p>
+                        <button>Saiba mais...</button>
+                    </div>
+                    <div class="contentImage">
+                        <img src="{{ asset('images/media.png') }}" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 
     <section id="about">

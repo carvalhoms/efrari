@@ -1,5 +1,17 @@
 // Banner e Carosel
 $(document).ready(function() {
+  var olwSlide = $('.olw-slider');
+  olwSlide.owlCarousel({
+      items:1,
+      loop:true,
+      autoplay:true,
+      dotsEach:true,
+      autoplayTimeout:5000,
+      autoplayHoverPause:true,
+      responsiveClass:true,
+      animateOut: 'fadeOut',
+  });
+
   var owlProducts = $('#owl-products');
   owlProducts.owlCarousel({
       loop:true,

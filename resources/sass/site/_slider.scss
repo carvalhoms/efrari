@@ -1,4 +1,52 @@
 #slider {
-    background-color: $color-primary;
-    height: 530px;
+    .owl-carousel {
+        .item {
+            height: 550px;
+            width: 100%;
+            -webkit-background-size: cover;
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
+        }
+    }
+
+    .container {
+        height: 100%;
+        display: flex;
+        align-items: center;
+
+        img {
+            width: 640px;
+            margin-right: -100px;
+        }
+
+        h2 {
+            font-size: 45px;
+            text-transform: uppercase;
+            background-color: $color-primary;
+            padding: 12px 25px;
+            border-radius: 20px;
+            font-weight: 500;
+        }
+
+        p {
+            font-size: 20px;
+            color: #fff;
+            padding: 15px;
+            line-height: 23px;
+            font-weight: 300;
+        }
+
+        button {
+            font-size: 23px;
+            color: #fff;
+            border: 1px solid $color-additional;
+            border-radius: 30px;
+            padding: 12px 30px;
+            background-color: $color-additional;
+        }
+    }
+
+
+    
 }

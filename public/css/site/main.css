@@ -15651,9 +15651,49 @@ header .container ul li {
   transform: skew(-10deg);
 }
 
-#slider {
+#slider .owl-carousel .item {
+  height: 550px;
+  width: 100%;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+#slider .container {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+#slider .container img {
+  width: 640px;
+  margin-right: -100px;
+}
+
+#slider .container h2 {
+  font-size: 45px;
+  text-transform: uppercase;
   background-color: #02774b;
-  height: 530px;
+  padding: 12px 25px;
+  border-radius: 20px;
+  font-weight: 500;
+}
+
+#slider .container p {
+  font-size: 20px;
+  color: #fff;
+  padding: 15px;
+  line-height: 23px;
+  font-weight: 300;
+}
+
+#slider .container button {
+  font-size: 23px;
+  color: #fff;
+  border: 1px solid #144735;
+  border-radius: 30px;
+  padding: 12px 30px;
+  background-color: #144735;
 }
 
 #about {
