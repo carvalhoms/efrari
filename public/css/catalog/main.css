@@ -10998,6 +10998,11 @@ video {
 
 a {
   text-decoration: none;
+  outline: none;
+}
+
+button {
+  outline: none !important;
 }
 
 article,
@@ -11177,6 +11182,7 @@ header .container ul li {
 
 #header-nav {
   height: 84px;
+  background-color: #fff;
 }
 
 #header-nav img {
@@ -11205,6 +11211,14 @@ header .container ul li {
   color: #fff;
   background-color: #144735;
   transform: skew(-10deg);
+}
+
+.fixed-top {
+  box-shadow: 0 5px 6px 0 rgba(0, 0, 0, 0.6);
+}
+
+.marginNav {
+  margin-top: 106px;
 }
 
 footer {

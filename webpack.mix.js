@@ -27,13 +27,17 @@ mix
         'node_modules/owl.carousel/dist/owl.carousel.js',
         'node_modules/wow.js/dist/wow.js',
         'resources/js/site.js',
-        'resources/js/catalog.js'
     ], 'public/js/site/main.js')
     .version()
 
-    .scripts(
-        'resources/js/catalog.js', 'public/js/catalog/main.js'
-    ).version()
+    .scripts([
+        'node_modules/jquery/dist/jquery.js',
+        'node_modules/bootstrap/dist/js/bootstrap.js',
+        'node_modules/owl.carousel/dist/owl.carousel.js',
+        'node_modules/wow.js/dist/wow.js',
+        'resources/js/catalog.js'
+    ], 'public/js/catalog/main.js')
+    .version()
     
     .scripts(
         'resources/js/admin.js', 'public/js/admin/main.js'

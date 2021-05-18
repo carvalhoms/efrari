@@ -24,6 +24,11 @@ time, mark, audio, video {
 
 a {
 	text-decoration: none;
+	outline: none;
+}
+
+button {
+	outline: none !important;
 }
 
 article, aside, details, figcaption, figure, 

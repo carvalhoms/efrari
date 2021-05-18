@@ -84,6 +84,6 @@
 
     <div id="overlay" class="overlay"></div>
     
-    <script src="{{ url(mix('js/site/main.js')) }}"></script>
+    <script src="{{ url(mix('js/catalog/main.js')) }}"></script>
 </body>
 </html>

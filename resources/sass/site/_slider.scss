@@ -7,7 +7,24 @@
             background-size: cover;
             background-position: center center;
             background-repeat: no-repeat;
+            border-bottom: 4px solid $color-primary;
         }
+    }
+
+    button.owl-dot {
+        outline: none;
+    }
+
+    .contentText {
+        padding: 30px;
+    }
+
+    .contentImage {
+        padding: 30px;
+    }
+
+    .owl-theme .owl-dots .owl-dot.active span, .owl-theme .owl-dots .owl-dot:hover span {
+        background: $color-primary;
     }
 
     .container {
@@ -17,16 +34,16 @@
 
         img {
             width: 640px;
-            margin-right: -100px;
+            margin-right: -30px;
         }
 
         h2 {
-            font-size: 45px;
+            font-size: 35px;
             text-transform: uppercase;
             background-color: $color-primary;
             padding: 12px 25px;
-            border-radius: 20px;
             font-weight: 500;
+            transform: skew(-10deg);
         }
 
         p {
@@ -38,15 +55,46 @@
         }
 
         button {
-            font-size: 23px;
+            font-size: 18px;
             color: #fff;
             border: 1px solid $color-additional;
             border-radius: 30px;
             padding: 12px 30px;
             background-color: $color-additional;
         }
+    }    
+}
+
+@media (max-width: 850px) {
+    #slider {
+        .container {
+            width: 100%;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .contentText {
+            width: 85%;
+            text-align: center;
+            padding: 0;
+        }
+        
+        .contentImage {
+            display: none;
+        }
     }
+}
 
+@media (max-width: 1000px) {
+    #slider {
+        .contentText {
+            width: 70%;
+        }
 
-    
+        .contentImage {
+            width: 450px;
+            margin-left: -100px;
+        }
+        
+    }
 }
