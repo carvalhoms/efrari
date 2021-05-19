@@ -140,9 +140,9 @@
                 <h2>Escolha as opções abaixo:</h2>
                 <p class="box-text">Consulte a melhor forma de obter suporte e informações dos Produtos Efrari, seja com o Catálogo Impresso ou alguma das opções digitais disponíveis com consultas online ou offline:</p>
                 <div class="links-btn">
-                    <a href="#" class="btn">Catálogo Online</a>
-                    <a href="#" class="btn">Baixar Catálogo (.exe)</a>
-                    <a href="#" class="btn">Catálogo Impresso (PDF)</a>
+                    <a href="{{ route('catalog.index') }}" class="btn" target="blank">Catálogo Online</a>
+                    <a href="https://baixecatalogo.com.br/catalogo/25" class="btn" target="blank">Baixar Catálogo (.exe)</a>
+                    <a href="{{ asset('/storage/catalogs/catalogoEfrari2019.pdf') }}" class="btn" target="blank">Catálogo Impresso (PDF)</a>
                 </div>
                 <div class="linksStores">
                     <div>
