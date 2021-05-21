@@ -16,10 +16,9 @@
                 <a href="mailto:vendas@efrari.com.br" title=""><i class="fas fa-envelope"></i> vendas@efrari.com.br</a>
                 <div>
                     <ul>
-                        <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                        <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
-                        <li><a href="#"><i class="fab fa-instagram-square"></i></a></li>
-                        <li><a href="#"><i class="fab fa-youtube"></i></a></li>
+                        <li><a href="https://www.facebook.com/efrariCabos" target="blank"><i class="fab fa-facebook-f"></i></a></li>
+                        <li><a href="#" target="blank"><i class="fab fa-linkedin-in"></i></a></li>
+                        <li><a href="#" target="blank"><i class="fab fa-instagram-square"></i></a></li>
                     </ul>
                 </div>
             </div>
@@ -293,10 +292,9 @@
             </div>
             <div class="social">
                 <ul>
-                    <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                    <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
-                    <li><a href="#"><i class="fab fa-instagram-square"></i></a></li>
-                    <li><a href="#"><i class="fab fa-youtube"></i></a></li>
+                    <li><a href="https://www.facebook.com/efrariCabos" target="blank"><i class="fab fa-facebook-f"></i></a></li>
+                    <li><a href="#" target="blank"><i class="fab fa-linkedin-in"></i></a></li>
+                    <li><a href="#" target="blank"><i class="fab fa-instagram-square"></i></a></li>
                 </ul>
             </div>
         </div>
@@ -304,7 +302,7 @@
 
     <footer id="footer">
         <div class="container">
-            <div>Efrari © 2020</div>
+            <div>Efrari © 2021</div>
             <div>by carvalhoms</div>
         </div>
         
