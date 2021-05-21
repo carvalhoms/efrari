@@ -11128,6 +11128,10 @@ h3 {
   justify-content: center;
 }
 
+b {
+  font-weight: 600;
+}
+
 header {
   flex-direction: column;
 }

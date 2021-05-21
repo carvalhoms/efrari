@@ -24,6 +24,26 @@
     }
 }
 
+.repreBanner {
+    display: flex;
+    width: 80%;
+    height: 120px;
+    border: 1px solid #dcdcdc;
+    border-radius: 8px;
+    margin: 0 auto;
+    padding: 15px 8px;
+    margin-top: 10px;
+    justify-content: center;
+    align-items: center;
+    background-color: #dcdcdc;
+
+    p {
+        padding: 2px;
+        font-size: 18px;
+        color: #555;
+    }
+}
+
 .pRepreDados {
     padding: 7px 30px 18px 30px;
     font-size: 18px;

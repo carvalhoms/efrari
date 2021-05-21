@@ -221,6 +221,9 @@
                 <h2>Representantes:</h2>
                 <p class="pRepreDados animate__animated animate__fadeIn">Entre em contato com um representante Efrari.</p>
                 <ul id="represList">
+                    <li class="repreBanner">
+                        <p>Selecione um Estado no mapa</p>
+                    </li>
                 </ul>
             </div>
         </div>

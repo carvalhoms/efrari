@@ -15520,6 +15520,10 @@ h3 {
   justify-content: center;
 }
 
+b {
+  font-weight: 600;
+}
+
 .btn {
   display: block;
   margin: 10px;
@@ -16091,6 +16095,26 @@ header .container ul li {
   padding: 30px 0;
   flex: 1 1 170px;
   width: 50%;
+}
+
+.repreBanner {
+  display: flex;
+  width: 80%;
+  height: 120px;
+  border: 1px solid #dcdcdc;
+  border-radius: 8px;
+  margin: 0 auto;
+  padding: 15px 8px;
+  margin-top: 10px;
+  justify-content: center;
+  align-items: center;
+  background-color: #dcdcdc;
+}
+
+.repreBanner p {
+  padding: 2px;
+  font-size: 18px;
+  color: #555;
 }
 
 .pRepreDados {

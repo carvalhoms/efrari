@@ -19397,12 +19397,30 @@ function getEstado(onclick){
         url: 'getRepre/' + ufId,
         sucesso(response) {
             let data = JSON.parse(response);
-            listaRepre(data);
+            if (data.length == 0) {
+                semRepre()
+            } else {
+                listaRepre(data);
+            }
         },
         erro(e){
             alert('Falha na conexão!');
         }
     });
+}
+
+function semRepre() {
+    let liRepre = document.createElement('li');
+    liRepre.classList.add('cardRepre');
+
+    liRepre.innerHTML += '<p>MATRIZ - SÃO BERNARDO DO CAMPO</p>';
+    liRepre.innerHTML += '<p><b>Contato:</b> INTERNO</p>';
+    liRepre.innerHTML += '<p><b>Fones:</b> +55 11 4176-1700 - 4178-1766</p>';
+    liRepre.innerHTML += '<p><b>Cidade:</b> SÃO PAULO - <b>Estado: </b> SP</p>';
+    liRepre.innerHTML += '<p><b>Email:</b> vendas@efrari.com.br</p>';
+
+    let ulRepre = document.querySelector('#represList');
+    ulRepre.appendChild(liRepre);
 }
 
 function listaRepre(data) {
@@ -19411,10 +19429,10 @@ function listaRepre(data) {
         liRepre.classList.add('cardRepre');
 
         liRepre.innerHTML += '<p>' + repre.empresa + '</p>';
-        liRepre.innerHTML += '<p>' + repre.contato + '</p>';
-        liRepre.innerHTML += '<p>' + repre.fone1 + '</p>';
-        liRepre.innerHTML += '<p>' + repre.cidade + '</p>';
-        liRepre.innerHTML += '<p>' + repre.email + '</p>';
+        liRepre.innerHTML += '<p> <b>Contato:</b> ' + repre.contato + '</p>';
+        liRepre.innerHTML += '<p> <b>Fones:</b> ' + repre.fone1 + ' / ' + repre.fone2 + ' / ' + repre.fone3 + '</p>';
+        liRepre.innerHTML += '<p> <b>Cidade:</b> ' + repre.cidade + ' - ' + '<b>Estado: </b>' + repre.uf + '</p>';
+        liRepre.innerHTML += '<p> <b>Email:</b> ' + repre.email + '</p>';
 
         return liRepre;
     });
