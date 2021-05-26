@@ -11368,9 +11368,10 @@ form {
   flex-direction: row;
   min-width: 540px;
   height: 150px;
+  max-width: 47%;
   padding: 10px;
   margin: 10px;
-  border: 1px solid #ccc;
+  border: 1px solid #888;
   border-bottom: 3px solid #02774b;
   cursor: pointer;
 }
@@ -11384,7 +11385,7 @@ form {
 }
 
 .resultItens .card .img img {
-  width: 100%;
+  width: 190px;
   mix-blend-mode: darken;
 }
 
@@ -11564,9 +11565,9 @@ form {
 }
 
 .overlay .modalProd .aplic .aplics {
-  height: 240px;
+  height: 205px;
   overflow: auto;
-  margin-bottom: 15px;
+  margin-bottom: 50px;
 }
 
 .overlay .modalProd .aplic .aplics table {

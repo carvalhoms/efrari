@@ -110,9 +110,10 @@ form {
         flex-direction: row;
         min-width: 540px;
         height: 150px;
+        max-width: 47%;
         padding: 10px;
         margin: 10px;
-        border: 1px solid $color-grey-layout;
+        border: 1px solid #888;
         border-bottom: 3px solid $color-primary;
         cursor: pointer;
 
@@ -124,7 +125,7 @@ form {
             width: 190px;
     
             img {
-                width: 100%;
+                width: 190px;
                 mix-blend-mode: darken;
             }
         }
@@ -294,9 +295,9 @@ form {
             }
 
             .aplics {
-                height: 240px;
+                height: 205px;
                 overflow: auto;
-                margin-bottom: 15px;
+                margin-bottom: 50px;
     
                 table {
                     width: calc(100% - 40px);

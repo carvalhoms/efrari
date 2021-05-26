@@ -19408,7 +19408,6 @@ codeForm.addEventListener('submit', function(e) {
 });
 
 function getCode() {
-
     let container = document.querySelector('.resultItens > .container');
     container.innerHTML = '';
     
@@ -19512,7 +19511,8 @@ function newCard(data) {
 
         let rAplic = document.createElement('p');
         rAplic.classList.add('cardRow', 'cardMont');
-        rAplic.innerHTML = '<span>Resumo aplicação: </span>' + product.aplicacoes[0]['aplicacao'] + '...';
+        let aplic = product.aplicacoes[0]['aplicacao'].substring(0, 18);
+        rAplic.innerHTML = '<span>Resumo aplicação: </span>' + aplic + '...';
 
         infoProd.appendChild(pCode);
         infoProd.appendChild(pDesc);
@@ -19686,7 +19686,7 @@ function productView(data) {
         tr.appendChild(linha);
         tr.appendChild(montadora);
         tr.appendChild(aplic);
-
+ 
         return tr;
     });
 
