@@ -155,7 +155,7 @@ function listaRepre(data) {
 
         liRepre.innerHTML += '<p>' + repre.empresa + '</p>';
         liRepre.innerHTML += '<p> <b>Contato:</b> ' + repre.contato + '</p>';
-        liRepre.innerHTML += '<p> <b>Fones:</b> ' + repre.fone1 + ' / ' + repre.fone2 + ' / ' + repre.fone3 + '</p>';
+        liRepre.innerHTML += '<p> <b>Fones:</b> ' + (repre.fone1 ? repre.fone1 : '') + (repre.fone2 ? ' / ' : '') + (repre.fone2 ? repre.fone2 : '') + (repre.fone3 ? ' / ' : '') + (repre.fone3 ? repre.fone3 : '') + (repre.fone4 ? ' / ' : '') + (repre.fone4 ? repre.fone4 : '') + '</p>';
         liRepre.innerHTML += '<p> <b>Cidade:</b> ' + repre.cidade + ' - ' + '<b>Estado: </b>' + repre.uf + '</p>';
         liRepre.innerHTML += '<p> <b>Email:</b> ' + repre.email + '</p>';
 
