@@ -153,10 +153,10 @@ function listaRepre(data) {
         let liRepre = document.createElement('li');
         liRepre.classList.add('cardRepre');
 
-        liRepre.innerHTML += '<p>' + repre.empresa + '</p>';
-        liRepre.innerHTML += '<p> <b>Contato:</b> ' + repre.contato + '</p>';
+        liRepre.innerHTML += '<p>' + formatText(repre.empresa) + '</p>';
+        liRepre.innerHTML += '<p> <b>Contato:</b> ' + formatText(repre.contato) + '</p>';
         liRepre.innerHTML += '<p> <b>Fones:</b> ' + (repre.fone1 ? repre.fone1 : '') + (repre.fone2 ? ' / ' : '') + (repre.fone2 ? repre.fone2 : '') + (repre.fone3 ? ' / ' : '') + (repre.fone3 ? repre.fone3 : '') + (repre.fone4 ? ' / ' : '') + (repre.fone4 ? repre.fone4 : '') + '</p>';
-        liRepre.innerHTML += '<p> <b>Cidade:</b> ' + repre.cidade + ' - ' + '<b>Estado: </b>' + repre.uf + '</p>';
+        liRepre.innerHTML += '<p> <b>Cidade:</b> ' + formatText(repre.cidade) + ' - ' + '<b>Estado: </b>' + repre.uf + '</p>';
         liRepre.innerHTML += '<p> <b>Email:</b> ' + repre.email + '</p>';
 
         return liRepre;
@@ -165,3 +165,8 @@ function listaRepre(data) {
     let ulRepre = document.querySelector('#represList');
     repres.forEach(repre => ulRepre.appendChild(repre));
 }
+
+function formatText(str) {
+    var subst = str.toLowerCase().replace(/(?:^|\s)\S/g, function(a) { return a.toUpperCase(); });
+    return subst;
+  }
