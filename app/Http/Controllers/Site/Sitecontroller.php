@@ -16,7 +16,6 @@ class Sitecontroller extends Controller
     public function getRepre(Repre $repre, $uf)
     {
         $repres = $repre->where('uf', $uf)->get();
-
         return $repres;
     }
 }

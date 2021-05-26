@@ -245,7 +245,7 @@
             <div>
                 <form method="post" action="{{ route('newsletter.store') }}">
                     {{ csrf_field() }}
-                    <input type="text" placeholder="Cadastre seu email" name="email" id="newsletterContato">
+                    <input type="email" placeholder="Cadastre seu email" name="email" id="newsletterContato">
                     <button type="submit" class="btnNewsletterContato">Cadastre</button>
                 </form>
             </div>
@@ -297,7 +297,7 @@
                 <p>email: vendas@efrari.com.br</p>
                 <form method="post" action="{{ route('newsletter.store') }}">
                     {{ csrf_field() }}
-                    <input type="text" placeholder="Cadastre seu email" name="email" id="newsletterContato">
+                    <input type="email" placeholder="Cadastre seu email" name="email" id="newsletterContato">
                     <button type="submit" class="btnNewsletterContato">Cadastre</button>
                 </form>
             </div>

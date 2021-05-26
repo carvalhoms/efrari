@@ -19444,4 +19444,4 @@ function listaRepre(data) {
 function formatText(str) {
     var subst = str.toLowerCase().replace(/(?:^|\s)\S/g, function(a) { return a.toUpperCase(); });
     return subst;
-  }
+}
