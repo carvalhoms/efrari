@@ -11001,6 +11001,10 @@ a {
   outline: none;
 }
 
+a:hover {
+  text-decoration: none;
+}
+
 button {
   outline: none !important;
 }
@@ -11361,6 +11365,7 @@ form {
 .resultItens .container {
   height: calc(100vh - 315px);
   flex-wrap: wrap;
+  align-content: flex-start;
 }
 
 .resultItens .card {

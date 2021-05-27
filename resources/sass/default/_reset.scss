@@ -25,6 +25,10 @@ time, mark, audio, video {
 a {
 	text-decoration: none;
 	outline: none;
+
+	&:hover {
+		text-decoration: none;
+	}
 }
 
 button {

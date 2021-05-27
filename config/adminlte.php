@@ -197,7 +197,7 @@ return [
         'ADMINISTRAÇÃO SITE',
         [
             'text'  =>  'Notícias',
-            'url'   =>  'admin/settings',
+            'url'   =>  'admin/blog',
             'icon'  =>  'fas fa-fw fa-bullhorn',
         ],
         [

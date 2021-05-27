@@ -17,6 +17,7 @@ Route::group(['middleware' => ['auth'], 'namespace' => 'Admin'], function(){
     Route::group(['namespace' => 'Site'], function () {
         Route::resource('/admin/representantes', 'RepreController');
         Route::resource('/admin/newsletter', 'NewsletterController');
+        Route::resource('/admin/blog', 'BlogController');
     });
 
     Route::group(['namespace' => 'Catalog'], function () {
