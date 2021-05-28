@@ -1,10 +1,10 @@
 @extends ('adminlte::page')
 
-@section ('title', 'Painel Efrari - Editar Representante')
+@section ('title', 'Painel Efrari - Cadastrar Montadora')
 
 @section ('content_header')
     <div class="pageControls">
-        <div><h1 class="teste"> Editar Representante </h1></div>
+        <div><h1 class="teste"> Cadastrar novo Post </h1></div>
     </div>
 @stop
 
@@ -13,7 +13,7 @@
 @section('plugins.Datatables', true)
     <div class="card">
         <div class="card-header">
-            <h3 class="card-title"> Edição </h3>
+            <h3 class="card-title"> Cadastro </h3>
         </div>
 
         <div class="card-body">
@@ -27,80 +27,104 @@
                 </div>
             @endif
 
-            <form method="post" action="{{ route('representantes.update', $representante) }}" method="POST">
-                @csrf
+            <form method="post" action="{{ route('blog.update', $blog) }}">
+                {{ csrf_field() }}
                 @method('PUT')
-                <div class="card-body">
+                <div class="card-body card-body-blog">
                     <div class="form-group">
                         <div class="col-md-6">
-                            <label for="empresa"> Nome Representação </label>
-                            <input type="text" name="empresa" class="form-control" placeholder="Empresa" value="{{ $representante->empresa }}" required
-                            onfocus="this.selectionStart = this.selectionEnd = this.value.length;" autofocus="true">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label for="contato"> Imagem Post </label>
+                                    <img src="{{ asset('storage/imagensBlog/'. ($blog->img === null ? 'semImg.jpeg' : $blog->img)) }}" alt="Post sem Foto">
+                                    <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#modal-imagem"> Carregar Imagem </button>
+                                </div>
+                                
+                                <div class="col-md-6">
+                                    <label for="contato"> Anexo Post </label>
+                                    <img src="{{ asset('storage/arquivosBlog/'. ($blog->file === null ? 'semArq.jpeg' : 'blogArq.jpeg')) }}" alt="Post sem Anexo">
+                                    <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#modal-file"> Carregar Arquivo </button>
+                                </div>
+                            </div>
+                            <br><hr>
                         </div>
                     </div>
 
                     <div class="form-group">
                         <div class="col-md-6">
-                            <label for="contato"> Contato </label>
-                            <input type="text" name="contato" class="form-control" placeholder="Contato" value="{{ $representante->contato }}" required>
+                            <label for="empresa"> Título do Post </label>
+                            <input type="text" name="title" value="{{ $blog->title }}" class="form-control" required>
                         </div>
                     </div>
 
                     <div class="form-group">
                         <div class="col-md-6">
-                            <label for="uf"> UF </label>
-                            <input type="text" name="uf" class="form-control" placeholder="UF" value="{{ $representante->uf }}" required>
+                            <label for="contato"> Subtitulo do Post </label>
+                            <input type="text" name="subTitle" value="{{ $blog->subTitle }}" class="form-control" required>
                         </div>
                     </div>
 
                     <div class="form-group">
                         <div class="col-md-6">
-                            <label for="cidade"> Cidade </label>
-                            <input type="text" name="cidade" class="form-control" placeholder="Cidade" value="{{ $representante->cidade }}" required>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <div class="col-md-6">
-                            <label for="fone1"> Telefone 1 </label>
-                            <input type="text" name="fone1" class="form-control" placeholder="(11) 99999-9999" value="{{ $representante->fone1 }}" required>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <div class="col-md-6">
-                            <label for="fone2"> Telefone 2 </label>
-                            <input type="text" name="fone2" class="form-control" placeholder="(11) 99999-9999" value="{{ $representante->fone2 }}">
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <div class="col-md-6">
-                            <label for="fone3"> Telefone 3 </label>
-                            <input type="text" name="fone3" class="form-control" placeholder="(11) 99999-9999" value="{{ $representante->fone3 }}">
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <div class="col-md-6">
-                            <label for="fone4"> Telefone 4 </label>
-                            <input type="text" name="fone4" class="form-control" placeholder="(11) 99999-9999" value="{{ $representante->fone4 }}">
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <div class="col-md-6">
-                            <label for="email"> Email </label>
-                            <input type="text" name="email" class="form-control" placeholder="Email" value="{{ $representante->email }}" required>
+                            <label for="uf"> Texto do Post </label>
+                            <textarea name="text" class="form-control" required>{{ $blog->text }}</textarea>
                         </div>
                     </div>
                 </div>
 
                 <div class="card-footer">
-                    <button type="submit" class="btn btn-primary"> Alterar </button>
-                    <a href=" {{ route('representantes.index') }}" class="btn btn-danger"> Cancelar </a>
+                    <button type="submit" class="btn btn-primary"> Salvar </button>
+                    <a href=" {{ route('blog.index') }}" class="btn btn-danger"> Cancelar </a>
                 </div>
             </form>
+
+            <div class="modal fade" id="modal-imagem">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <form action="{{ route('blog.uploadImg') }}" method="POST" enctype="multipart/form-data">
+                            <input type="hidden" name="idPost" value="{{ $blog->id }}">
+                            @csrf
+                            <div class="modal-header">
+                                <h4 class="modal-title">Upload Imagem</h4>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <input type="file" name="uploadImg" required>
+                            </div>
+                            <div class="modal-footer justify-content-between">
+                                <button type="submit" class="btn btn-primary">Salvar</button>
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal fade" id="modal-file">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <form action="{{ route('blog.uploadFile') }}" method="POST" enctype="multipart/form-data">
+                            <input type="hidden" name="idPost" value="{{ $blog->id }}">
+                            @csrf
+                            <div class="modal-header">
+                                <h4 class="modal-title">Upload Arquivo</h4>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <input type="file" name="uploadFile" required>
+                            </div>
+                            <div class="modal-footer justify-content-between">
+                                <button type="submit" class="btn btn-primary">Salvar</button>
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 @stop

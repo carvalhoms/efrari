@@ -18,6 +18,9 @@ Route::group(['middleware' => ['auth'], 'namespace' => 'Admin'], function(){
         Route::resource('/admin/representantes', 'RepreController');
         Route::resource('/admin/newsletter', 'NewsletterController');
         Route::resource('/admin/blog', 'BlogController');
+
+        Route::post('/admin/uploadImgBlog', 'BlogController@uploadImg')->name('blog.uploadImg');
+        Route::post('/admin/uploadFileBlog', 'BlogController@uploadFile')->name('blog.uploadFile');
     });
 
     Route::group(['namespace' => 'Catalog'], function () {
@@ -28,13 +31,13 @@ Route::group(['middleware' => ['auth'], 'namespace' => 'Admin'], function(){
         
         Route::resource('/admin/produtos', 'ProdutoController');
 
-        Route::post('/admin/aplicacao', 'produtoController@createAplicacao')->name('aplicacao.create');
-        Route::delete('/admin/aplicacao/{aplicacao}', 'produtoController@destroyAplicacao')->name('aplicacao.destroy');
+        Route::post('/admin/aplicacao', 'ProdutoController@createAplicacao')->name('aplicacao.create');
+        Route::delete('/admin/aplicacao/{aplicacao}', 'ProdutoController@destroyAplicacao')->name('aplicacao.destroy');
         
-        Route::post('/admin/referencia', 'produtoController@createReferencia')->name('referencia.create');
-        Route::delete('/admin/referencia/{referencia}', 'produtoController@destroyReferencia')->name('referencia.destroy');
+        Route::post('/admin/referencia', 'ProdutoController@createReferencia')->name('referencia.create');
+        Route::delete('/admin/referencia/{referencia}', 'ProdutoController@destroyReferencia')->name('referencia.destroy');
 
-        Route::post('/admin/uploadImg', 'produtoController@uploadImg')->name('produto.uploadImg');
+        Route::post('/admin/uploadImg', 'ProdutoController@uploadImg')->name('produto.uploadImg');
     });
     
 });
@@ -45,6 +48,6 @@ Route::post('/saveEmail', 'Admin\Site\NewsletterController@store')->name('saveEm
 
 Route::get('/catalogo', 'Site\CatalogoController@index')->name('catalog.index');
 
+Route::get('/blog', 'Site\blogController@index')->name('blogSite.index');
+
 Auth::routes();
-
-

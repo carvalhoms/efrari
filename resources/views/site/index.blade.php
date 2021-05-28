@@ -239,53 +239,53 @@
         </div>
     </section>
 
-    <section id="newsletter">
-        <div class="container">
-            <div>
-                <p>Cadastre-se e receba os Informativos Efrari</p>
+    @if (false)
+        <section id="newsletter">
+            <div class="container">
+                <div><p>Cadastre-se e receba os Informativos Efrari</p></div>
+                <div>
+                    <form method="post" action="{{ route('newsletter.store') }}">
+                        {{ csrf_field() }}
+                        <input type="email" placeholder="Cadastre seu email" name="email" id="newsletterContato">
+                        <button type="submit" class="btnNewsletterContato">Cadastre</button>
+                    </form>
+                </div>
             </div>
-            <div>
-                <form method="post" action="{{ route('newsletter.store') }}">
-                    {{ csrf_field() }}
-                    <input type="email" placeholder="Cadastre seu email" name="email" id="newsletterContato">
-                    <button type="submit" class="btnNewsletterContato">Cadastre</button>
-                </form>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="news">
-        <h1 class="animated fadeInUp">Blog Efrari</h1>
-        <p class="section-text animated fadeInUp">Acompanhe todas as novidades, comunicados, ofertas, lançamentos e informatívos técnicos da Efrari.<br>Consulte o Blog e fique sempre por dentro de tudo que preparamos especialemte para você.</p>
-        <div class="container">
-            <div class="card">
-                <img src="images/news/noImg.jpg" alt="Post">
-                <div class="header">Feira Automec 2019</div>
-                <div class="body">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum doloremque error labore iusto placeat, vitae delectus ut amet...</div>
-                <div class="date">Publicado: 18/05/2020</div>
-                <a class="btn btnWhite" href="#">Leia...</a>
-            </div>
+        <section id="news">
+            <h1 class="animated fadeInUp">Blog Efrari</h1>
+            <p class="section-text animated fadeInUp">Acompanhe todas as novidades, comunicados, ofertas, lançamentos e informatívos técnicos da Efrari.<br>Consulte o Blog e fique sempre por dentro de tudo que preparamos especialemte para você.</p>
+            <div class="container">
+                <div class="card">
+                    <img src="images/news/noImg.jpg" alt="Post">
+                    <div class="header">Feira Automec 2019</div>
+                    <div class="body">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum doloremque error labore iusto placeat, vitae delectus ut amet...</div>
+                    <div class="date">Publicado: 18/05/2020</div>
+                    <a class="btn btnWhite" href="#">Leia...</a>
+                </div>
 
-            <div class="card">
-                <img src="images/news/noImg.jpg" alt="Post">
-                <div class="header">Novo Catálogo Efrari</div>
-                <div class="body">Lorem ipsum dolor sit amet consectetur adipisicing elit. At voluptatibus quaerat nam blanditiis unde consequatur non dolorum...</div>
-                <div class="date">Publicado: 18/05/2020</div>
-                <a class="btn btnWhite" href="#">Leia...</a>
-            </div>
+                <div class="card">
+                    <img src="images/news/noImg.jpg" alt="Post">
+                    <div class="header">Feira Automec 2019</div>
+                    <div class="body">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum doloremque error labore iusto placeat, vitae delectus ut amet...</div>
+                    <div class="date">Publicado: 18/05/2020</div>
+                    <a class="btn btnWhite" href="#">Leia...</a>
+                </div>
 
-            <div class="card">
-                <img src="images/news/noImg.jpg" alt="Post">
-                <div class="header">Lançamentos Maio 2019</div>
-                <div class="body">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas, iusto dolor? Sint ab voluptatem voluptatum alias exercitationem...</div>
-                <div class="date">Publicado: 18/05/2020</div>
-                <a class="btn btnWhite" href="#">Leia...</a>
+                <div class="card">
+                    <img src="images/news/noImg.jpg" alt="Post">
+                    <div class="header">Feira Automec 2019</div>
+                    <div class="body">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum doloremque error labore iusto placeat, vitae delectus ut amet...</div>
+                    <div class="date">Publicado: 18/05/2020</div>
+                    <a class="btn btnWhite" href="#">Leia...</a>
+                </div>
             </div>
-        </div>
-        <div class="container">
-            <a href="#" class="btn btnBlog">Saiba mais...</a>
-        </div>
-    </section>
+            <div class="container">
+                <a href="{{ route('blog.index') }}" target="blank" class="btn btnBlog">Saiba mais...</a>
+            </div>
+        </section>
+    @endif
 
     <section id="contact">
         <div class="container">

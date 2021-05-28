@@ -250,11 +250,13 @@
                     <div class="card-header" style="display: flex; justify-content:flex-start; border-bottom:none">
                         <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#modal-imagem"> Carregar Imagem </button>
                     </div>
+                    
                     <div class="card-body p-0">
                         <div class="imgProductAdm">
                             <img src="{{ asset('storage/produtosImg/'. ($produto->img === null ? 'semImg.jpeg' : $produto->img)) }}" alt="Produto sem Foto">
                         </div>
                     </div>
+
                     <div class="modal fade" id="modal-imagem">
                         <div class="modal-dialog modal-lg">
                             <div class="modal-content">
@@ -271,14 +273,13 @@
                                         <input type="file" name="uploadImg">
                                     </div>
                                     <div class="modal-footer justify-content-between">
-                                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
                                         <button type="submit" class="btn btn-primary">Salvar</button>
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
                                     </div>
                                 </form>
                             </div>
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>
@@ -289,12 +290,6 @@
 
 @section('css')
     <link rel="stylesheet" href="{{ url(mix('css/admin/main.css')) }}">
-
-    <style>
-        .imgProductAdm img {
-            height: 100%;
-        }
-    </style>
 @stop
 
 @section('js')
