@@ -12,32 +12,38 @@
 */
 
 Route::group(['middleware' => ['auth'], 'namespace' => 'Admin'], function(){
-    Route::get('/admin', 'AdminController@index')->name('admin');
-
-    Route::group(['namespace' => 'Site'], function () {
-        Route::resource('/admin/representantes', 'RepreController');
-        Route::resource('/admin/newsletter', 'NewsletterController');
-        Route::resource('/admin/blog', 'BlogController');
-
-        Route::post('/admin/uploadImgBlog', 'BlogController@uploadImg')->name('blog.uploadImg');
-        Route::post('/admin/uploadFileBlog', 'BlogController@uploadFile')->name('blog.uploadFile');
+    Route::group(['prefix' => 'admin'], function () {
+        Route::get('/', 'AdminController@index')->name('admin');
+        Route::resource('/user', 'UserController');
     });
 
-    Route::group(['namespace' => 'Catalog'], function () {
-        Route::resource('/admin/montadoras', 'MontadoraController');
-        Route::resource('/admin/veiculos', 'VeiculoController');
-        Route::resource('/admin/linhas', 'LinhaController');
-        Route::resource('/admin/descricao', 'DescricaoController');
-        
-        Route::resource('/admin/produtos', 'ProdutoController');
+    Route::group(['prefix' => 'admin', 'namespace' => 'Site'], function () {
+        Route::resource('/representantes', 'RepreController');
+        Route::resource('/newsletter', 'NewsletterController');
+        Route::resource('/blog', 'BlogController');
 
-        Route::post('/admin/aplicacao', 'ProdutoController@createAplicacao')->name('aplicacao.create');
-        Route::delete('/admin/aplicacao/{aplicacao}', 'ProdutoController@destroyAplicacao')->name('aplicacao.destroy');
-        
-        Route::post('/admin/referencia', 'ProdutoController@createReferencia')->name('referencia.create');
-        Route::delete('/admin/referencia/{referencia}', 'ProdutoController@destroyReferencia')->name('referencia.destroy');
+        Route::post('/uploadImgBlog', 'BlogController@uploadImg')->name('blog.uploadImg');
+        Route::post('/uploadFileBlog', 'BlogController@uploadFile')->name('blog.uploadFile');
+    });
 
-        Route::post('/admin/uploadImg', 'ProdutoController@uploadImg')->name('produto.uploadImg');
+    Route::group(['prefix' => 'admin', 'namespace' => 'Catalog'], function () {
+        Route::resource('/montadoras', 'MontadoraController');
+        Route::resource('/veiculos', 'VeiculoController');
+        Route::resource('/linhas', 'LinhaController');
+        Route::resource('/descricao', 'DescricaoController');
+        Route::resource('/produtos', 'ProdutoController');
+
+        Route::group(['prefix' => 'aplicacao'], function () {
+            Route::post('/', 'ProdutoController@createAplicacao')->name('aplicacao.create');
+            Route::delete('/{aplicacao}', 'ProdutoController@destroyAplicacao')->name('aplicacao.destroy');
+        });
+
+        Route::group(['prefix' => 'referencia'], function () {
+            Route::post('/', 'ProdutoController@createReferencia')->name('referencia.create');
+            Route::delete('/{referencia}', 'ProdutoController@destroyReferencia')->name('referencia.destroy');
+        });
+        
+        Route::post('/uploadImg', 'ProdutoController@uploadImg')->name('produto.uploadImg');
     });
     
 });

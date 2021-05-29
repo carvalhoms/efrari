@@ -239,7 +239,7 @@
         </div>
     </section>
 
-    @if (false)
+    @if (true)
         <section id="newsletter">
             <div class="container">
                 <div><p>Cadastre-se e receba os Informativos Efrari</p></div>

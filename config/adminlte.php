@@ -241,7 +241,7 @@ return [
         'PAINEL ADMIN',
         [
             'text'  =>  'Usuários',
-            'url'   =>  'admin/settings',
+            'url'   =>  'admin/user',
             'icon'  =>  'fas fa-fw fa-users',
         ],
     ],
