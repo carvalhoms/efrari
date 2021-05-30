@@ -34,7 +34,7 @@
               <td>{{ $produto->codigo }}</td>
               <td>{{ $produto->descricao['name'] }}</td>
               <td>{{ $produto->comp }}</td>
-              <td><img style="width: 60px" src="{{ asset('storage/produtosImg/'. ($produto->img === null ? 'semImg.jpeg' : $produto->img)) }}" alt=""></td>
+              <td><img style="width: 22px" src="{{ asset('images/'. ($produto->img === null ? 'semImagem.png' : 'temImagem.png')) }}" alt=""></td>
 
               <td class="reduzCol">
                 <div class="btn-group">
