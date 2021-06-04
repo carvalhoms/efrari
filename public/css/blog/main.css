@@ -11337,6 +11337,10 @@ button.btnNewsletterContato {
   padding-top: 50px;
 }
 
+#content {
+  min-height: calc(100vh - 389px);
+}
+
 #header-nav {
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
@@ -11389,10 +11393,6 @@ button.btnNewsletterContato {
   margin: 10px;
   margin: 22px auto 25px auto;
   font-size: 13px;
-}
-
-#content {
-  min-height: calc(100vh - 429px);
 }
 
 @media (max-width: 992px) {
