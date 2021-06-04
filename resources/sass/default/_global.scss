@@ -7,7 +7,7 @@ header, section, footer {
     display: flex;
     padding: 0 10px;
     align-self: center;
-    width: $c-width;
+    max-width: $c-width;
 }
 
 h1 {

@@ -35,7 +35,7 @@
                         <div class="col-md-6">
                             <div class="row">
                                 <div class="col-md-6">
-                                    <label for="contato"> Imagem Post </label>
+                                    <label for="contato"> Imagem Post (394x256px) </label>
                                     <img src="{{ asset('storage/imagensBlog/'. ($blog->img === null ? 'semImg.jpeg' : $blog->img)) }}" alt="Post sem Foto">
                                     <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#modal-imagem"> Carregar Imagem </button>
                                 </div>

@@ -239,7 +239,7 @@
         </div>
     </section>
 
-    @if (true)
+    @if (count($posts) !== 0)
         <section id="newsletter">
             <div class="container">
                 <div><p>Cadastre-se e receba os Informativos Efrari</p></div>
@@ -257,32 +257,18 @@
             <h1 class="animated fadeInUp">Blog Efrari</h1>
             <p class="section-text animated fadeInUp">Acompanhe todas as novidades, comunicados, ofertas, lançamentos e informatívos técnicos da Efrari.<br>Consulte o Blog e fique sempre por dentro de tudo que preparamos especialemte para você.</p>
             <div class="container">
+                @foreach ($posts as $post)
                 <div class="card">
-                    <img src="images/news/noImg.jpg" alt="Post">
-                    <div class="header">Feira Automec 2019</div>
-                    <div class="body">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum doloremque error labore iusto placeat, vitae delectus ut amet...</div>
-                    <div class="date">Publicado: 18/05/2020</div>
+                    <img src="{{ asset('storage/imagensBlog/'. ($post->img === null ? 'semImg.jpeg' : $post->img)) }}" alt="">
+                    <div class="header">{{ $post->title }}</div>
+                    <div class="body">{{ $post->subTitle }}</div>
+                    <p class="date">Postado: {{ $post->created_at->format('d/m/Y') }}</p>
                     <a class="btn btnWhite" href="#">Leia...</a>
                 </div>
-
-                <div class="card">
-                    <img src="images/news/noImg.jpg" alt="Post">
-                    <div class="header">Feira Automec 2019</div>
-                    <div class="body">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum doloremque error labore iusto placeat, vitae delectus ut amet...</div>
-                    <div class="date">Publicado: 18/05/2020</div>
-                    <a class="btn btnWhite" href="#">Leia...</a>
-                </div>
-
-                <div class="card">
-                    <img src="images/news/noImg.jpg" alt="Post">
-                    <div class="header">Feira Automec 2019</div>
-                    <div class="body">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum doloremque error labore iusto placeat, vitae delectus ut amet...</div>
-                    <div class="date">Publicado: 18/05/2020</div>
-                    <a class="btn btnWhite" href="#">Leia...</a>
-                </div>
+                @endforeach
             </div>
             <div class="container">
-                <a href="{{ route('blog.index') }}" target="blank" class="btn btnBlog">Saiba mais...</a>
+                <a href="{{ route('blogSite.index') }}" target="blank" class="btn btnBlog">Saiba mais...</a>
             </div>
         </section>
     @endif

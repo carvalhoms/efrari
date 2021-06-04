@@ -2,15 +2,17 @@
 
 namespace App\Http\Controllers\Site;
 
-use App\Http\Controllers\Controller;
+use App\Model\Blog;
 use App\Model\Repre;
-use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class Sitecontroller extends Controller
 {
     public function index()
     {
-        return view('site.index');
+        $posts = Blog::orderby('id', 'desc')->take(3)->get();
+
+        return view('site.index', compact('posts'));
     }
 
     public function getRepre(Repre $repre, $uf)

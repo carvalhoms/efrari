@@ -15455,7 +15455,7 @@ footer {
   display: flex;
   padding: 0 10px;
   align-self: center;
-  width: 1140px;
+  max-width: 1140px;
 }
 
 h1 {
@@ -16227,6 +16227,7 @@ header .container ul li {
 #news .container {
   margin-bottom: 40px;
   display: flex;
+  justify-content: space-evenly;
 }
 
 #news .btnBlog {
@@ -16241,11 +16242,23 @@ header .container ul li {
   color: #fff;
 }
 
+.resultItens .container {
+  min-height: calc(100vh - 470px);
+  flex-wrap: wrap;
+  align-content: flex-start;
+}
+
+.titleBlog {
+  font-size: 30px;
+  padding: 27px 10px;
+}
+
 .card {
   text-align: center;
-  border: 1px solid #eaeaea;
+  border: 1px solid #ccc;
   margin: 10px 8px;
   flex-wrap: 1;
+  max-width: 31.5%;
 }
 
 .card .img {
@@ -16283,6 +16296,18 @@ header .container ul li {
   margin: 10px;
   margin: 22px auto 25px auto;
   font-size: 13px;
+}
+
+@media (max-width: 992px) {
+  .card {
+    max-width: 46%;
+  }
+}
+
+@media (max-width: 575px) {
+  .card {
+    max-width: 100%;
+  }
 }
 
 #contact {

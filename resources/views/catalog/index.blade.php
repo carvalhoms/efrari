@@ -7,7 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600&display=swap" rel="stylesheet">
     <link rel="icon" href="assets/images/favicon.png">
     <link rel="stylesheet" href="{{ url(mix('css/catalog/main.css')) }}">
-    <title>Efrari | Cabos Flexíveis</title>
+    <title>Catálogo Efrari | Cabos Flexíveis</title>
 </head>
 <body>
     <header>

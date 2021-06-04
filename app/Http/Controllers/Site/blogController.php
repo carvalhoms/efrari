@@ -9,8 +9,8 @@ use App\Model\blog;
 class blogController extends Controller
 {
     public function index() {
-        $blog = blog::all();
+        $posts = Blog::orderby('id', 'desc')->get();
 
-        return view('site.blog', compact('blog'));
+        return view('site.blog', compact('posts'));
     }
 }

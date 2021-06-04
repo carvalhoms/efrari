@@ -20,6 +20,8 @@ mix
         'resources/sass/site.scss', 'public/css/site/main.css')
     .sass(
         'resources/sass/catalog.scss', 'public/css/catalog/main.css')
+    .sass(
+        'resources/sass/blog.scss', 'public/css/blog/main.css')
 
     .scripts([
         'node_modules/jquery/dist/jquery.js',

@@ -1,0 +1,9 @@
+@import '~bootstrap/scss/bootstrap';
+
+@import "./default/var";
+@import "./default/reset";
+@import 'default/global';
+@import 'site/buttonsForms';
+@import 'site/header';
+@import 'site/footer';
+@import 'blog/blog';
