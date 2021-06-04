@@ -16167,7 +16167,7 @@ header .container ul li {
 
 .cardRepre {
   width: 80%;
-  height: 120px;
+  min-height: 120px;
   border: 1px solid #dcdcdc;
   border-left: 5px solid #02774b;
   border-radius: 0px 8px 8px 0;
