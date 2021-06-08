@@ -35,7 +35,9 @@
                         <li><a href="#catalog">Catálogos</a></li>
                         <li><a href="#product">Produtos</a></li>
                         <li><a href="#sale">Vendas</a></li>
-                        <li><a href="#news">Notícias</a></li>
+                        @if (count($posts) !== 0)
+                            <li><a href="#news">Notícias</a></li>
+                        @endif
                         <li><a href="#footer">Contato</a></li>
                     </ul>
                 </nav>
