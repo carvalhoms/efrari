@@ -55,7 +55,7 @@ function getMont() {
 
     ajax({
         method: 'GET',
-        url: 'api/catalogo/getMontadora/' + option,
+        url: 'api/catalogo/getmontadora/' + option,
         sucesso(response) {
             let data = JSON.parse(response);
 
@@ -99,7 +99,7 @@ function getVeiculo(){
     veic.appendChild(opDefault);
 
     ajax({
-        url: 'api/catalogo/getVeiculo/' + option,
+        url: 'api/catalogo/getveiculo/' + option,
         method: 'GET',
         sucesso(response) {
             let data = JSON.parse(response);

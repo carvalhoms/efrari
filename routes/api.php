@@ -14,8 +14,8 @@ use Illuminate\Http\Request;
 */
 
 
-Route::get('catalogo/getMontadora/{linha}', 'Site\catalogoController@getMontadoras')->name('get.montadora');
-Route::get('catalogo/getVeiculo/{mont}', 'Site\catalogoController@getVeiculos')->name('get.veiculo');
+Route::get('catalogo/getmontadora/{linha}', 'Site\catalogoController@getMontadoras')->name('get.montadora');
+Route::get('catalogo/getveiculo/{mont}', 'Site\catalogoController@getVeiculos')->name('get.veiculo');
 
 Route::get('/catalogo/code/search/{code}', 'Site\CatalogoController@getProductCode')->name('get.productCode');
 Route::get('/catalogo/aplic/search/{desc}/{mont}/{veic?}', 'Site\catalogoController@getProductAplic')->name('get.productAplic');
