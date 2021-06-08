@@ -210,7 +210,7 @@ function newCard(data) {
         card.appendChild(img);
 
         let image = document.createElement('img');
-        image.setAttribute('src', `http://efrari.test/storage/produtosImg/${product.imagem}`);
+        image.setAttribute('src', `http://efrari.com.br/storage/produtosImg/${product.imagem}`);
         image.setAttribute('alt', 'Imagem produto');
         img.appendChild(image);
 
@@ -291,7 +291,7 @@ function productView(data) {
     let imgArea = document.createElement('div');
     imgArea.classList.add('img');
     let img = document.createElement('img');
-    img.setAttribute('src', `http://efrari.test/storage/produtosImg/${data.data[0]['imagem']}`);
+    img.setAttribute('src', `http://efrari.com.br/storage/produtosImg/${data.data[0]['imagem']}`);
     imgArea.appendChild(img);
     content.appendChild(imgArea);
 
