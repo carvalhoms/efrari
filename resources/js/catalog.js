@@ -99,7 +99,7 @@ function getVeiculo(){
     veic.appendChild(opDefault);
 
     ajax({
-        url: 'api/catalogo/getveiculo/' + option,
+        url: 'api/catalogo/getVeiculo/' + option,
         method: 'GET',
         sucesso(response) {
             let data = JSON.parse(response);
