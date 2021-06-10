@@ -1,1 +1,51 @@
-.pageControls{display:flex;justify-content:space-between}.btn-sm{padding:3px 30px}.btn-xs{padding:0 20px;margin-left:10px}.reduzCol,.reduzColTitle{width:180px}.reduzCol{text-align:right}.table td,.table th{padding:.4rem .4rem .4rem 11px}.imgProductAdm{width:250px;height:188px;border:1px solid #ced4da;border-radius:5px;margin:20px}.imgProductAdm img{width:100%}textarea.form-control{height:200px}.card-body-blog img{margin-bottom:20px;height:200px;border:1px solid #ccc}
+.pageControls {
+  display: flex;
+  justify-content: space-between;
+}
+
+.btn-sm {
+  padding: 3px 30px;
+}
+
+.btn-xs {
+  padding: 0px 20px;
+  margin-left: 10px;
+}
+
+.reduzColTitle {
+  width: 180px;
+}
+
+.reduzCol {
+  text-align: right;
+  width: 180px;
+}
+
+.table td,
+.table th {
+  padding: 0.4rem;
+  padding-left: 11px;
+}
+
+.imgProductAdm {
+  width: 250px;
+  height: 188px;
+  border: 1px solid #ced4da;
+  border-radius: 5px;
+  margin: 20px;
+}
+
+.imgProductAdm img {
+  width: 100%;
+}
+
+textarea.form-control {
+  height: 200px;
+}
+
+.card-body-blog img {
+  margin-bottom: 20px;
+  height: 200px;
+  border: 1px solid #ccc;
+}
+
