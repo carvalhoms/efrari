@@ -166,35 +166,35 @@
         <div class="container">
             <div id="owl-products" class="owl-carousel owl-theme">
                 <div class="item">
-                    <img src="{{ asset('images/productLine/freio.jpg') }}" alt="Produto 1">
+                    <img src="{{ asset('images/productLine/freio.jpg') }}" alt="Cabo de Freio de Mão">
                     <h3>Cabos de Freio de Mão</h3>
                 </div>
                 <div class="item">
-                    <img src="{{ asset('images/productLine/acelerador.jpg') }}" alt="Produto 1">
+                    <img src="{{ asset('images/productLine/acelerador.jpg') }}" alt="Cado do Acelerador">
                     <h3>Cabos de Acelerador</h3>
                 </div>
                 <div class="item">
-                    <img src="{{ asset('images/productLine/capo.jpg') }}" alt="Produto 1">
+                    <img src="{{ asset('images/productLine/capo.jpg') }}" alt="Cabo do Capo">
                     <h3>Cabos de Capô</h3>
                 </div>
                 <div class="item">
-                    <img src="{{ asset('images/productLine/embreagem.jpg') }}" alt="Produto 1">
+                    <img src="{{ asset('images/productLine/embreagem.jpg') }}" alt="Cabo de Embreagem">
                     <h3>Cabo de Embreagem</h3>
                 </div>
                 <div class="item">
-                    <img src="{{ asset('images/productLine/tampa.jpg') }}" alt="Produto 1">
+                    <img src="{{ asset('images/productLine/tampa.jpg') }}" alt="Cabo da Tampa Traseira">
                     <h3>Cabo da Tampa Traseira</h3>
                 </div>
                 <div class="item">
-                    <img src="{{ asset('images/productLine/linhaProd-001.jpg') }}" alt="Produto 1">
+                    <img src="{{ asset('images/productLine/engateSelecao.jpg') }}" alt="Cabo de Engate e Seleção">
                     <h3>Cabo de Engate e Seleção</h3>
                 </div>
                 <div class="item">
-                    <img src="{{ asset('images/productLine/linhaProd-001.jpg') }}" alt="Produto 1">
+                    <img src="{{ asset('images/productLine/afogador.jpg') }}" alt="Cabo do Afogador">
                     <h3>Cabos do Afogador</h3>
                 </div>
                 <div class="item">
-                    <img src="{{ asset('images/productLine/velocimetro.jpg') }}" alt="Produto 1">
+                    <img src="{{ asset('images/productLine/velocimetro.jpg') }}" alt="Cabo de Velocímetro">
                     <h3>Cabos de Velocímetro</h3>
                 </div>
             </div>
