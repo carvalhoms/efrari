@@ -55,7 +55,7 @@ function getMont() {
 
     ajax({
         method: 'GET',
-        url: 'api/catalogo/getmontadora/' + option,
+        url: 'api/catalogo/getMontadora/' + option,
         sucesso(response) {
             let data = JSON.parse(response);
 
@@ -183,7 +183,6 @@ function getAplic() {
         }
     });
 }
-
 
 /*
 |--------------------------------------------------------------------------
@@ -368,7 +367,6 @@ function productView(data) {
 
     let tableRef = document.querySelector('.refs > .table');
     refList.forEach(refItem => tableRef.appendChild(refItem));
-
 
     let aplic = document.createElement('div');
     aplic.classList.add('aplic');
