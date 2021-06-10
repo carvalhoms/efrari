@@ -17,8 +17,8 @@
                 <div>
                     <ul>
                         <li><a href="https://www.facebook.com/efrariCabos" target="blank"><i class="fab fa-facebook-f"></i></a></li>
-                        <li><a href="#" target="blank"><i class="fab fa-linkedin-in"></i></a></li>
-                        <li><a href="#" target="blank"><i class="fab fa-instagram-square"></i></a></li>
+                        <li><a href="https://www.instagram.com/efraricabos" target="blank"><i class="fab fa-instagram-square"></i></a></li>
+                        <li><a href="https://www.linkedin.com/in/efraricabos" target="blank"><i class="fab fa-linkedin-in"></i></a></li>
                     </ul>
                 </div>
             </div>
@@ -292,8 +292,8 @@
             <div class="social">
                 <ul>
                     <li><a href="https://www.facebook.com/efrariCabos" target="blank"><i class="fab fa-facebook-f"></i></a></li>
-                    <li><a href="#" target="blank"><i class="fab fa-linkedin-in"></i></a></li>
-                    <li><a href="#" target="blank"><i class="fab fa-instagram-square"></i></a></li>
+                    <li><a href="https://www.instagram.com/efraricabos" target="blank"><i class="fab fa-instagram-square"></i></a></li>
+                    <li><a href="https://www.linkedin.com/in/efraricabos" target="blank"><i class="fab fa-linkedin-in"></i></a></li>
                 </ul>
             </div>
         </div>
