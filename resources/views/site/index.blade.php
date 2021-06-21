@@ -49,7 +49,7 @@
                 <div class="container">
                     <div class="contentText">
                         <h2>Catálogos Efrari</h2>
-                        <p>Confira todos os Catálogos Efrari disponíveis para consulta en vários formatos. Impresso, Online, Offline e Aplicativos Móveis</p>
+                        <p>Confira todos os Catálogos Efrari disponíveis para consulta em vários formatos. Impresso, Online, Offline e Aplicativos Móveis</p>
                         <a href="#catalog"><button>Saiba mais...</button></a>
                     </div>
                     <div class="contentImage">
@@ -120,7 +120,7 @@
 
             <div class="visao">
                 <h3>Rede de distribuição</h3>
-                <p>A Efrari trabalha desde os anos 50 com o objetivo de levar excelencia e qualidade para todos os consumidores. Ao longo dessa trajetória consquistamos e formamos diversas parcerias em todo Brasil.</p>
+                <p>A Efrari trabalha desde os anos 50 com o objetivo de levar excelência e qualidade para todos os consumidores. Ao longo dessa trajetória consquistamos e formamos diversas parcerias em todo Brasil.</p>
             </div>
 
             <div class="valores">
@@ -132,7 +132,7 @@
 
     <section id="catalog">
         <h1 class="animated fadeInUp">Catálogos Efrari</h1>
-        <p class="section-text animated fadeInUp">Disponibilizamos a consulta dos produtos Efrari em diversas mídias. Sempre atualizados com informações técnicas de aplicações revisadas de fácil localização e entendimento os Catálogos Efrari estão a disposição, sem qualquer travas para facilitar o uso e pesquisa de produtos.</p>
+        <p class="section-text animated fadeInUp">Disponibilizamos a consulta dos produtos Efrari em diversas mídias. Sempre atualizados com informações técnicas de aplicações revisadas de fácil localização e entendimento.</p>
         <div class="catalogLinks">
             <div class="divImage">
                 <img class="ilustrativa animated fadeIn" src=" {{ asset('images/media.png ') }}" alt="Media Image">
@@ -160,7 +160,7 @@
 
     <section id="product">
         <h1 class="animated fadeInUp">Linha de Produtos</h1>
-        <p class="section-text animated fadeInUp">A Efrari possui um portifólio completo de produtos para todas as montadoras e veículos nacionais e importadas. Desde veúculos antigos até os novos modelos recem lançados no mercado para toda a linha de veículos, desde laves, utilitários, pesados e agrícolas.</p>
+        <p class="section-text animated fadeInUp">A Efrari possui um portifólio completo de produtos para todas as montadoras e veículos nacionais e importadas. Desde veículos antigos até os novos modelos recem lançados no mercado para toda a linha de veículos, leves, utilitários, pesados e agrícolas.</p>
         <div class="container">
             <div id="owl-products" class="owl-carousel owl-theme">
                 <div class="item">
@@ -177,15 +177,15 @@
                 </div>
                 <div class="item">
                     <img src="{{ asset('images/productLine/embreagem.jpg') }}" alt="Cabo de Embreagem">
-                    <h3>Cabo de Embreagem</h3>
+                    <h3>Cabos de Embreagem</h3>
                 </div>
                 <div class="item">
                     <img src="{{ asset('images/productLine/tampa.jpg') }}" alt="Cabo da Tampa Traseira">
-                    <h3>Cabo da Tampa Traseira</h3>
+                    <h3>Cabos da Tampa Traseira</h3>
                 </div>
                 <div class="item">
                     <img src="{{ asset('images/productLine/engateSelecao.jpg') }}" alt="Cabo de Engate e Seleção">
-                    <h3>Cabo de Engate e Seleção</h3>
+                    <h3>Cabos de Engate e Seleção</h3>
                 </div>
                 <div class="item">
                     <img src="{{ asset('images/productLine/afogador.jpg') }}" alt="Cabo do Afogador">
