@@ -6,7 +6,7 @@ use App\Model\Blog;
 use App\Model\Repre;
 use App\Http\Controllers\Controller;
 
-class Sitecontroller extends Controller
+class SiteController extends Controller
 {
     public function index()
     {
