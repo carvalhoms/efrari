@@ -54,6 +54,6 @@ Route::post('/saveEmail', 'Admin\Site\NewsletterController@store')->name('saveEm
 
 Route::get('/catalogo', 'Site\CatalogoController@index')->name('catalog.index');
 
-Route::get('/blog', 'Site\blogController@index')->name('blogSite.index');
+Route::get('/blog', 'Site\BlogController@index')->name('blogSite.index');
 
 Auth::routes();
