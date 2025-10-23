@@ -1,15 +1,16 @@
 services:
-  efrari:
+  laravel.test:
     build:
-      context: ./vendor/laravel/sail/runtimes/8.4
+      context: ./vendor/laravel/sail/runtimes/8.3
       dockerfile: Dockerfile
       args:
         WWWGROUP: '${WWWGROUP}'
-    image: sail-8.4/app
+    image: sail-8.3/app
     extra_hosts:
       - 'host.docker.internal:host-gateway'
     ports:
       - '${APP_PORT:-80}:80'
+      - '${VITE_PORT:-5173}:${VITE_PORT:-5173}'
     environment:
       WWWUSER: '${WWWUSER}'
       LARAVEL_SAIL: 1
@@ -21,24 +22,20 @@ services:
       - sail
     depends_on:
       - mysql
-    healthcheck:
-      test:
-        - CMD-SHELL
-        - 'curl -f http://localhost:80/ || exit 1'
-      interval: 30s
-      timeout: 10s
-      retries: 3
   mysql:
-    image: 'mysql:8.0'
+    image: 'mysql/mysql-server:8.0'
     ports:
       - '${FORWARD_DB_PORT:-3306}:3306'
     environment:
-      MYSQL_ROOT_PASSWORD: ''
+      MYSQL_ROOT_PASSWORD: '${DB_PASSWORD}'
       MYSQL_ROOT_HOST: '%'
       MYSQL_DATABASE: '${DB_DATABASE}'
+      MYSQL_USER: '${DB_USERNAME}'
+      MYSQL_PASSWORD: '${DB_PASSWORD}'
       MYSQL_ALLOW_EMPTY_PASSWORD: 1
     volumes:
-      - '/Users/carvalhoms/Volumes-DBs-Docker/efrari-databases/.mysql:/var/lib/mysql'
+      - 'sail-mysql:/var/lib/mysql'
+      - './vendor/laravel/sail/database/mysql/create-testing-database.sql:/docker-entrypoint-initdb.d/10-create-testing-database.sql'
     networks:
       - sail
     healthcheck:
@@ -53,7 +50,5 @@ networks:
   sail:
     driver: bridge
 volumes:
-  sailmysql:
-    driver: local
   sail-mysql:
     driver: local

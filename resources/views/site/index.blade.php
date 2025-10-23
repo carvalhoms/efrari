@@ -138,21 +138,10 @@
                 <img class="ilustrativa animated fadeIn" src=" {{ asset('images/media.png ') }}" alt="Media Image">
             </div>
             <div class="links">
-                <h2>Escolha as opções abaixo:</h2>
-                <p class="box-text">Consulte a melhor forma de obter suporte e informações dos Produtos Efrari, seja com o Catálogo Impresso ou alguma das opções digitais disponíveis com consultas online ou offline:</p>
+                <h2>Baixar catálogo Efrari:</h2>
+                <p class="box-text">Baixe o catálgo .exe, instale e tenha acesso a todos os produtos Efrari:</p>
                 <div class="links-btn">
-                    <a href="{{ route('catalog.index') }}" class="btn" target="blank">Catálogo Online</a>
                     <a href="https://baixecatalogo.com.br/catalogo/25" class="btn" target="blank">Baixar Catálogo (.exe)</a>
-                    <a href="{{ asset('/storage/catalogs/catalogoEfrari2019.pdf') }}" class="btn" target="blank">Catálogo Impresso (PDF)</a>
-                </div>
-                <div class="linksStores">
-                    <div>
-                        <p class="store-text">Utilize também no celular:</p>
-                    </div>
-                    <div>
-                        <img class="iosStore" src="{{ asset('images/iosStore.png') }}" alt="IOS Store">
-                        <img class="andStore" src="{{ asset('images/androidStore.png') }}" alt="Android Store">
-                    </div>
                 </div>
             </div>
         </div>
@@ -301,8 +290,8 @@
 
     <footer id="footer">
         <div class="container">
-            <div>Efrari © 2021</div>
-            <a href="https://carvalhoms.com.br" target="blank"><div>by carvalhoms</div></a>
+            <div>Efrari © 2025</div>
+            <a href="https://wicat.com.br" target="blank"><div>by wicat</div></a>
         </div>
         
     </footer>

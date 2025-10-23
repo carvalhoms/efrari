@@ -16783,7 +16783,8 @@ header .container ul li {
 .links {
   background-color: #02774b;
   background-image: linear-gradient(to bottom right, #144735, #02774b);
-  align-self: center;
+  align-self: end;
+  width: 100%;
 }
 
 .linksStores {
@@ -16814,7 +16815,8 @@ header .container ul li {
   align-self: center;
 }
 
-.andStore, .iosStore {
+.andStore,
+.iosStore {
   width: 120px;
   height: 40px;
   margin: 8px;
