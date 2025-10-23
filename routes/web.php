@@ -56,4 +56,4 @@ Route::get('/catalogo', 'Site\CatalogoController@index')->name('catalog.index');
 
 Route::get('/blog', 'Site\BlogController@index')->name('blogSite.index');
 
-Auth::routes();
+Auth::routes(['register' => false, 'reset' => false]);

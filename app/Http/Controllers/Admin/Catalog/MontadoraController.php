@@ -45,7 +45,7 @@ class MontadoraController extends Controller
         $request->validate([
             'name' => [
                 'required', //Campo requerido
-                'max:25' //Maximo de caracteres
+                'max:64' //Maximo de caracteres
             ],
             'linha' => [
                 'required', //Campo requerido
@@ -98,7 +98,7 @@ class MontadoraController extends Controller
         $request->validate([
             'name' => [
                 'required', //Campo requerido
-                'max:25' //Maximo de caracteres
+                'max:64' //Maximo de caracteres
             ],
         ]);
 

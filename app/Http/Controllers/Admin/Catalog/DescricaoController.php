@@ -43,7 +43,7 @@ class DescricaoController extends Controller
             'name' => [
                 'required', //Campo requerido
                 'unique:descricoes,name',
-                'max:25' //Maximo de caracteres
+                'max:128' //Maximo de caracteres
             ],
         ]);
 
@@ -88,7 +88,7 @@ class DescricaoController extends Controller
             'name' => [
                 'required', //Campo requerido
                 Rule::unique('descricoes')->ignore($descricao), //Usando Classe Rule para campo unico mas permitindo Update
-                'max:25' //Maximo de caracteres
+                'max:128' //Maximo de caracteres
             ],
         ]);
 

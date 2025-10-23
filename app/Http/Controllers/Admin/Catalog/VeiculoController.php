@@ -98,7 +98,7 @@ class VeiculoController extends Controller
             'name' => [
                 'required',
                 Rule::unique('veiculos')->ignore($veiculo),
-                'max:25'
+                'max:64'
             ],
             'montadora' => 'required'
         ]);

@@ -1,9 +1,9 @@
 {
-    "/css/admin/main.css": "/css/admin/main.css?id=49b55bda8d09f5090b11",
-    "/css/site/main.css": "/css/site/main.css?id=2f6d0bf3ffe55ec61ebb",
-    "/css/catalog/main.css": "/css/catalog/main.css?id=dcc10bb3d229206d565e",
-    "/css/blog/main.css": "/css/blog/main.css?id=65c9d97840ffc159a33b",
-    "/js/site/main.js": "/js/site/main.js?id=398b0ff3f27012d62f58",
-    "/js/catalog/main.js": "/js/catalog/main.js?id=e1964b4fbdfe665f46ab",
-    "/js/admin/main.js": "/js/admin/main.js?id=4c387eb8d1ec3135dfcc"
+    "/css/site/main.css": "/css/site/main.css?id=b5709025deb45dead9a90d9f5cfa1e2a",
+    "/css/blog/main.css": "/css/blog/main.css?id=96f00d396a3a629921a4a19b81c4e272",
+    "/css/catalog/main.css": "/css/catalog/main.css?id=01e2b2896a618868a0df1e08171fd099",
+    "/css/admin/main.css": "/css/admin/main.css?id=01d24ec02437e5a39e4a616bfd31a994",
+    "/js/site/main.js": "/js/site/main.js?id=c2869161d6ab1c2bb199e4f1c9ff59f7",
+    "/js/catalog/main.js": "/js/catalog/main.js?id=4d067c75268b0de224326b42a454997a",
+    "/js/admin/main.js": "/js/admin/main.js?id=4c387eb8d1ec3135dfcca7992efcd43a"
 }

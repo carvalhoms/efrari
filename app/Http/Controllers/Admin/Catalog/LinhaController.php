@@ -43,7 +43,7 @@ class LinhaController extends Controller
             'name' => [
                 'required', //Campo requerido
                 'unique:linhas,name',
-                'max:25' //Maximo de caracteres
+                'max:64' //Maximo de caracteres
             ],
         ]);
 
@@ -88,7 +88,7 @@ class LinhaController extends Controller
             'name' => [
                 'required', //Campo requerido
                 Rule::unique('linhas')->ignore($linha), //Usando Classe Rule para campo unico mas permitindo Update
-                'max:25' //Maximo de caracteres
+                'max:64' //Maximo de caracteres
             ],
         ]);
 

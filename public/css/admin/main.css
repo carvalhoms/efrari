@@ -21,8 +21,7 @@
   width: 180px;
 }
 
-.table td,
-.table th {
+.table td, .table th {
   padding: 0.4rem;
   padding-left: 11px;
 }
@@ -34,7 +33,6 @@
   border-radius: 5px;
   margin: 20px;
 }
-
 .imgProductAdm img {
   width: 100%;
 }
@@ -48,4 +46,3 @@ textarea.form-control {
   height: 200px;
   border: 1px solid #ccc;
 }
-

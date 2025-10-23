@@ -109,7 +109,7 @@ class ProdutoController extends Controller
             'codigo' => [
                 'required',
                 Rule::unique('produtos')->ignore($produto),
-                'max:25'
+                'max:32'
             ],
             'descricao' => 'required',
         ]);
@@ -158,7 +158,7 @@ class ProdutoController extends Controller
 
         if ($image->isValid()) {
 
-            if ($fileType === 'jpeg' || $fileType ==='png') {
+            if ($fileType === 'jpeg' || $fileType === 'jpg' || $fileType ==='png') {
                 $image->store('produtosImg');
 
                 $produto->img = $image->hashName();
