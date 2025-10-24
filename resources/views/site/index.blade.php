@@ -48,8 +48,8 @@
             <div class="item" style="background-image: url( {{ asset('images/slider/001.jpg') }} );">
                 <div class="container">
                     <div class="contentText">
-                        <h2>Catálogos Efrari</h2>
-                        <p>Confira todos os Catálogos Efrari disponíveis para consulta em vários formatos. Impresso, Online, Offline e Aplicativos Móveis</p>
+                        <h2>CATÁLOGO EFRARI</h2>
+                        <p>Baixe e conheça toda a nossa linha de produtos.</p>
                         <a href="#catalog"><button>Saiba mais...</button></a>
                     </div>
                     <div class="contentImage">
@@ -132,16 +132,17 @@
 
     <section id="catalog">
         <h1 class="animated fadeInUp">Catálogos Efrari</h1>
-        <p class="section-text animated fadeInUp">Disponibilizamos a consulta dos produtos Efrari em diversas mídias. Sempre atualizados com informações técnicas de aplicações revisadas de fácil localização e entendimento.</p>
+        <p class="section-text animated fadeInUp">Disponibilizamos nosso catálogo eletrônico, que reúne todas as informações sobre nossos produtos. Ele é
+          constantemente atualizado, garantindo dados técnicos e de aplicação sempre precisos e atuais.</p>
         <div class="catalogLinks">
             <div class="divImage">
                 <img class="ilustrativa animated fadeIn" src=" {{ asset('images/media.png ') }}" alt="Media Image">
             </div>
             <div class="links">
                 <h2>Baixar catálogo Efrari:</h2>
-                <p class="box-text">Baixe o catálgo .exe, instale e tenha acesso a todos os produtos Efrari:</p>
+                <p class="box-text">Baixe o catálogo, instale e tenha acesso a toda linha de produtos Efrari:</p>
                 <div class="links-btn">
-                    <a href="https://baixecatalogo.com.br/catalogo/25" class="btn" target="blank">Baixar Catálogo (.exe)</a>
+                    <a href="https://ideia2001.com.br/CatExp/ADAAJ/InstalarCatalogoEFRARI.exe" class="btn">Baixar Catálogo (.exe)</a>
                 </div>
             </div>
         </div>
